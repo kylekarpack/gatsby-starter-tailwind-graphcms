@@ -1,8 +1,8 @@
 ---
 template: HomePage
 slug: ''
-title: Yellowcake
-featuredImage: 'https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/'
+title: Watershed Science & Engineering
+featuredImage: 'http://watershedse.com/wp-content/uploads/2017/05/20160406_110233.jpg'
 subtitle: ' Welcome to the ultimate Gatsby and Netlify starter project.'
 meta:
   description: This is a meta description.
