@@ -1,8 +1,7 @@
-import React from "react";
 import PropTypes from "prop-types";
-
-import Image from "./Image";
+import React from "react";
 import Content from "./Content";
+import Image from "./Image";
 import "./PageHeader.css";
 
 const PageHeader = ({
@@ -13,12 +12,14 @@ const PageHeader = ({
 	height,
 	className = ""
 }) => {
-	if (large) className += " PageHeader-large";
-	if (height) {
-		
+	if (large) {
+		className += " PageHeader-large";
 	}
 	return (
-		<div className={`PageHeader relative ${className}`}>
+		<div
+			style={{ height: height ? `${height}px` : null }}
+			className={`PageHeader relative ${className}`}
+		>
 			{backgroundImage && (
 				<Image
 					background

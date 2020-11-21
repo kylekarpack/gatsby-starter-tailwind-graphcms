@@ -1,5 +1,6 @@
 "use strict";
 
+// eslint-disable-next-line no-undef
 module.exports = {
 	parserOptions: {
 		ecmaVersion: 7,
@@ -11,13 +12,14 @@ module.exports = {
 	},
 	extends: ["eslint:recommended", "plugin:react/recommended"],
 	rules: {
-		"prettier/prettier": "off"
+		"prettier/prettier": "off",
+		"react/prop-types": "off",
+		"curly": "error"
 	},
 	overrides: [
 		{
 			files: ["{bin,test}/**/*.js"],
 			rules: {
-				"react/prop-types": false,
 				"no-undef": "error",
 				"no-restricted-syntax": [
 					"error",

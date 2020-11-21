@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./Content.css";
 
-const Content = ({ source, src, className = "" }) => {
+const Content = ({ source, src }) => {
 	// accepts either html or markdown
 	if (src) {
 		return src;
