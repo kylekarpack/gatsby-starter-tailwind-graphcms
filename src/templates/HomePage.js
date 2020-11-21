@@ -26,7 +26,7 @@ export const HomePageTemplate = ({ title, subtitle, featuredImage, body }) => (
 // Export Default HomePage for front-end
 const HomePage = ({ data: { page } }) => (
 	<Layout meta={page.frontmatter.meta || false}>
-		<HomePageTemplate {...page} {...page.frontmatter} body={page.html} />
+		<HomePageTemplate {...page} {...page.frontmatter} body={page.body} />
 	</Layout>
 );
 
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
 	query HomePage($id: String!) {
 		page: mdx(id: { eq: $id }) {
 			...Meta
-			html
+			body
 			frontmatter {
 				title
 				subtitle

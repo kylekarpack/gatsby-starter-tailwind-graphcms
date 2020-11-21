@@ -78,7 +78,7 @@ const ComponentsPage = ({ data: { page } }) => (
 		<ComponentsPageTemplate
 			{...page}
 			{...page.frontmatter}
-			body={page.html}
+			body={page.body}
 		/>
 	</Layout>
 );
@@ -90,7 +90,7 @@ export const pageQuery = graphql`
 		page: mdx(id: { eq: $id }) {
 			...Meta
 			...Gallery
-			html
+			body
 			frontmatter {
 				title
 				template
