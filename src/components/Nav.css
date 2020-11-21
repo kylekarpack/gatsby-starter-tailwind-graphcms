@@ -1,5 +1,6 @@
 .Nav {
-  background: white;
+  background: var(--primary);
+  color: var(--lightGrey);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -47,7 +48,7 @@
 .NavLink:hover,
 .NavLink.active,
 .NavLink:focus {
-  color: var(--primary);
+  color: var(--midGrey);
   border-bottom-color: currentColor;
 }
 
