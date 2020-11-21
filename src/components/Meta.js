@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 
 export const query = graphql`
-	fragment Meta on MarkdownRemark {
+	fragment Meta on Mdx {
 		frontmatter {
 			meta {
 				title

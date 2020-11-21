@@ -26,7 +26,7 @@ export const HomePageTemplate = ({ title, subtitle, featuredImage, body }) => (
 // Export Default HomePage for front-end
 const HomePage = ({ data: { page } }) => (
 	<Layout meta={page.frontmatter.meta || false}>
-		<HomePageTemplate {...page} {...page.frontmatter} body={page.html} />
+		<HomePageTemplate {...page} {...page.frontmatter} body={page.body} />
 	</Layout>
 );
 
@@ -38,9 +38,9 @@ export const pageQuery = graphql`
 	## $id is processed via gatsby-node.js
 	## query name must be unique to this file
 	query HomePage($id: String!) {
-		page: markdownRemark(id: { eq: $id }) {
+		page: mdx(id: { eq: $id }) {
 			...Meta
-			html
+			body
 			frontmatter {
 				title
 				subtitle

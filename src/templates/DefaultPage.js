@@ -1,9 +1,8 @@
-import React from "react";
 import { graphql } from "gatsby";
-
-import PageHeader from "../components/PageHeader";
+import React from "react";
 import Content from "../components/Content";
 import Layout from "../components/Layout";
+import PageHeader from "../components/PageHeader";
 import SVGIcon from "../components/SVGIcon";
 
 // Export Template for use in CMS preview
@@ -34,16 +33,16 @@ const DefaultPage = ({ data: { page } }) => (
 		meta={page.frontmatter.meta || false}
 		title={page.frontmatter.title || false}
 	>
-		<DefaultPageTemplate {...page.frontmatter} body={page.html} />
+		<DefaultPageTemplate {...page.frontmatter} body={page.body} />
 	</Layout>
 );
 export default DefaultPage;
 
 export const pageQuery = graphql`
 	query DefaultPage($id: String!) {
-		page: markdownRemark(id: { eq: $id }) {
+		page: mdx(id: { eq: $id }) {
 			...Meta
-			html
+			body
 			frontmatter {
 				title
 				subtitle

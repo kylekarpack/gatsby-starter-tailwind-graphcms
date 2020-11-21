@@ -3,7 +3,7 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 require("dotenv").config({
-	path: `.env.${process.env.NODE_ENV}`,
+	path: `.env.${process.env.NODE_ENV}`
 });
 
 exports.createPages = ({ actions, graphql }) => {
@@ -11,7 +11,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 	return graphql(`
 		{
-			allMarkdownRemark(limit: 1000) {
+			allMdx(limit: 1000) {
 				edges {
 					node {
 						id
@@ -33,7 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors);
 		}
 
-		const mdFiles = result.data.allMarkdownRemark.edges;
+		const mdFiles = result.data.allMdx.edges;
 
 		const contentTypes = _.groupBy(mdFiles, "node.fields.contentType");
 
@@ -74,7 +74,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 	// Create smart slugs
 	// https://github.com/Vagr9K/gatsby-advanced-starter/blob/master/gatsby-node.js
 	let slug;
-	if (node.internal.type === "MarkdownRemark") {
+	if (node.internal.type === "Mdx") {
 		const fileNode = getNode(node.parent);
 		const parsedFilePath = path.parse(fileNode.relativePath);
 

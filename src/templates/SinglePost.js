@@ -114,7 +114,7 @@ export const pageQuery = graphql`
 	## $id is processed via gatsby-node.js
 	## query name must be unique to this file
 	query SinglePost($id: String!) {
-		post: markdownRemark(id: { eq: $id }) {
+		post: mdx(id: { eq: $id }) {
 			...Meta
 			html
 			id
@@ -129,7 +129,7 @@ export const pageQuery = graphql`
 			}
 		}
 
-		allPosts: allMarkdownRemark(
+		allPosts: allMdx(
 			filter: { fields: { contentType: { eq: "posts" } } }
 			sort: { order: DESC, fields: [frontmatter___date] }
 		) {

@@ -21,7 +21,7 @@ export default ({ children, meta, title }) => {
 							image
 						}
 					}
-					allPosts: allMarkdownRemark(
+					allPosts: allMdx(
 						filter: { fields: { contentType: { eq: "postCategories" } } }
 						sort: { order: DESC, fields: [frontmatter___date] }
 					) {
