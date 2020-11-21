@@ -12,6 +12,10 @@
   padding: 20rem 0;
 }
 
+.PageHeader-small {
+  padding: 6rem 0;
+}
+
 .PageHeader--Title {
   font-size: 6rem;
   margin-bottom: 0;
