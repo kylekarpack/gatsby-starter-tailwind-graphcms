@@ -125,7 +125,7 @@ export const pageQuery = graphql`
 	## $id is processed via gatsby-node.js
 	## query name must be unique to this file
 	query BlogIndex($id: String!) {
-		page: markdownRemark(id: { eq: $id }) {
+		page: mdx(id: { eq: $id }) {
 			...Meta
 			fields {
 				contentType
@@ -139,7 +139,7 @@ export const pageQuery = graphql`
 			}
 		}
 
-		posts: allMarkdownRemark(
+		posts: allMdx(
 			filter: { fields: { contentType: { eq: "posts" } } }
 			sort: { order: DESC, fields: [frontmatter___date] }
 		) {
@@ -160,7 +160,7 @@ export const pageQuery = graphql`
 				}
 			}
 		}
-		postCategories: allMarkdownRemark(
+		postCategories: allMdx(
 			filter: { fields: { contentType: { eq: "postCategories" } } }
 			sort: { order: ASC, fields: [frontmatter___title] }
 		) {

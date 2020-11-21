@@ -10,7 +10,7 @@ import "./Gallery.css";
 import "react-photoswipe/lib/photoswipe.css";
 
 export const query = graphql`
-	fragment Gallery on MarkdownRemark {
+	fragment Gallery on Mdx {
 		frontmatter {
 			gallery {
 				alt

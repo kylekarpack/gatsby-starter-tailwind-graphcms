@@ -2,8 +2,8 @@ const postcssPresetEnv = require("postcss-preset-env");
 
 module.exports = {
 	siteMetadata: {
-		title: "Yellowcake",
-		siteUrl: "https://yellowcake.netlify.com"
+		title: "Watershed Science & Engineering",
+		siteUrl: "https://watershedse.com"
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
@@ -12,7 +12,7 @@ module.exports = {
 			resolve: "gatsby-plugin-google-tagmanager",
 			options: {
 				/*id: 'GTM-add_your_tag_here',*/
-				id: "GTM-P4RNF8D",
+				id: "GTM-T3S7QPT",
 				includeInDevelopment: false
 			}
 		},
@@ -44,8 +44,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: "yellowcake",
-				short_name: "yellowcake",
+				name: "Watershed Science and Engineering",
+				short_name: "watershedse",
 				start_url: "/",
 				background_color: "#00C2BD",
 				theme_color: "#00C2BD",
@@ -77,7 +77,8 @@ module.exports = {
 		"gatsby-transformer-sharp",
 
 		{
-			resolve: "gatsby-transformer-remark",
+			resolve: "gatsby-plugin-mdx",
+			extensions: [".mdx", ".md"],
 			options: {
 				plugins: [
 					// gatsby-remark-relative-images must
