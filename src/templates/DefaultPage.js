@@ -3,13 +3,13 @@ import React from "react";
 import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
-import SVGIcon from "../components/SVGIcon";
 
 // Export Template for use in CMS preview
 export const DefaultPageTemplate = ({
 	title,
 	subtitle,
 	featuredImage,
+	headerHeight,
 	body
 }) => (
 	<main className="DefaultPage">
@@ -17,12 +17,12 @@ export const DefaultPageTemplate = ({
 			title={title}
 			subtitle={subtitle}
 			backgroundImage={featuredImage}
+			height={headerHeight}
 		/>
 
 		<section className="section">
 			<div className="container">
 				<Content source={body} />
-				<SVGIcon src="/images/calendar.svg" />
 			</div>
 		</section>
 	</main>

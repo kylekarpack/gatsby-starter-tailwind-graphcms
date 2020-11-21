@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import { graphql, Link } from "gatsby";
 import _get from "lodash/get";
-import { Link, graphql } from "gatsby";
+import React, { Fragment } from "react";
 import { ChevronLeft } from "react-feather";
-
 import Content from "../components/Content";
 import Layout from "../components/Layout";
 import "./SinglePost.css";
