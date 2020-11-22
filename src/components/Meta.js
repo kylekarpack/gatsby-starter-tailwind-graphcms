@@ -8,8 +8,8 @@ export const query = graphql`
 			meta {
 				title
 				description
-				noindex
-				canonicalLink
+				# noindex
+				# canonicalLink
 			}
 		}
 	}

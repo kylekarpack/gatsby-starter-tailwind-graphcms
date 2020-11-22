@@ -121,16 +121,16 @@ export const pageQuery = graphql`
 				title
 				template
 				subtitle
-				date(formatString: "MMMM Do, YYYY")
-				categories {
-					category
-				}
+				#date(formatString: "MMMM Do, YYYY")
+				#categories {
+				#	category
+				#}
 			}
 		}
 
 		allPosts: allMdx(
 			filter: { fields: { contentType: { eq: "posts" } } }
-			sort: { order: DESC, fields: [frontmatter___date] }
+			# sort: { order: DESC, fields: [frontmatter___date] }
 		) {
 			edges {
 				node {

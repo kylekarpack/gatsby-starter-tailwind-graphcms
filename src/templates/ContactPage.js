@@ -92,7 +92,13 @@ export const pageQuery = graphql`
 				title
 				template
 				subtitle
-				featuredImage
+				featuredImage {
+					childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+				}
 				address
 				phone
 				email
