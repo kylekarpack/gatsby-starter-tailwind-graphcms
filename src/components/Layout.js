@@ -5,6 +5,7 @@ import Meta from "./Meta";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
+import "blueprint-css/dist/blueprint.css";
 import "modern-normalize/modern-normalize.css";
 import "./globalStyles.css";
 

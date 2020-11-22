@@ -55,7 +55,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 	}
 
 	return (
-		<div className="Pages">
+		<div bp="grid 6@md 3@lg">
 			{pages.map((page, i) => (
 				<Page page={page} excerpt={excerpt} height={height} key={i} />
 			))}

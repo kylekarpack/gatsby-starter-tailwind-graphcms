@@ -1,9 +1,3 @@
-.Pages {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-column-gap: 2em;
-}
-
 .Page {
 	text-align: center;
 	text-decoration: none;

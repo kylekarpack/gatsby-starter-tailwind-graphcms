@@ -4,10 +4,9 @@ import React from "react";
 import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
-import "./TeamPage.css";
 
 // Export Template for use in CMS preview
-export const TeamPageTemplate = ({
+export const TeamMemberPageTemplate = ({
 	pageContext,
 	title,
 	subtitle,
@@ -24,34 +23,35 @@ export const TeamPageTemplate = ({
 
 		<section className="section">
 			<div className="container">
-				<div className="Grid">
-					<Img fluid={featuredImage.childImageSharp.fluid} />
-					<div>
+				<div bp="grid">
+					<div bp="3">
+						<Img fluid={featuredImage.childImageSharp.fluid} />
+					</div>
+					<div bp="9">
 						<Content source={body} />
 					</div>
-
 				</div>
 			</div>
 		</section>
 	</main>
 );
 
-const TeamPage = ({ pageContext, data: { page } }) => (
+const TeamMemberPage = ({ pageContext, data: { page } }) => (
 	<Layout
 		meta={page.frontmatter.meta || false}
 		title={page.frontmatter.title || false}
 	>
-		<TeamPageTemplate
+		<TeamMemberPageTemplate
 			pageContext={pageContext}
 			{...page.frontmatter}
 			body={page.body}
 		/>
 	</Layout>
 );
-export default TeamPage;
+export default TeamMemberPage;
 
 export const pageQuery = graphql`
-	query TeamPage($id: String!) {
+	query TeamMemberPage($id: String!) {
 		page: mdx(id: { eq: $id }) {
 			...Meta
 			body
