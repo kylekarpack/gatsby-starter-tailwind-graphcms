@@ -133,7 +133,7 @@ export const Navigation = (props) => {
 					tabIndex={0}
 					aria-label="Navigation"
 				>
-					{active ? <X /> : <Menu />}
+					{active ? <X color="#fff" /> : <Menu color="#fff" />}
 				</button>
 			</div>
 		</nav>
