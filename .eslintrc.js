@@ -10,6 +10,11 @@ module.exports = {
 			modules: true
 		}
 	},
+	env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
 	extends: ["eslint:recommended", "plugin:react/recommended"],
 	rules: {
 		"prettier/prettier": "off",
