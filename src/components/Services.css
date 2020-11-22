@@ -1,0 +1,23 @@
+.Services {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 2em;
+}
+
+.Service {
+	background: var(--primary);
+	color: var(--white);
+	text-align: center;
+	text-decoration: none;
+	opacity: 1;
+	transition: all .2s ease-in-out;
+}
+
+.Service:hover {
+	background: var(--primary-bright);
+	opacity: 0.9;
+}
+
+.Service .name {
+	padding: 1rem;
+}
