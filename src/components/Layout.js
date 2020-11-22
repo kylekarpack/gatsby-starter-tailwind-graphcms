@@ -22,6 +22,7 @@ export default ({ children, meta, title }) => {
 						}
 					}
 					allServices: allMdx(
+						sort: { fields: frontmatter___order }
 						filter: { slug: { glob: "pages/services/*" } }
 					) {
 						nodes {

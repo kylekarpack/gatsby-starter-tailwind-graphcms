@@ -1,0 +1,9 @@
+.Grid {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-column-gap: 5rem;
+}
+
+.Grid img {
+	max-width: 100%;;
+}

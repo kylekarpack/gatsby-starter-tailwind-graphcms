@@ -1,23 +1,33 @@
-.Services {
+.Pages {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 2em;
 }
 
-.Service {
-	background: var(--primary);
-	color: var(--white);
+.Page {
 	text-align: center;
 	text-decoration: none;
+}
+
+.Page .Page--main {
+	background: var(--primary);
+	color: var(--white);
 	opacity: 1;
 	transition: all .2s ease-in-out;
 }
 
-.Service:hover {
+.Page .Excerpt {
+	padding: 1rem 0;
+	line-height: 1.3;
+	font-size: 90%;
+	color: var(--darkGrey);
+}
+
+.Page:hover .Page--main {
 	background: var(--primary-bright);
 	opacity: 0.9;
 }
 
-.Service .name {
+.Page .name {
 	padding: 1rem;
 }
