@@ -3,22 +3,41 @@ import PropTypes from "prop-types";
 import React from "react";
 import Content from "./Content";
 import "./PageHeader.css";
+import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
-const PageHeaderInner = ({ title, subtitle }) => (
-	<div className="PageHeader--Inner">
-		<div className="container relative">
-			<h1 className="PageHeader--Title">{title}</h1>
-			{subtitle && (
-				<Content className="PageHeader--Subtitle" src={subtitle} />
-			)}
+const PageHeaderInner = ({ title, subtitle, pageContext }) => {
+	const crumbs = pageContext?.breadcrumb?.crumbs;
+
+	return (
+		<div className="PageHeader--Inner">
+			<div className="container relative">
+				<div className="flex">
+					<div>
+						<h1 className="PageHeader--Title">{title}</h1>
+						{subtitle && (
+							<Content className="PageHeader--Subtitle" src={subtitle} />
+						)}
+					</div>
+					{crumbs && (
+						<div className="Breadcrumbs">
+							<Breadcrumb
+								crumbs={crumbs}
+								crumbSeparator=" / "
+								crumbLabel={title}
+							/>
+						</div>
+					)}
+				</div>
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 const PageHeader = ({
 	title,
 	subtitle,
 	backgroundImage,
+	pageContext,
 	large,
 	small,
 	className = ""
@@ -35,10 +54,18 @@ const PageHeader = ({
 					fluid={backgroundImage.childImageSharp.fluid}
 					size="cover"
 				>
-					<PageHeaderInner title={title} subtitle={subtitle} />
+					<PageHeaderInner
+						title={title}
+						subtitle={subtitle}
+						pageContext={pageContext}
+					/>
 				</BackgroundImage>
 			) : (
-				<PageHeaderInner title={title} subtitle={subtitle} />
+				<PageHeaderInner
+					title={title}
+					subtitle={subtitle}
+					pageContext={pageContext}
+				/>
 			)}
 		</div>
 	);

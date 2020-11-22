@@ -6,6 +6,7 @@ import PageHeader from "../components/PageHeader";
 
 // Export Template for use in CMS preview
 export const DefaultPageTemplate = ({
+	pageContext,
 	title,
 	subtitle,
 	featuredImage,
@@ -17,6 +18,7 @@ export const DefaultPageTemplate = ({
 			title={title}
 			subtitle={subtitle}
 			backgroundImage={featuredImage}
+			pageContext={pageContext}
 			small={small}
 		/>
 
@@ -28,12 +30,16 @@ export const DefaultPageTemplate = ({
 	</main>
 );
 
-const DefaultPage = ({ data: { page } }) => (
+const DefaultPage = ({ pageContext, data: { page } }) => (
 	<Layout
 		meta={page.frontmatter.meta || false}
 		title={page.frontmatter.title || false}
 	>
-		<DefaultPageTemplate {...page.frontmatter} body={page.body} />
+		<DefaultPageTemplate
+			pageContext={pageContext}
+			{...page.frontmatter}
+			body={page.body}
+		/>
 	</Layout>
 );
 export default DefaultPage;
@@ -48,10 +54,10 @@ export const pageQuery = graphql`
 				subtitle
 				featuredImage {
 					childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+						fluid(maxWidth: 1920) {
+							...GatsbyImageSharpFluid
+						}
+					}
 				}
 				small
 			}

@@ -1,5 +1,6 @@
 :root {
-  --primary: rgba(60,94,49,1);
+	--primary: rgba(60,94,49,1);
+	--primary-bright: #69b750;
   --secondary: #000;
   --white: #fff;
   --lightGrey: whitesmoke;

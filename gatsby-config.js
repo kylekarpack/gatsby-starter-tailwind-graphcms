@@ -55,6 +55,22 @@ module.exports = {
 				icon: `${__dirname}/static/images/logo.svg` // This path is relative to the root of the site.
 			}
 		},
+		{
+			resolve: `gatsby-plugin-breadcrumb`,
+			options: {
+				useAutoGen: true,
+				autoGenHomeLabel: `Home`,
+				exclude: [
+					`/dev-404-page/`,
+					`/404/`,
+					`/404.html`,
+					`/offline-plugin-app-shell-fallback/`
+				],
+				// trailingSlashes: optional, will add trailing slashes to the end
+				// of crumb pathnames. default is false
+				trailingSlashes: true
+			}
+		},
 		// Add static assets before markdown files
 		{
 			resolve: "gatsby-source-filesystem",

@@ -3,6 +3,33 @@
 	color: white;
 }
 
+.PageHeader .flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.PageHeader .Breadcrumbs ol li {
+	list-style-type: none;
+	display: inline-block;
+	font-size: 80%;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.PageHeader .Breadcrumbs ol li a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+.PageHeader .Breadcrumbs ol li:last-child a {
+	color: var(--primary-bright);
+}
+
+.PageHeader .Breadcrumbs .breadcrumb__separator {
+	padding: 0 0.6rem;
+}
+
 .PageHeader .PageHeader--Inner {
 	background: rgba(0, 0, 0, 0.3);
 	padding: 12rem 0;
