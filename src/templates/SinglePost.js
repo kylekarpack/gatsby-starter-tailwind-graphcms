@@ -97,7 +97,7 @@ const SinglePost = ({ data: { post, allPosts } }) => {
 			<SinglePostTemplate
 				{...post}
 				{...post.frontmatter}
-				body={post.html}
+				body={post.body}
 				nextPostURL={_get(thisEdge, "next.fields.slug")}
 				prevPostURL={_get(thisEdge, "previous.fields.slug")}
 			/>
@@ -115,7 +115,7 @@ export const pageQuery = graphql`
 	query SinglePost($id: String!) {
 		post: mdx(id: { eq: $id }) {
 			...Meta
-			html
+			body
 			id
 			frontmatter {
 				title

@@ -55,12 +55,18 @@ module.exports = {
 				icon: `${__dirname}/static/images/logo.svg` // This path is relative to the root of the site.
 			}
 		},
-
 		// Add static assets before markdown files
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
 				path: `${__dirname}/static/images`,
+				name: "images"
+			}
+		},
+		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				path: `${__dirname}/src/images`,
 				name: "images"
 			}
 		},
@@ -75,7 +81,6 @@ module.exports = {
 		// images
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
-
 		{
 			resolve: "gatsby-plugin-mdx",
 			extensions: [".mdx", ".md"],

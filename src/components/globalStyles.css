@@ -233,3 +233,20 @@ blockquote {
   align-items: center;
   justify-content: center;
 }
+
+.Image-inline {
+	width: 20rem;
+	padding: 2rem;
+}
+
+.Image-inline-left {
+	padding-left: 0;
+	float: left;
+	clear: left;
+}
+
+.Image-inline-right {
+	padding-right: 0;
+	float: right;
+	clear: right;
+}

@@ -3,6 +3,7 @@ import React from "react";
 import Content from "./Content";
 import Image from "./Image";
 import "./PageHeader.css";
+import { StaticImage } from "./StaticImage";
 
 const PageHeader = ({
 	title,
@@ -20,9 +21,8 @@ const PageHeader = ({
 	return (
 		<div className={`PageHeader relative ${className}`}>
 			{backgroundImage && (
-				<Image
+				<StaticImage
 					background
-					resolutions="large"
 					src={backgroundImage}
 					alt={title}
 					size="cover"
