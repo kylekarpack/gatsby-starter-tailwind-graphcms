@@ -38,24 +38,23 @@ export class Navigation extends Component {
 		}
 	};
 	render() {
-		const { active } = this.state,
-			{ subNav } = this.props,
-			NavLink = ({ to, className, children, ...props }) => (
-				<Link
-					to={to}
-					className={`NavLink ${
-						to === this.state.currentPath ? "active" : ""
-					} ${className}`}
-					onClick={this.handleLinkClick}
-					onKeyDown={this.handleLinkKeyDown}
-					tabIndex={0}
-					aria-label="Navigation"
-					role="button"
-					{...props}
-				>
-					{children}
-				</Link>
-			);
+		const { active } = this.state;
+		const NavLink = ({ to, className, children, ...props }) => (
+			<Link
+				to={to}
+				className={`NavLink ${
+					to === this.state.currentPath ? "active" : ""
+				} ${className}`}
+				onClick={this.handleLinkClick}
+				onKeyDown={this.handleLinkKeyDown}
+				tabIndex={0}
+				aria-label="Navigation"
+				role="button"
+				{...props}
+			>
+				{children}
+			</Link>
+		);
 
 		return (
 			<nav className={`Nav ${active ? "Nav-active" : ""}`}>
@@ -75,44 +74,7 @@ export class Navigation extends Component {
 						<NavLink to="/tools-skills">Tools &amp; Skills</NavLink>
 						<NavLink to="/team/">Team</NavLink>
 						<NavLink to="/careers/">Careers</NavLink>
-						<div
-							className={`Nav--Group ${
-								this.state.activeSubNav === "posts" ? "active" : ""
-							}`}
-						>
-							<span
-								className={`NavLink Nav--GroupParent ${
-									this.props.location.pathname.includes("posts") ||
-									this.props.location.pathname.includes("blog") ||
-									this.props.location.pathname.includes(
-										"post-categories"
-									)
-										? "active"
-										: ""
-								}`}
-								onClick={() => this.toggleSubNav("posts")}
-								onKeyDown={(e) => this.keyToggleSubNav(e, "posts")}
-								tabIndex={0}
-								aria-label="Navigation"
-								role="button"
-							>
-								Blog
-								<div className="Nav--GroupLinks">
-									<NavLink to="/blog/" className="Nav--GroupLink">
-										All Posts
-									</NavLink>
-									{subNav.posts.map((link, index) => (
-										<NavLink
-											to={link.slug}
-											key={"posts-subnav-link-" + index}
-											className="Nav--GroupLink"
-										>
-											{link.title}
-										</NavLink>
-									))}
-								</div>
-							</span>
-						</div>
+						<NavLink to="/community-service/">Community Service</NavLink>
 						<NavLink to="/contact/">Contact</NavLink>
 					</div>
 					<button
