@@ -21,17 +21,15 @@ export default ({ children, meta, title }) => {
 							image
 						}
 					}
-					allPosts: allMdx(
-						filter: { fields: { contentType: { eq: "postCategories" } } } # sort: { order: DESC, fields: [frontmatter___date] }
+					allServices: allMdx(
+						filter: { slug: { glob: "pages/services/*" } }
 					) {
-						edges {
-							node {
-								fields {
-									slug
-								}
-								frontmatter {
-									title
-								}
+						nodes {
+							fields {
+								slug
+							}
+							frontmatter {
+								title
 							}
 						}
 					}
@@ -39,18 +37,16 @@ export default ({ children, meta, title }) => {
 			`}
 			render={(data) => {
 				const { siteTitle, socialMediaCard, googleTrackingId } =
-						data.settingsYaml || {},
-					subNav = {
-						// eslint-disable-next-line no-prototype-builtins
-						posts: data.allPosts.hasOwnProperty("edges")
-							? data.allPosts.edges.map((post) => {
-									return {
-										...post.node.fields,
-										...post.node.frontmatter
-									};
-								})
-							: false
-					};
+					data.settingsYaml || {};
+				const subNav = {
+					// eslint-disable-next-line no-prototype-builtins
+					services: data.allServices.nodes.map((service) => {
+						return {
+							...service.fields,
+							...service.frontmatter
+						};
+					})
+				};
 
 				return (
 					<Fragment>
