@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from "gatsby-background-image";
 import React, { useMemo } from "react";
 
 export const StaticImage = ({ src, alt, background, ...props }) => {
@@ -30,10 +30,19 @@ export const StaticImage = ({ src, alt, background, ...props }) => {
 		throw `Image "${src} not found!`;
 	}
 
-	console.log(match);
-
 	if (background) {
-		return <BackgroundImage style={{position:"absolute", left:0, right:0, top:0, bottom:0}} fluid={match.childImageSharp.fluid} />
+		return (
+			<BackgroundImage
+				style={{
+					position: "absolute",
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 0
+				}}
+				fluid={match.childImageSharp.fluid}
+			/>
+		);
 	}
 
 	return <Img fluid={match.childImageSharp.fluid} alt={alt} {...props} />;

@@ -1,40 +1,40 @@
 .PageHeader {
-  background-color: var(--darkGrey);
-  color: white;
-  padding: 12rem 0;
+	background-color: var(--darkGrey);
+	color: white;
 }
 
-.PageHeader .BackgroundImage {
-  opacity: 0.8;
+.PageHeader .PageHeader--Inner {
+	background: rgba(0, 0, 0, 0.3);
+	padding: 12rem 0;
 }
 
-.PageHeader-large {
-  padding: 18rem 0;
+.PageHeader-large .PageHeader--Inner {
+	padding: 18rem 0;
 }
 
-.PageHeader-small {
-  padding: 6rem 0;
+.PageHeader-small .PageHeader--Inner {
+	padding: 6rem 0;
 }
 
 .PageHeader--Title {
-  font-size: 6rem;
-  margin-bottom: 0;
+	font-size: 6rem;
+	margin-bottom: 0;
 }
 
 .PageHeader--Subtitle {
-  font-weight: 400;
-  font-size: 1.8rem;
+	font-weight: 400;
+	font-size: 1.8rem;
 }
 
 .PageHeader .container {
-  animation: fadeIn 0.5s ease-out;
+	animation: fadeIn 0.5s ease-out;
 }
 
 @media (max-width: 600px) {
-  .PageHeader {
-    padding: 7rem 0;
-  }
-  .PageHeader-large {
-    padding: 12.5rem 0;
-  }
+	.PageHeader {
+		padding: 7rem 0;
+	}
+	.PageHeader-large {
+		padding: 12.5rem 0;
+	}
 }
