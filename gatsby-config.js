@@ -33,7 +33,7 @@ module.exports = {
 					},
 					{
 						// uploadcare
-						urlPattern: /^https:\/\/ucarecdn.com\/[-a-zA-Z0-9@:%_\+.~#?&//=]*?\/10x\//,
+						urlPattern: /^https:\/\/ucarecdn.com\/[-a-zA-Z0-9@:%_+.~#?&//=]*?\/10x\//,
 						handler: `staleWhileRevalidate`
 					}
 				],

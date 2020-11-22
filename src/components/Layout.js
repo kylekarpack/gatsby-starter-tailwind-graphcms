@@ -22,8 +22,7 @@ export default ({ children, meta, title }) => {
 						}
 					}
 					allPosts: allMdx(
-						filter: { fields: { contentType: { eq: "postCategories" } } }
-						# sort: { order: DESC, fields: [frontmatter___date] }
+						filter: { fields: { contentType: { eq: "postCategories" } } } # sort: { order: DESC, fields: [frontmatter___date] }
 					) {
 						edges {
 							node {
@@ -42,13 +41,14 @@ export default ({ children, meta, title }) => {
 				const { siteTitle, socialMediaCard, googleTrackingId } =
 						data.settingsYaml || {},
 					subNav = {
+						// eslint-disable-next-line no-prototype-builtins
 						posts: data.allPosts.hasOwnProperty("edges")
 							? data.allPosts.edges.map((post) => {
 									return {
 										...post.node.fields,
 										...post.node.frontmatter
 									};
-							  })
+								})
 							: false
 					};
 
@@ -59,12 +59,6 @@ export default ({ children, meta, title }) => {
 							titleTemplate={`%s | ${siteTitle}`}
 						>
 							{title}
-							<link
-								href="https://ucarecdn.com"
-								rel="preconnect"
-								crossorigin
-							/>
-							<link rel="dns-prefetch" href="https://ucarecdn.com" />
 							{/* Add font link tags here */}
 						</Helmet>
 

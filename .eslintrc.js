@@ -2,6 +2,7 @@
 
 // eslint-disable-next-line no-undef
 module.exports = {
+	parser: "babel-eslint",
 	parserOptions: {
 		ecmaVersion: 7,
 		sourceType: "module",
@@ -11,15 +12,15 @@ module.exports = {
 		}
 	},
 	env: {
-    browser: true,
-    node: true,
-    es6: true
-  },
+		browser: true,
+		node: true,
+		es6: true
+	},
 	extends: ["eslint:recommended", "plugin:react/recommended"],
 	rules: {
 		"prettier/prettier": "off",
 		"react/prop-types": "off",
-		"curly": "error"
+		curly: "error"
 	},
 	overrides: [
 		{

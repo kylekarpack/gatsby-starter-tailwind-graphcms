@@ -1,6 +1,5 @@
 const _ = require("lodash");
 const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
@@ -42,12 +41,13 @@ exports.createPages = ({ actions, graphql }) => {
 				// get pages with template field
 				_.get(page, `node.frontmatter.template`)
 			);
-			if (!pagesToCreate.length)
+			if (!pagesToCreate.length) {
 				return console.log(`Skipping ${contentType}`);
+			}
 
 			console.log(`Creating ${pagesToCreate.length} ${contentType}`);
 
-			pagesToCreate.forEach((page, index) => {
+			pagesToCreate.forEach((page) => {
 				const id = page.node.id;
 				createPage({
 					// page slug set in md frontmatter
