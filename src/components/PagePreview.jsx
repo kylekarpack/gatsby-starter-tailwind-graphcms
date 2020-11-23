@@ -5,6 +5,15 @@ import "./PagePreview.css";
 
 const Page = ({ page, excerpt, height }) => {
 	height = height || "200px";
+	let processedExcerpt = "";
+	const split = page.excerpt.split(".");
+	for (let i = 0; i < split.length; i++) {
+		processedExcerpt += split[i];
+		processedExcerpt += ".";
+		if (processedExcerpt.length > 100) {
+			break;
+		}
+	}
 	return (
 		<a className="Page" href={page.fields.slug}>
 			<div className="Page--main">
@@ -19,7 +28,7 @@ const Page = ({ page, excerpt, height }) => {
 					)}
 				</div>
 			</div>
-			{excerpt && <p className="Excerpt">{page.excerpt.split(".")[0]}</p>}
+			{excerpt && <p className="Excerpt">{processedExcerpt}</p>}
 		</a>
 	);
 };
