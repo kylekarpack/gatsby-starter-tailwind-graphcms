@@ -11,6 +11,7 @@ export const PortfolioPageTemplate = ({
 	title,
 	subtitle,
 	featuredImage,
+	image,
 	body
 }) => {
 	return (
@@ -19,15 +20,13 @@ export const PortfolioPageTemplate = ({
 				title={title}
 				subtitle={subtitle}
 				pageContext={pageContext}
-				breadcrumbs={false}
-				backgroundImage={featuredImage}
+				backgroundImage={image}
 				small
 			/>
 
 			<section className="section">
 				<div className="container">
 					<div bp="grid">
-						
 						<div bp="7">
 							<Content source={body} />
 						</div>
@@ -43,7 +42,7 @@ export const PortfolioPageTemplate = ({
 	);
 };
 
-const PortfolioPage = ({ pageContext, data: { page } }) => {
+const PortfolioPage = ({ pageContext, data: { page, image } }) => {
 	return (
 		<Layout
 			meta={page.frontmatter.meta || false}
@@ -53,6 +52,7 @@ const PortfolioPage = ({ pageContext, data: { page } }) => {
 				pageContext={pageContext}
 				{...page.frontmatter}
 				body={page.body}
+				image={image.frontmatter.featuredImage}
 			/>
 		</Layout>
 	);
@@ -61,6 +61,20 @@ export default PortfolioPage;
 
 export const pageQuery = graphql`
 	query PortfolioPage($id: String!) {
+		image: mdx(id: { eq: $id }) {
+			frontmatter {
+				featuredImage {
+					childImageSharp {
+						fluid(
+							maxWidth: 1920
+							duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
+						) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+		}
 		page: mdx(id: { eq: $id }) {
 			...Meta
 			body
