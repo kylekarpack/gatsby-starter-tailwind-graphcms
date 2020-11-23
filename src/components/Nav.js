@@ -121,6 +121,7 @@ export const Navigation = (props) => {
 							</div>
 						</span>
 					</div>
+					<NavLink to="/portfolio">Portfolio</NavLink>
 					<NavLink to="/tools-skills">Tools &amp; Skills</NavLink>
 					<NavLink to="/team/">Team</NavLink>
 					<NavLink to="/careers/">Careers</NavLink>
