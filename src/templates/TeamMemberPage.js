@@ -11,47 +11,71 @@ export const TeamMemberPageTemplate = ({
 	title,
 	subtitle,
 	featuredImage,
+	image,
 	body
-}) => (
-	<main className="DefaultPage">
-		<PageHeader
-			title={title}
-			subtitle={subtitle}
-			pageContext={pageContext}
-			small
-		/>
+}) => {
+	return (
+		<main className="DefaultPage">
+			<PageHeader
+				title={title}
+				subtitle={subtitle}
+				pageContext={pageContext}
+				backgroundImage={image}
+				small
+			/>
 
-		<section className="section">
-			<div className="container">
-				<div bp="grid">
-					<div bp="3 padding-right--lg">
-						<Img fluid={featuredImage.childImageSharp.fluid} />
-					</div>
-					<div bp="9">
-						<Content source={body} />
+			<section className="section">
+				<div className="container">
+					<div bp="grid">
+						{featuredImage && (
+							<div bp="3 padding-right--lg">
+								<Img fluid={featuredImage.childImageSharp.fluid} />
+							</div>
+						)}
+						<div bp="9">
+							<Content source={body} />
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-	</main>
-);
+			</section>
+		</main>
+	);
+};
 
-const TeamMemberPage = ({ pageContext, data: { page } }) => (
-	<Layout
-		meta={page.frontmatter.meta || false}
-		title={page.frontmatter.title || false}
-	>
-		<TeamMemberPageTemplate
-			pageContext={pageContext}
-			{...page.frontmatter}
-			body={page.body}
-		/>
-	</Layout>
-);
+const TeamMemberPage = ({ pageContext, data: { page, images } }) => {
+	const image = {
+		childImageSharp:
+			images.nodes[Math.floor(Math.random() * images.nodes.length)]
+	};
+	return (
+		<Layout
+			meta={page.frontmatter.meta || false}
+			title={page.frontmatter.title || false}
+		>
+			<TeamMemberPageTemplate
+				pageContext={pageContext}
+				{...page.frontmatter}
+				body={page.body}
+				image={image}
+			/>
+		</Layout>
+	);
+};
 export default TeamMemberPage;
 
 export const pageQuery = graphql`
 	query TeamMemberPage($id: String!) {
+		images: allImageSharp(
+			filter: { resolutions: { aspectRatio: { gt: 3 } } } # banner images by aspect
+		) {
+			nodes {
+				fluid(
+					duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
+				) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
 		page: mdx(id: { eq: $id }) {
 			...Meta
 			body

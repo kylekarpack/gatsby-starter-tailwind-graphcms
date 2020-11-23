@@ -19,12 +19,15 @@ export const DefaultPageTemplate = (props) => (
 		<section className="section">
 			<div className="container">
 				<Content source={props.body} />
-				{props.DefaultType && (
-					<PagePreview
-						type={props.DefaultType}
-						excerpt={props.DefaultExcerpt}
-						height={props.DefaultHeight}
-					/>
+				{props.previewType && (
+					<>
+						<br />
+						<PagePreview
+							type={props.previewType}
+							excerpt={props.previewExcerpt}
+							height={props.previewHeight}
+						/>
+					</>
 				)}
 			</div>
 		</section>

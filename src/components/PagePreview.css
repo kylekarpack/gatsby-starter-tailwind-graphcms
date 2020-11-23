@@ -22,6 +22,23 @@
 	opacity: 0.9;
 }
 
-.Page .name {
+.Page:hover .subtitle {
+	color: var(--white);
+}
+
+.Page .caption {
 	padding: 1rem;
+}
+
+.Page .name {
+	text-transform: uppercase;
+	font-size: 95%;
+	font-weight: 600;
+}
+
+.Page .subtitle {
+	line-height: 1;
+	padding: .5rem 0;
+	font-size: 80%;
+	color: var(--midGrey);
 }

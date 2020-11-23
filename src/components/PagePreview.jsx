@@ -12,10 +12,12 @@ const Page = ({ page, excerpt, height }) => {
 					style={{ height }}
 					fluid={page.frontmatter?.featuredImage?.childImageSharp?.fluid}
 				/>
-				<div className="name">{page.frontmatter.title}</div>
-				{page.frontmatter.subtitle && (
-					<small>{page.frontmatter.subtitle}</small>
-				)}
+				<div className="caption">
+					<div className="name">{page.frontmatter.title}</div>
+					{page.frontmatter.subtitle && (
+						<div className="subtitle">{page.frontmatter.subtitle}</div>
+					)}
+				</div>
 			</div>
 			{excerpt && <p className="Excerpt">{page.excerpt.split(".")[0]}</p>}
 		</a>
@@ -36,6 +38,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 					excerpt(pruneLength: 1000)
 					frontmatter {
 						title
+						subtitle
 						type
 						featuredImage {
 							childImageSharp {
