@@ -66,10 +66,13 @@ export const pageQuery = graphql`
 				featuredImage {
 					childImageSharp {
 						fluid(
-							maxWidth: 1920
-							duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
+							maxWidth: 960
+							maxHeight: 125
+							cropFocus: CENTER,
+							quality: 40
+							duotone: { highlight: "#FFFFFF", shadow: "#3C5E31", opacity: 0 }
 						) {
-							...GatsbyImageSharpFluid
+							...GatsbyImageSharpFluid_withWebp
 						}
 					}
 				}
@@ -83,7 +86,7 @@ export const pageQuery = graphql`
 				subtitle
 				featuredImage {
 					childImageSharp {
-						fluid(maxWidth: 400) {
+						fluid(maxWidth: 300) {
 							...GatsbyImageSharpFluid
 						}
 					}
