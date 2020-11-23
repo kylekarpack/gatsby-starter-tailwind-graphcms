@@ -3,28 +3,29 @@ import React from "react";
 import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
+import PagePreview from "../components/PagePreview";
 
-// Export Template for use in CMS preview
-export const DefaultPageTemplate = ({
-	pageContext,
-	title,
-	subtitle,
-	featuredImage,
-	small,
-	body
-}) => (
+// Export Template for use in CMS Default
+export const DefaultPageTemplate = (props) => (
 	<main className="DefaultPage">
 		<PageHeader
-			title={title}
-			subtitle={subtitle}
-			backgroundImage={featuredImage}
-			pageContext={pageContext}
-			small={small}
+			title={props.title}
+			subtitle={props.subtitle}
+			backgroundImage={props.featuredImage}
+			pageContext={props.pageContext}
+			small={props.small}
 		/>
 
 		<section className="section">
 			<div className="container">
-				<Content source={body} />
+				<Content source={props.body} />
+				{props.DefaultType && (
+					<PagePreview
+						type={props.DefaultType}
+						excerpt={props.DefaultExcerpt}
+						height={props.DefaultHeight}
+					/>
+				)}
 			</div>
 		</section>
 	</main>
@@ -52,6 +53,9 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				subtitle
+				previewType
+				previewHeight
+				previewExcerpt
 				featuredImage {
 					childImageSharp {
 						fluid(maxWidth: 1920) {

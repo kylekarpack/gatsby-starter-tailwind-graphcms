@@ -24,7 +24,7 @@ export const TeamMemberPageTemplate = ({
 		<section className="section">
 			<div className="container">
 				<div bp="grid">
-					<div bp="3">
+					<div bp="3 padding-right--lg">
 						<Img fluid={featuredImage.childImageSharp.fluid} />
 					</div>
 					<div bp="9">
