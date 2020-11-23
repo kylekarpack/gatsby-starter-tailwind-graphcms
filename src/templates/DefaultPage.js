@@ -13,6 +13,7 @@ export const DefaultPageTemplate = (props) => (
 			subtitle={props.subtitle}
 			backgroundImage={props.featuredImage}
 			pageContext={props.pageContext}
+			breadcrumbs
 			small={props.small}
 		/>
 

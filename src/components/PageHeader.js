@@ -5,7 +5,7 @@ import Content from "./Content";
 import "./PageHeader.css";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
-const PageHeaderInner = ({ title, subtitle, pageContext }) => {
+const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext }) => {
 	const crumbs = pageContext?.breadcrumb?.crumbs;
 
 	return (
@@ -18,7 +18,7 @@ const PageHeaderInner = ({ title, subtitle, pageContext }) => {
 							<Content className="PageHeader--Subtitle" src={subtitle} />
 						)}
 					</div>
-					{crumbs && (
+					{breadcrumbs && crumbs && (
 						<div className="Breadcrumbs">
 							<Breadcrumb
 								crumbs={crumbs}
@@ -38,6 +38,7 @@ const PageHeader = ({
 	subtitle,
 	backgroundImage,
 	pageContext,
+	breadcrumbs,
 	large,
 	small,
 	className = ""
@@ -58,6 +59,7 @@ const PageHeader = ({
 						title={title}
 						subtitle={subtitle}
 						pageContext={pageContext}
+						breadcrumbs={breadcrumbs}
 					/>
 				</BackgroundImage>
 			) : (

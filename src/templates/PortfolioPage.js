@@ -6,12 +6,11 @@ import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 
 // Export Template for use in CMS preview
-export const TeamMemberPageTemplate = ({
+export const PortfolioPageTemplate = ({
 	pageContext,
 	title,
 	subtitle,
 	featuredImage,
-	image,
 	body
 }) => {
 	return (
@@ -20,22 +19,23 @@ export const TeamMemberPageTemplate = ({
 				title={title}
 				subtitle={subtitle}
 				pageContext={pageContext}
-				backgroundImage={image}
-				breadcrumbs
+				breadcrumbs={false}
+				backgroundImage={featuredImage}
 				small
 			/>
 
 			<section className="section">
 				<div className="container">
 					<div bp="grid">
+						
+						<div bp="7">
+							<Content source={body} />
+						</div>
 						{featuredImage && (
-							<div bp="3 padding-right--lg">
+							<div bp="5 padding-left--lg">
 								<Img fluid={featuredImage.childImageSharp.fluid} />
 							</div>
 						)}
-						<div bp="9">
-							<Content source={body} />
-						</div>
 					</div>
 				</div>
 			</section>
@@ -43,40 +43,24 @@ export const TeamMemberPageTemplate = ({
 	);
 };
 
-const TeamMemberPage = ({ pageContext, data: { page, images } }) => {
-	const image = {
-		childImageSharp:
-			images.nodes[Math.floor(Math.random() * images.nodes.length)]
-	};
+const PortfolioPage = ({ pageContext, data: { page } }) => {
 	return (
 		<Layout
 			meta={page.frontmatter.meta || false}
 			title={page.frontmatter.title || false}
 		>
-			<TeamMemberPageTemplate
+			<PortfolioPageTemplate
 				pageContext={pageContext}
 				{...page.frontmatter}
 				body={page.body}
-				image={image}
 			/>
 		</Layout>
 	);
 };
-export default TeamMemberPage;
+export default PortfolioPage;
 
 export const pageQuery = graphql`
-	query TeamMemberPage($id: String!) {
-		images: allImageSharp(
-			filter: { resolutions: { aspectRatio: { gt: 3 } } } # banner images by aspect
-		) {
-			nodes {
-				fluid(
-					duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
-				) {
-					...GatsbyImageSharpFluid
-				}
-			}
-		}
+	query PortfolioPage($id: String!) {
 		page: mdx(id: { eq: $id }) {
 			...Meta
 			body

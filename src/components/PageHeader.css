@@ -44,7 +44,8 @@
 }
 
 .PageHeader--Title {
-	font-size: 5rem;
+	font-size: 4rem;
+	font-weight: 600;
 	line-height: 1;
 	margin-bottom: 0;
 }
