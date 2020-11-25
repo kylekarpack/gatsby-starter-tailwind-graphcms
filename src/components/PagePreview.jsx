@@ -3,17 +3,22 @@ import BackgroundImage from "gatsby-background-image";
 import React from "react";
 import "./PagePreview.css";
 
-const Page = ({ page, excerpt, height }) => {
-	height = height || "200px";
+const Excerpt = ({ text, minLength = 100 }) => {
+	text = text || "";
 	let processedExcerpt = "";
-	const split = page.excerpt.split(".");
+	const split = text.split(".");
 	for (let i = 0; i < split.length; i++) {
 		processedExcerpt += split[i];
 		processedExcerpt += ".";
-		if (processedExcerpt.length > 100) {
+		if (processedExcerpt.length > minLength) {
 			break;
 		}
 	}
+	return <>{processedExcerpt}</>;
+};
+
+const Page = ({ page, excerpt, height }) => {
+	height = height || "200px";
 	return (
 		<a className="Page" href={page.fields.slug}>
 			<div className="Page--main">
@@ -28,7 +33,11 @@ const Page = ({ page, excerpt, height }) => {
 					)}
 				</div>
 			</div>
-			{excerpt && <p className="Excerpt">{processedExcerpt}</p>}
+			{excerpt && (
+				<p className="Excerpt">
+					<Excerpt text={page.excerpt} />
+				</p>
+			)}
 		</a>
 	);
 };

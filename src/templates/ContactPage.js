@@ -94,7 +94,7 @@ export const pageQuery = graphql`
 				subtitle
 				featuredImage {
 					childImageSharp {
-            fluid(maxWidth: 1920) {
+            fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
               ...GatsbyImageSharpFluid
             }
           }
