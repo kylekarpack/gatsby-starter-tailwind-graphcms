@@ -3,7 +3,7 @@ import BackgroundImage from "gatsby-background-image";
 import React from "react";
 import "./PagePreview.css";
 
-const Excerpt = ({ text, minLength = 100 }) => {
+export const Excerpt = ({ text, minLength = 100 }) => {
 	text = text || "";
 	let processedExcerpt = "";
 	const split = text.split(".");
@@ -17,7 +17,7 @@ const Excerpt = ({ text, minLength = 100 }) => {
 	return <>{processedExcerpt}</>;
 };
 
-const Page = ({ page, excerpt, height }) => {
+export const Page = ({ page, excerpt, height }) => {
 	height = height || "200px";
 	return (
 		<a className="Page" href={page.fields.slug}>

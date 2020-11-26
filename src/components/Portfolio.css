@@ -1,0 +1,27 @@
+.Portfolio {
+	margin: 0 -5vw;
+}
+
+.Filters {
+	margin-bottom: 1rem;
+}
+
+.Filters .filter {
+	background: var(--darkGrey);
+	color: var(--lightGrey);
+	font-size: 80%;
+	padding: 6px 12px;
+	margin-right: 6px;
+	border: none;
+	outline: none;
+	transition: all .25s ease-in-out;
+	cursor: pointer;
+}
+
+.Filters .filter:hover {
+	background: var(--midGrey);
+}
+
+.Filters .filter.active {
+	background: var(--primary);
+}

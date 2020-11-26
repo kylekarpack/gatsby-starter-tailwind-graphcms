@@ -4,6 +4,7 @@ import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
+import Portfolio from "../components/Portfolio";
 
 // Export Template for use in CMS Default
 export const DefaultPageTemplate = (props) => (
@@ -20,7 +21,7 @@ export const DefaultPageTemplate = (props) => (
 		<section className="section">
 			<div className="container">
 				<Content source={props.body} />
-				{props.previewType && (
+				{false && props.previewType && (
 					<>
 						<br />
 						<PagePreview
@@ -30,6 +31,11 @@ export const DefaultPageTemplate = (props) => (
 						/>
 					</>
 				)}
+
+				<Portfolio
+					excerpt={true}
+					height={props.previewHeight}
+				/>
 			</div>
 		</section>
 	</main>
