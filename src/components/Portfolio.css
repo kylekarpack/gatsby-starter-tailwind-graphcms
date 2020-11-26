@@ -20,7 +20,7 @@
 }
 
 .Filters .filter:hover {
-	background: var(--midGrey);
+	background: var(--midDarkGrey);
 }
 
 .Filters .filter.active {

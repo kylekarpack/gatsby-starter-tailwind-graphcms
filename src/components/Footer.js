@@ -11,8 +11,9 @@ const Footer = () => (
 					<br />
 					Foster a creative spirit in our employees
 					<br />
-					Seek meaningful work in our areas of expertise Support our
-					employees and their families
+					Seek meaningful work in our areas of expertise
+					<br />
+					Support our employees and their families
 					<br />
 					Make a positive impact in our community
 					<br />
@@ -20,11 +21,13 @@ const Footer = () => (
 				</p>
 			</div>
 
-			<div className="container taRight">
-				<span>
-					© Copyright {new Date().getFullYear()} Watershed Science &amp;
-					Engineering
-				</span>
+			<div className="bottom">
+				<div className="container taRight">
+					<span>
+						© Copyright {new Date().getFullYear()} Watershed Science &amp;
+						Engineering
+					</span>
+				</div>
 			</div>
 		</footer>
 	</div>
