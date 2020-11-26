@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import React from "react";
+import React, { useState } from "react";
 import "./PagePreview.css";
 
 const Excerpt = ({ text, minLength = 100 }) => {
@@ -42,12 +42,17 @@ const Page = ({ page, excerpt, height }) => {
 	);
 };
 
-const Portfolio = ({ type, excerpt, height }) => {
-	let pages = useStaticQuery(graphql`
+const Portfolio = ({ category, excerpt, height }) => {
+	const [filter, setFilter] = useState(category);
+
+	let portfolioItems = useStaticQuery(graphql`
 		query {
 			allMdx(
 				sort: { fields: frontmatter___order }
-				filter: { slug: { glob: "pages/portfolio/*" } }
+				filter: {
+					slug: { glob: "pages/portfolio/*" }
+					frontmatter: { status: { eq: "publish" } }
+				}
 			) {
 				nodes {
 					fields {
@@ -71,12 +76,38 @@ const Portfolio = ({ type, excerpt, height }) => {
 		}
 	`).allMdx.nodes;
 
+	let filters = [
+		...new Set(portfolioItems.flatMap((el) => el.frontmatter.categories))
+	];
+	filters.sort((a, b) => a.localeCompare(b));
+
+	if (filter) {
+		console.log(filter, portfolioItems);
+		portfolioItems = portfolioItems.filter((el) =>
+			el.frontmatter.categories?.includes(filter)
+		);
+	}
+
 	return (
-		<div bp="grid 6@md 3@lg">
-			{pages.map((page, i) => (
-				<Page page={page} excerpt={excerpt} height={height} key={i} />
-			))}
-		</div>
+		<>
+			<div className="filters">
+				{filters.map((el, i) => (
+					<button
+						key={i}
+						type="button"
+						className={filter === el ? "active" : ""}
+						onClick={() => setFilter(el)}
+					>
+						{el}
+					</button>
+				))}
+			</div>
+			<div bp="grid 6@md 3@lg">
+				{portfolioItems.map((page, i) => (
+					<Page page={page} excerpt={excerpt} height={height} key={i} />
+				))}
+			</div>
+		</>
 	);
 };
 
