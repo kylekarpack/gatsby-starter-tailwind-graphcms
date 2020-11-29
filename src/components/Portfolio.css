@@ -2,6 +2,31 @@
 	margin: 0 -5vw;
 }
 
+.Portfolio .Page .Page--main {
+	background: none;
+	text-align: left;
+	color: var(--darkGrey);
+}
+
+.Portfolio .Page .Page--main .caption {
+	padding: 2rem 1rem;
+}
+
+.Portfolio .Page .Page--main .caption .name {
+	line-height: 1.2;
+	font-weight: 400;
+	text-transform: capitalize;
+	font-size: 110%;
+}
+
+.Portfolio .Page .Excerpt {
+	line-height: 1.2;
+	font-size: 80%;
+	text-align: left;
+	padding: 0 1rem 1rem;
+	color: var(--midDarkGrey);
+}
+
 .Filters {
 	text-align: center;
 	margin: 4rem auto;
@@ -15,7 +40,7 @@
 	margin-right: 6px;
 	border: none;
 	outline: none;
-	transition: all .25s ease-in-out;
+	transition: all 0.25s ease-in-out;
 	cursor: pointer;
 }
 
