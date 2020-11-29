@@ -4,6 +4,10 @@ import { Page } from "./PagePreview";
 import "./PagePreview.css";
 import "./Portfolio.css";
 
+const isAll = (category) => {
+	return !category || category === "All" || category === "*";
+}
+
 const Portfolio = ({ category, excerpt, height }) => {
 	const [filter, setFilter] = useState(category || "All");
 
@@ -44,7 +48,7 @@ const Portfolio = ({ category, excerpt, height }) => {
 	filters.sort((a, b) => a.localeCompare(b));
 	filters.unshift("All");
 
-	if (filter && filter !== "All") {
+	if (!isAll(filter)) {
 		portfolioItems = portfolioItems.filter((el) =>
 			el.frontmatter.categories?.includes(filter)
 		);
@@ -52,7 +56,7 @@ const Portfolio = ({ category, excerpt, height }) => {
 
 	return (
 		<div className="Portfolio">
-			{!category && (
+			{isAll(category) && (
 				<div className="Filters">
 					{filters.map((el, i) => (
 						<button

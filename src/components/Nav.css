@@ -45,7 +45,7 @@
 
 .NavLink:hover,
 .NavLink:focus {
-  color: var(--midGrey);
+  color: var(--midMidGrey);
 }
 
 .Nav--Group {
