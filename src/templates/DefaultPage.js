@@ -4,6 +4,7 @@ import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
+import Portfolio from "../components/Portfolio";
 
 // Export Template for use in CMS Default
 export const DefaultPageTemplate = (props) => (
@@ -20,15 +21,16 @@ export const DefaultPageTemplate = (props) => (
 		<section className="section">
 			<div className="container">
 				<Content source={props.body} />
+				<br />
 				{props.previewType && (
-					<>
-						<br />
-						<PagePreview
-							type={props.previewType}
-							excerpt={props.previewExcerpt}
-							height={props.previewHeight}
-						/>
-					</>
+					<PagePreview
+						type={props.previewType}
+						excerpt={props.previewExcerpt}
+						height={props.previewHeight}
+					/>
+				)}
+				{props.portfolioCategory && (
+					<Portfolio category={props.portfolioCategory} excerpt={true} />
 				)}
 			</div>
 		</section>
@@ -60,6 +62,7 @@ export const pageQuery = graphql`
 				previewType
 				previewHeight
 				previewExcerpt
+				portfolioCategory
 				featuredImage {
 					childImageSharp {
 						fluid(maxWidth: 1920) {
