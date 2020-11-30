@@ -239,6 +239,10 @@ blockquote {
 	justify-content: center;
 }
 
+.clearfix {
+	clear: both;
+}
+
 .Image-inline {
 	width: 20rem;
 	padding: 2rem;
