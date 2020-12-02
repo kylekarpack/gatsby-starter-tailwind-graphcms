@@ -68,7 +68,6 @@ export const pageQuery = graphql`
 						fluid(
 							maxWidth: 960
 							maxHeight: 125
-							cropFocus: CENTER,
 							quality: 40
 							duotone: { highlight: "#FFFFFF", shadow: "#3C5E31", opacity: 0 }
 						) {
