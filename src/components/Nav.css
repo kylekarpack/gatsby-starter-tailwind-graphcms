@@ -101,7 +101,8 @@
 	position: relative;
 	padding: 1rem 2rem;
 	min-width: 15rem;
-	font-size: 90%;
+  font-size: 90%;
+  font-weight: 400;
 }
 
 @media (max-width: 600px) {

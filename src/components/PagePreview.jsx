@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import React from "react";
 import "./PagePreview.css";
@@ -17,28 +17,35 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 	return <>{processedExcerpt}</>;
 };
 
-export const Page = ({ page, excerpt, height }) => {
+export const Page = ({ page, excerpt, readMore, height, className }) => {
 	height = height || "200px";
 	return (
-		<a className="Page" href={page.fields.slug}>
-			<div className="Page--main">
+		<Link className={`Page ${className}`} to={page.fields.slug}>
+			<div className="Background">
 				<BackgroundImage
 					style={{ height }}
 					fluid={page.frontmatter?.featuredImage?.childImageSharp?.fluid}
 				/>
-				<div className="caption">
-					<div className="name">{page.frontmatter.title}</div>
-					{page.frontmatter.subtitle && (
-						<div className="subtitle">{page.frontmatter.subtitle}</div>
-					)}
-				</div>
 			</div>
-			{excerpt && (
-				<p className="Excerpt">
-					<Excerpt text={page.excerpt} />
-				</p>
-			)}
-		</a>
+			<div className="Title">
+				<div className="Name">{page.frontmatter.title}</div>
+				{page.frontmatter.subtitle && (
+					<div className="Subtitle">{page.frontmatter.subtitle}</div>
+				)}
+			</div>
+			<div className="Caption">
+				{excerpt && (
+					<p className="Excerpt">
+						<Excerpt text={page.excerpt} />
+					</p>
+				)}
+				{readMore && (
+					<small className="ReadMore">
+						<Link to={page.fields.slug}>Read more</Link>
+					</small>
+				)}
+			</div>
+		</Link>
 	);
 };
 
@@ -78,7 +85,13 @@ const PagePreview = ({ type, excerpt, height }) => {
 	return (
 		<div bp="grid 6@md 3@lg">
 			{pages.map((page, i) => (
-				<Page page={page} excerpt={excerpt} height={height} key={i} />
+				<Page
+					page={page}
+					excerpt={excerpt}
+					height={height}
+					key={i}
+					className="Preview"
+				/>
 			))}
 		</div>
 	);

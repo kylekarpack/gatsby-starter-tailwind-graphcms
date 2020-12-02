@@ -16,7 +16,7 @@
 }
 
 ::-webkit-scrollbar {
-	width: 0.4rem;
+	width: 0.75rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -25,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--primary);
+	background-color: var(--darkGrey);
 }
 
 ::selection {
@@ -190,15 +190,15 @@ blockquote {
 }
 
 .container {
-	max-width: 1111px;
+	max-width: 1200px;
 	width: 90%;
 	margin: 0 auto;
 }
 .container.skinny {
-	max-width: 888px;
+	max-width: 960;
 }
 .container.skinnier {
-	max-width: 555px;
+	max-width: 520px;
 }
 
 /* Buttons */

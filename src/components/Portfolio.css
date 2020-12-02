@@ -1,18 +1,18 @@
-.Portfolio {
-	margin: 0 -5vw;
+.Portfolio .Page:hover .Title {
+	color: var(--primary);
 }
 
-.Portfolio .Page .Page--main {
+.Portfolio .Page {
 	background: none;
-	text-align: left;
 	color: var(--darkGrey);
 }
 
-.Portfolio .Page .Page--main .caption {
+.Portfolio .Page .caption {
 	padding: 2rem 1rem;
+	text-align: left;
 }
 
-.Portfolio .Page .Page--main .caption .name {
+.Portfolio .Page .caption .name {
 	line-height: 1.2;
 	font-weight: 400;
 	text-transform: capitalize;
@@ -23,21 +23,36 @@
 	line-height: 1.2;
 	font-size: 80%;
 	text-align: left;
-	padding: 0 1rem 1rem;
 	color: var(--midDarkGrey);
+}
+
+
+.Portfolio .Page .ReadMore {
+	display: block;
+	text-align: left;
+	padding: 1rem 0 0;
+	font-weight: 700;
+}
+
+.Portfolio .Page .ReadMore a {
+	text-decoration: none;
+}
+
+.Portfolio .Page .ReadMore a:hover, .Portfolio .Page:hover .ReadMore a {
+	text-decoration: underline;
 }
 
 .Filters {
 	text-align: center;
-	margin: 4rem auto;
+	margin: 0 auto 3rem;
 }
 
 .Filters .filter {
 	background: var(--darkGrey);
 	color: var(--lightGrey);
-	font-size: 80%;
-	padding: 6px 12px;
-	margin-right: 6px;
+	font-size: 76%;
+	padding: 0.5rem 1rem;
+	margin-right: 0.5rem;
 	border: none;
 	outline: none;
 	transition: all 0.25s ease-in-out;
