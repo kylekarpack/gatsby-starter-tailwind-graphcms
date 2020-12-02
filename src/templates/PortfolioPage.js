@@ -69,7 +69,8 @@ export const pageQuery = graphql`
 							maxWidth: 960
 							maxHeight: 125
 							quality: 40
-							duotone: { highlight: "#FFFFFF", shadow: "#3C5E31", opacity: 0 }
+							duotone: { highlight: "#89d072", shadow: "#3C5E31", opacity: 100 }
+							cropFocus: CENTER
 						) {
 							...GatsbyImageSharpFluid_withWebp
 						}

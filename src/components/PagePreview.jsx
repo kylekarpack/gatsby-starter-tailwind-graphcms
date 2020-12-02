@@ -67,7 +67,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 						type
 						featuredImage {
 							childImageSharp {
-								fluid(maxWidth: 400) {
+								fluid(maxWidth: 300, cropFocus: NORTH) {
 									...GatsbyImageSharpFluid
 								}
 							}
