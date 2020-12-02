@@ -65,11 +65,11 @@ export const pageQuery = graphql`
 				portfolioCategory
 				featuredImage {
 					childImageSharp {
-						fluid(maxWidth: 1920) {
-							...GatsbyImageSharpFluid
+						fluid(maxHeight: 400, maxWidth: 1920, cropFocus: CENTER, quality: 50) {
+							...GatsbyImageSharpFluid_withWebp
 						}
 					}
-				}
+				},
 				small
 			}
 		}
