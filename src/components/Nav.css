@@ -44,8 +44,10 @@
 }
 
 .NavLink:hover,
-.NavLink:focus {
-  color: var(--midMidGrey);
+.NavLink:focus,
+.NavLink.active {
+  color: var(--midGrey);
+  outline: none;
 }
 
 .Nav--Group {
@@ -103,6 +105,10 @@
 	min-width: 15rem;
   font-size: 90%;
   font-weight: 400;
+}
+
+.Nav--GroupLink:hover {
+  color: var(--midMidGrey);
 }
 
 @media (max-width: 600px) {

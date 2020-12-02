@@ -51,12 +51,13 @@ export const Navigation = (props) => {
 		}
 	};
 
-	const NavLink = ({ to, className, children, ...props }) => (
-		<Link
+	const NavLink = ({ to, className, children, ...props }) => {
+		console.log(to, state.currentPath, to === state.currentPath);
+		return <Link
 			to={to}
 			className={`NavLink ${
 				to === state.currentPath ? "active" : ""
-			} ${className}`}
+			} ${className || ""}`}
 			onClick={handleLinkClick}
 			onKeyDown={handleLinkKeyDown}
 			tabIndex={0}
@@ -66,7 +67,7 @@ export const Navigation = (props) => {
 		>
 			{children}
 		</Link>
-	);
+	};
 
 	const { active } = state;
 	const { subNav } = props;
