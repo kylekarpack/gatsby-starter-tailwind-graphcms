@@ -51,14 +51,7 @@ export const ContactPageTemplate = ({
 								<Smartphone /> {phone}
 							</a>
 						)}
-						{email && (
-							<a
-								className="Contact--Details--Item"
-								href={`mailto:${email}`}
-							>
-								<Mail /> {email}
-							</a>
-						)}
+						
 					</div>
 				</div>
 
