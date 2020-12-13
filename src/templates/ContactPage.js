@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Smartphone, Mail } from "react-feather";
+import { MapPin, Smartphone } from "react-feather";
 import { graphql } from "gatsby";
 
 import PageHeader from "../components/PageHeader";
@@ -19,51 +19,54 @@ export const ContactPageTemplate = ({
 	phone,
 	email,
 	locations
-}) => (
-	<main className="Contact">
-		<PageHeader
-			title={title}
-			subtitle={subtitle}
-			backgroundImage={featuredImage}
-		/>
-		<section className="section Contact--Section1">
-			<div className="container Contact--Section1--Container">
-				<div>
-					<Content source={body} />
-					<div className="Contact--Details">
-						{address && (
-							<a
-								className="Contact--Details--Item"
-								href={`https://www.google.com/maps/search/${encodeURI(
-									address
-								)}`}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<MapPin /> {address}
-							</a>
-						)}
-						{phone && (
-							<a
-								className="Contact--Details--Item"
-								href={`tel:${phone}`}
-							>
-								<Smartphone /> {phone}
-							</a>
-						)}
-						
+}) => {
+	const addressLink = `https://www.google.com/maps/search/${encodeURI(
+		address
+	)}`;
+	
+	return (
+		<main className="Contact">
+			<PageHeader
+				title={title}
+				subtitle={subtitle}
+				backgroundImage={featuredImage}
+			/>
+			<section className="section Contact--Section1">
+				<div className="container Contact--Section1--Container">
+					<div>
+						<Content source={body} />
+						<div className="Contact--Details">
+							{address && (
+								<a
+									className="Contact--Details--Item"
+									href={addressLink}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<MapPin /> {address}
+								</a>
+							)}
+							{phone && (
+								<a
+									className="Contact--Details--Item"
+									href={`tel:${phone}`}
+								>
+									<Smartphone /> {phone}
+								</a>
+							)}
+						</div>
+					</div>
+
+					<div>
+						<FormSimpleAjax name="Contact Us" />
 					</div>
 				</div>
+			</section>
 
-				<div>
-					<FormSimpleAjax name="Simple Form Ajax" />
-				</div>
-			</div>
-		</section>
-
-		<Map locations={locations} />
-	</main>
-);
+			{locations && locations[0] && <Map locations={locations[0]} />}
+		</main>
+	);
+};
 
 const ContactPage = ({ data: { page } }) => (
 	<Layout
@@ -87,10 +90,10 @@ export const pageQuery = graphql`
 				subtitle
 				featuredImage {
 					childImageSharp {
-            fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+						fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
+							...GatsbyImageSharpFluid
+						}
+					}
 				}
 				address
 				phone
