@@ -195,7 +195,7 @@ blockquote {
 	margin: 0 auto;
 }
 .container.skinny {
-	max-width: 960;
+	max-width: 960px;
 }
 .container.skinnier {
 	max-width: 520px;

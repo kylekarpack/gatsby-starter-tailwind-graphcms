@@ -19,7 +19,7 @@ export const DefaultPageTemplate = (props) => (
 		/>
 
 		<section className="section">
-			<div className="container">
+			<div className={`container ${props.pageClass}`}>
 				<Content source={props.body} />
 				<br />
 				{props.previewType && (
@@ -59,6 +59,7 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				subtitle
+				pageClass
 				previewType
 				previewHeight
 				previewExcerpt
