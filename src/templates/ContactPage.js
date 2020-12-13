@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Smartphone } from "react-feather";
+import { MapPin, Smartphone, Mail } from "react-feather";
 import { graphql } from "gatsby";
 
 import PageHeader from "../components/PageHeader";
@@ -23,7 +23,7 @@ export const ContactPageTemplate = ({
 	const addressLink = `https://www.google.com/maps/search/${encodeURI(
 		address
 	)}`;
-	
+
 	return (
 		<main className="Contact">
 			<PageHeader
@@ -52,6 +52,12 @@ export const ContactPageTemplate = ({
 									href={`tel:${phone}`}
 								>
 									<Smartphone /> {phone}
+								</a>
+							)}
+							{email && (
+								<a href={`mailto:${email}`}>
+									<Mail />
+									{email}
 								</a>
 							)}
 						</div>
