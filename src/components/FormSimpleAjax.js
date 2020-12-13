@@ -10,7 +10,7 @@ class Form extends React.Component {
 		name: "Contact Form",
 		subject: "New Website Contact", // optional subject of the notification email
 		action: "",
-		successMessage: "Thanks for your enquiry, we will get back to you soon",
+		successMessage: "Thanks for your inquiry, we will get back to you soon",
 		errorMessage:
 			"There is a problem, your message has not been sent, please try contacting us via email"
 	};
@@ -82,7 +82,6 @@ class Form extends React.Component {
 							name="name"
 							required
 						/>
-						<span>Name</span>
 					</label>
 					<label className="Form--Label">
 						<input
@@ -92,7 +91,6 @@ class Form extends React.Component {
 							name="emailAddress"
 							required
 						/>
-						<span>Email address</span>
 					</label>
 					<label className="Form--Label">
 						<textarea
@@ -102,7 +100,6 @@ class Form extends React.Component {
 							rows="10"
 							required
 						/>
-						<span>Message</span>
 					</label>
 					<div
 						className="g-recaptcha"

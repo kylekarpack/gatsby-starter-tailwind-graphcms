@@ -1,11 +1,12 @@
 import React from "react";
 import "./Logo.css";
 
+// eslint-disable-next-line react/display-name
 export default () => (
 	<div
 		className="Logo"
 		style={{
-			backgroundImage: `url(http://watershedse.com/wp-content/uploads/2012/11/WSE_Logo_RGB-250x41.png)`
+			backgroundImage: `url(/images/logo.svg)`
 		}}
 	/>
 );
