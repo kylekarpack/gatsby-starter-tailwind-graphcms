@@ -180,15 +180,15 @@ export const Navigation = (props) => {
 							</button>
 						</div>
 						<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-							<div className="flex-shrink-0 flex items-center">
+							<div className="flex-shrink-0 flex items-center ">
 								<a href="/">
 									<img
-										className="block lg:hidden h-8 w-auto"
+										className="block lg:hidden h-8 w-8"
 										src="/favicon.png"
 										alt="Workflow"
 									/>
 									<img
-										className="hidden lg:block h-8 w-auto"
+										className="hidden lg:block h-8 w-48"
 										src="/images/logo.svg"
 										alt="Workflow"
 									/>
