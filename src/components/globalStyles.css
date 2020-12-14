@@ -245,17 +245,26 @@ blockquote {
 
 .Image-inline {
 	width: 20rem;
-	padding: 2rem;
+	margin: 2rem;
+	max-width: 100%;
+}
+
+.Image-inline-md {
+	width: 35rem;
+}
+
+.Image-inline-lg {
+	width: 45rem;
 }
 
 .Image-inline-left {
-	padding-left: 0;
+	margin-left: 0;
 	float: left;
 	clear: left;
 }
 
 .Image-inline-right {
-	padding-right: 0;
+	margin-right: 0;
 	float: right;
 	clear: right;
 }
