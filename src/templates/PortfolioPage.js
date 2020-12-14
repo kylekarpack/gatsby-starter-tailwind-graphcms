@@ -1,9 +1,9 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import React from "react";
 import Content from "../components/Content";
+import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
+import React from "react";
+import { graphql } from "gatsby";
 
 // Export Template for use in CMS preview
 export const PortfolioPageTemplate = ({
@@ -26,12 +26,12 @@ export const PortfolioPageTemplate = ({
 
 			<section className="section">
 				<div className="container">
-					<div bp="grid">
-						<div bp="7">
+					<div className="grid grid-cols-3 gap-6">
+						<div className="col-span-2">
 							<Content source={body} />
 						</div>
 						{featuredImage && (
-							<div bp="5 padding-left--lg">
+							<div>
 								<Img fluid={featuredImage.childImageSharp.fluid} />
 							</div>
 						)}

@@ -39,7 +39,7 @@ export const Page = ({ page, excerpt, readMore, height, className }) => {
 					{page.frontmatter.title}
 				</div>
 				{page.frontmatter.subtitle && (
-					<div className="font-bold text-base mb-2">
+					<div className="font-normal text-sm leading-4 mb-2">
 						{page.frontmatter.subtitle}
 					</div>
 				)}

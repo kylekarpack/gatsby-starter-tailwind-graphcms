@@ -70,6 +70,55 @@ export const Navigation = (props) => {
 			</Link>
 		);
 	};
+	
+	const AllNavLinks = () => {
+		return (
+			<>
+				<NavLink
+					to="/services"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Services
+				</NavLink>
+				<NavLink
+					to="/portfolio"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Portfolio
+				</NavLink>
+				<NavLink
+					to="/tools-skills"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Tools &amp; Skills
+				</NavLink>
+				<NavLink
+					to="/team/"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Team
+				</NavLink>
+				<NavLink
+					to="/careers/"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Careers
+				</NavLink>
+				<NavLink
+					to="/community-service/"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Community Service
+				</NavLink>
+				<NavLink
+					to="/contact/"
+					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				>
+					Contact
+				</NavLink>
+			</>
+		);
+	};
 
 	const { active } = state;
 	const { subNav } = props;
@@ -148,42 +197,7 @@ export const Navigation = (props) => {
 							<div className="hidden sm:block sm:ml-6">
 								<div className="flex space-x-4">
 									{/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-									<NavLink
-										to="/portfolio"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Portfolio
-									</NavLink>
-									<NavLink
-										to="/tools-skills"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Tools &amp; Skills
-									</NavLink>
-									<NavLink
-										to="/team/"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Team
-									</NavLink>
-									<NavLink
-										to="/careers/"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Careers
-									</NavLink>
-									<NavLink
-										to="/community-service/"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Community Service
-									</NavLink>
-									<NavLink
-										to="/contact/"
-										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-									>
-										Contact
-									</NavLink>
+									<AllNavLinks />
 								</div>
 							</div>
 						</div>
@@ -196,43 +210,7 @@ export const Navigation = (props) => {
 		*/}
 				<div className="hidden sm:hidden">
 					<div className="px-2 pt-2 pb-3 space-y-1">
-						{/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-						<NavLink
-							to="/portfolio"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Portfolio
-						</NavLink>
-						<NavLink
-							to="/tools-skills"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Tools &amp; Skills
-						</NavLink>
-						<NavLink
-							to="/team/"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Team
-						</NavLink>
-						<NavLink
-							to="/careers/"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Careers
-						</NavLink>
-						<NavLink
-							to="/community-service/"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Community Service
-						</NavLink>
-						<NavLink
-							to="/contact/"
-							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-						>
-							Contact
-						</NavLink>
+						<AllNavLinks />
 					</div>
 				</div>
 			</nav>
