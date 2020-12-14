@@ -52,7 +52,6 @@ export const Navigation = (props) => {
 	};
 
 	const NavLink = ({ to, className, children, ...props }) => {
-		console.log(to, state.currentPath, to === state.currentPath);
 		return <Link
 			to={to}
 			className={`NavLink ${
