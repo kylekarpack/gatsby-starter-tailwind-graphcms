@@ -35,7 +35,7 @@ export const Page = ({ page, excerpt, readMore, height, className }) => {
 				/>
 			</div>
 			<div className="px-6 py-4">
-				<div className="font-bold text-lg leading-5 mb-2">
+				<div className={`font-bold text-lg leading-5 ${page.frontmatter.subtitle || page.frontmatter.excerpt && "mb-2"}`}>
 					{page.frontmatter.title}
 				</div>
 				{page.frontmatter.subtitle && (

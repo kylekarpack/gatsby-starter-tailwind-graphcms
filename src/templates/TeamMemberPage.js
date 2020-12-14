@@ -67,12 +67,13 @@ export default TeamMemberPage;
 export const pageQuery = graphql`
 	query TeamMemberPage($id: String!) {
 		images: allImageSharp(
-			filter: { resolutions: { aspectRatio: { gt: 3 } } } # banner images by aspect
+			filter: {
+				fluid: { src: { glob: "**/*.jpg" } }
+				resolutions: { aspectRatio: { gt: 3 } }
+			} # banner images by aspect
 		) {
 			nodes {
-				fluid(
-					duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
-				) {
+				fluid(duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
 					...GatsbyImageSharpFluid
 				}
 			}

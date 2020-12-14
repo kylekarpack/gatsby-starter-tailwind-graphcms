@@ -1,5 +1,4 @@
 import "./PagePreview.css";
-import "./Portfolio.css";
 
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
@@ -59,12 +58,12 @@ const Portfolio = ({ category, excerpt, height }) => {
 	return (
 		<div className="Portfolio">
 			{isAll(category) && (
-				<div className="Filters">
+				<div className="flex justify-center flex-wrap mb-12">
 					{filters.map((el, i) => (
 						<button
 							key={i}
 							type="button"
-							className={`filter ${filter === el ? "active" : ""}`}
+							className={`inline-block px-2 py-1 mx-1 mb-1 text-xs text-center text-white transition bg-gray-900 rounded shadow ripple hover:shadow-lg hover:bg-primary focus:outline-none ${filter === el ? "bg-primary" : ""}`}
 							onClick={() => setFilter(el)}
 						>
 							{el}
