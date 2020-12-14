@@ -1,4 +1,3 @@
-import "modern-normalize/modern-normalize.css";
 import "./globalStyles.css";
 
 import React, { Fragment } from "react";

@@ -25,7 +25,7 @@ export const Page = ({ page, excerpt, readMore, height, className }) => {
 		page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
 	return (
 		<Link
-			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl transition duration-500 transition-all my-2 ${className}`}
+			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${className}`}
 			to={page.fields.slug}
 		>
 			<div className="Background">

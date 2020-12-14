@@ -101,6 +101,10 @@ h6 {
 	h5 {
 		@apply text-base;
 	}
+	ul {
+		@apply list-disc;
+		@apply list-inside;
+	}
 	.container {
 		@apply mx-auto;
 		@apply px-4;

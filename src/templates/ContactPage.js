@@ -1,13 +1,14 @@
-import React from "react";
-import { MapPin, Smartphone, Mail } from "react-feather";
-import { graphql } from "gatsby";
-
-import PageHeader from "../components/PageHeader";
-import FormSimpleAjax from "../components/FormSimpleAjax";
-import Content from "../components/Content";
-import Map from "../components/Map";
-import Layout from "../components/Layout";
 import "./ContactPage.css";
+
+import { Mail, MapPin, Smartphone } from "react-feather";
+
+import Content from "../components/Content";
+import FormSimpleAjax from "../components/FormSimpleAjax";
+import Layout from "../components/Layout";
+import Map from "../components/Map";
+import PageHeader from "../components/PageHeader";
+import React from "react";
+import { graphql } from "gatsby";
 
 // Export Template for use in CMS preview
 export const ContactPageTemplate = ({
@@ -31,9 +32,9 @@ export const ContactPageTemplate = ({
 				subtitle={subtitle}
 				backgroundImage={featuredImage}
 			/>
-			<section className="section Contact--Section1">
-				<div className="container Contact--Section1--Container">
-					<div>
+			<section className="section">
+				<div className="container grid grid-cols-1 md:grid-cols-3 gap-12">
+					<div className="col-span-2">
 						<Content source={body} />
 						<div className="Contact--Details">
 							{address && (
