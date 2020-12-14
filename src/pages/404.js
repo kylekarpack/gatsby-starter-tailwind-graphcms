@@ -1,10 +1,10 @@
-import React from "react";
-import Helmet from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
-import _get from "lodash/get";
-import AlertTriangle from "react-feather/dist/icons/alert-triangle";
 
+import AlertTriangle from "react-feather/dist/icons/alert-triangle";
+import Helmet from "react-helmet";
 import Layout from "../components/Layout";
+import React from "react";
+import _get from "lodash/get";
 
 export default ({ children }) => (
 	<StaticQuery
@@ -21,7 +21,7 @@ export default ({ children }) => (
 					<title>404 – Page Not Found</title>
 				</Helmet>
 				<section className="section thick">
-					<div className="container skinny taCenter">
+					<div className="container skinny text-center">
 						<p>
 							<AlertTriangle size="5rem" />
 						</p>

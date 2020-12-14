@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Location } from "@reach/router";
-import { Link } from "gatsby";
-import { Menu, X } from "react-feather";
-import Logo from "./Logo";
-
 import "./Nav.css";
+
+import { Menu, X } from "react-feather";
+import React, { useEffect, useState } from "react";
+
+import { Link } from "gatsby";
+import { Location } from "@reach/router";
+import Logo from "./Logo";
 
 export const Navigation = (props) => {
 	const [state, setState] = useState({
@@ -75,7 +76,7 @@ export const Navigation = (props) => {
 
 	return (
 		<>
-			<nav className="bg-green-700">
+			<nav className="bg-primary">
 				<div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
 					<div className="relative flex items-center justify-between h-16">
 						<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -149,37 +150,37 @@ export const Navigation = (props) => {
 									{/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
 									<NavLink
 										to="/portfolio"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Portfolio
 									</NavLink>
 									<NavLink
 										to="/tools-skills"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Tools &amp; Skills
 									</NavLink>
 									<NavLink
 										to="/team/"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Team
 									</NavLink>
 									<NavLink
 										to="/careers/"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Careers
 									</NavLink>
 									<NavLink
 										to="/community-service/"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Community Service
 									</NavLink>
 									<NavLink
 										to="/contact/"
-										className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+										className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 									>
 										Contact
 									</NavLink>

@@ -1,7 +1,7 @@
-import React from "react";
+import "./PostSection.css";
 
 import PostCard from "../components/PostCard";
-import "./PostSection.css";
+import React from "react";
 
 class PostSection extends React.Component {
 	static defaultProps = {
@@ -38,7 +38,7 @@ class PostSection extends React.Component {
 					</div>
 				)}
 				{showLoadMore && visiblePosts.length < posts.length && (
-					<div className="taCenter">
+					<div className="text-center">
 						<button className="button" onClick={this.increaseLimit}>
 							{loadMoreTitle}
 						</button>

@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-import Meta from "./Meta";
-import Nav from "./Nav";
-import Footer from "./Footer";
-
-import "blueprint-css/dist/blueprint.css";
 import "modern-normalize/modern-normalize.css";
 import "./globalStyles.css";
+
+import React, { Fragment } from "react";
+import { StaticQuery, graphql } from "gatsby";
+
+import Footer from "./Footer";
+import Helmet from "react-helmet";
+import Meta from "./Meta";
+import Nav from "./Nav";
 
 export default ({ children, meta, title }) => {
 	return (

@@ -77,6 +77,36 @@ h6 {
 	margin-bottom: 0.5em;
 }
 
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-semibold;
+	}
+	h1 {
+		@apply text-4xl;
+	}
+	h2 {
+		@apply text-2xl;
+	}
+	h3 {
+		@apply text-xl;
+	}
+	h4 {
+		@apply text-lg;
+	}
+	h5 {
+		@apply text-base;
+	}
+	.container {
+		@apply mx-auto;
+		@apply px-4;
+	}
+}
+
 pre {
 	background: var(--lightGrey);
 	line-height: 1.45;
@@ -113,25 +143,6 @@ blockquote {
 }
 
 /* Utility Classes */
-.light {
-	background-color: var(--lightGrey);
-}
-.white {
-	background-color: white;
-}
-.dark {
-	background-color: var(--primary);
-	color: white;
-}
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-	color: white;
-}
-
 .relative {
 	position: relative;
 }
@@ -189,18 +200,6 @@ blockquote {
 	.section.thin {
 		padding: 1.5rem 0;
 	}
-}
-
-.container {
-	max-width: 1200px;
-	width: 90%;
-	margin: 0 auto;
-}
-.container.skinny {
-	max-width: 960px;
-}
-.container.skinnier {
-	max-width: 520px;
 }
 
 /* Buttons */

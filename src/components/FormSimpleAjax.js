@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import Helmet from "react-helmet";
-import { stringify } from "qs";
-import { serialize } from "dom-form-serializer";
 
-import "./Form.css";
+import Helmet from "react-helmet";
+import { serialize } from "dom-form-serializer";
+import { stringify } from "qs";
 
 class Form extends React.Component {
 	static defaultProps = {
@@ -74,33 +73,55 @@ class Form extends React.Component {
 					{this.state.alert && (
 						<div className="Form--Alert">{this.state.alert}</div>
 					)}
-					<label className="Form--Label">
+
+					<div className="flex flex-col mb-6">
+						<label
+							htmlFor="name"
+							className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+						>
+							Your Name
+						</label>
 						<input
-							className="Form--Input Form--InputText"
+							id="name"
 							type="text"
-							placeholder="Name"
 							name="name"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							placeholder="Name"
 							required
 						/>
-					</label>
-					<label className="Form--Label">
+					</div>
+					<div className="flex flex-col mb-6">
+						<label
+							htmlFor="email"
+							className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+						>
+							Email Address
+						</label>
 						<input
-							className="Form--Input Form--InputText"
+							id="email"
 							type="email"
-							placeholder="Email"
-							name="emailAddress"
+							name="email"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							placeholder="Email Address"
 							required
 						/>
-					</label>
-					<label className="Form--Label">
+					</div>
+					<div className="flex flex-col mb-6">
+						<label
+							htmlFor="message"
+							className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+						>
+							E-Mail Address
+						</label>
 						<textarea
-							className="Form--Input Form--Textarea Form--InputText"
-							placeholder="Message"
+							id="message"
 							name="message"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							placeholder="Message"
 							rows="10"
 							required
-						/>
-					</label>
+						></textarea>
+					</div>
 					<div
 						className="g-recaptcha"
 						data-sitekey="6LfKN3kUAAAAAGIM1CbXmaRZx3LIh_W2twn1tzkA"
@@ -109,12 +130,14 @@ class Form extends React.Component {
 						<input type="hidden" name="subject" value={subject} />
 					)}
 					<input type="hidden" name="form-name" value={name} />
-					<input
-						className="Button Form--SubmitButton"
+
+					<button
 						type="submit"
-						value="Send"
 						disabled={this.state.disabled}
-					/>
+						className="text-white text-sm sm:text-base bg-primary hover:bg-green-700 rounded py-2 px-4 transition duration-150 ease-in"
+					>
+						Send
+					</button>
 				</form>
 			</Fragment>
 		);

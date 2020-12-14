@@ -1,8 +1,10 @@
-import { graphql, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
-import { Page } from "./PagePreview";
 import "./PagePreview.css";
 import "./Portfolio.css";
+
+import React, { useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
+import { Page } from "./PagePreview";
 
 const isAll = (category) => {
 	return !category || category === "All" || category === "*";
@@ -70,7 +72,7 @@ const Portfolio = ({ category, excerpt, height }) => {
 					))}
 				</div>
 			)}
-			<div bp="grid 1 6@sm 4@md 3@lg">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				{portfolioItems.map((page, i) => (
 					<Page page={page} excerpt={excerpt} height={height} readMore key={i} />
 				))}
