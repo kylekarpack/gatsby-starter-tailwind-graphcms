@@ -33,15 +33,6 @@
   background: var(--white);
 }
 
-.Form--Label > span {
-  position: absolute;
-  left: 2rem;
-  top: 1.5rem;
-  transition: 0.3s ease all;
-  opacity: 0.8;
-  z-index: -1;
-}
-
 .Form--Input {
   font-family: inherit;
   flex-grow: 1;
@@ -57,24 +48,6 @@
   width: 100%;
   transition: 0.3s ease all;
   background: transparent;
-}
-
-.Form--InputText:valid,
-.Form--InputText:invalid:not(:empty),
-.Form--InputText:active,
-.Form--InputText:focus {
-  padding-bottom: 0.5rem;
-  padding-top: 2.5rem;
-}
-
-.Form--InputText:valid + span,
-.Form--InputText:not(:empty) + span,
-.Form--InputText:invalid:not(:empty) + span,
-.Form--InputText:active + span,
-.Form--InputText:focus + span {
-  top: 0;
-  left: 0.5rem;
-  font-size: 1.2rem;
 }
 
 .Form--Input:required:invalid:not(:empty) {
@@ -105,12 +78,7 @@
 
 .Form--Input:focus {
   outline: none;
-  border-color: black;
-}
-
-.Form--Input:focus {
-  outline: none;
-  border-color: black;
+  border-color: var(--primary);
 }
 
 .Form--Input[disabled],
@@ -118,10 +86,6 @@
   opacity: 0.4;
   pointer-events: none;
   cursor: progress;
-}
-
-.Form--Input::placeholder {
-  color: transparent;
 }
 
 .Form--Alert {
