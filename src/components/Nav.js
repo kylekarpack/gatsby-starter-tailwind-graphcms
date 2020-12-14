@@ -76,43 +76,43 @@ export const Navigation = (props) => {
 			<>
 				<NavLink
 					to="/services"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Services
 				</NavLink>
 				<NavLink
 					to="/portfolio"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Portfolio
 				</NavLink>
 				<NavLink
 					to="/tools-skills"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Tools &amp; Skills
 				</NavLink>
 				<NavLink
 					to="/team/"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Team
 				</NavLink>
 				<NavLink
 					to="/careers/"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Careers
 				</NavLink>
 				<NavLink
 					to="/community-service/"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Community Service
 				</NavLink>
 				<NavLink
 					to="/contact/"
-					className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
 				>
 					Contact
 				</NavLink>

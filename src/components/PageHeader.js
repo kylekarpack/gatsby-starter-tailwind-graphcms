@@ -20,7 +20,7 @@ const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className 
 						)}
 					</div>
 					{breadcrumbs && crumbs && (
-						<div className="Breadcrumbs">
+						<div className="Breadcrumbs hidden md:block">
 							<Breadcrumb
 								crumbs={crumbs}
 								crumbSeparator=" / "
