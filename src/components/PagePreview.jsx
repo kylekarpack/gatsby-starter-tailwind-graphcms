@@ -19,12 +19,13 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 
 export const Page = ({ page, excerpt, readMore, height, className }) => {
 	height = height || "200px";
+	const image = page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
 	return (
 		<Link className={`Page ${className}`} to={page.fields.slug}>
 			<div className="Background">
 				<BackgroundImage
 					style={{ height }}
-					fluid={page.frontmatter?.featuredImage?.childImageSharp?.fluid}
+					fluid={image?.childImageSharp?.fluid}
 				/>
 			</div>
 			<div className="Title">
@@ -65,6 +66,13 @@ const PagePreview = ({ type, excerpt, height }) => {
 						title
 						subtitle
 						type
+						previewImage {
+							childImageSharp {
+								fluid(maxWidth: 300, cropFocus: NORTH) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
 						featuredImage {
 							childImageSharp {
 								fluid(maxWidth: 300, cropFocus: NORTH) {
