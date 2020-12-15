@@ -1,16 +1,11 @@
-import "./Nav.css";
-
-import { Menu, X } from "react-feather";
 import React, { useEffect, useState } from "react";
 
 import { Link } from "gatsby";
 import { Location } from "@reach/router";
-import Logo from "./Logo";
 
 export const Navigation = (props) => {
 	const [state, setState] = useState({
 		active: false,
-		activeSubNav: false,
 		currentPath: false
 	});
 
@@ -33,25 +28,6 @@ export const Navigation = (props) => {
 		}
 	};
 
-	const toggleSubNav = (subNav, activeState) => {
-		let active;
-		if (typeof activeState !== "undefined") {
-			active = activeState ? subNav : false;
-		} else {
-			active = state.activeSubNav === subNav ? false : subNav;
-		}
-		setState({
-			activeSubNav: active
-		});
-	};
-
-	const keyToggleSubNav = (e, subNav) => {
-		// key o is for open so you can enter key to open
-		if (e.keyCode === 79 || e.keyCode === 27) {
-			toggleSubNav(subNav);
-		}
-	};
-
 	const NavLink = ({ to, className, children, ...props }) => {
 		return (
 			<Link
@@ -70,16 +46,46 @@ export const Navigation = (props) => {
 			</Link>
 		);
 	};
-	
+
 	const AllNavLinks = () => {
 		return (
 			<>
-				<NavLink
-					to="/services"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
-					Services
-				</NavLink>
+				<div className="group relative inline-block">
+					<NavLink
+						to="/services"
+						className="text-gray-300 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium inline-flex items-center"
+					>
+						Services{" "}
+						<svg
+							className="fill-current h-4 w-4 ml-2"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+						>
+							<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+						</svg>
+					</NavLink>
+					<div className="hidden group-hover:block absolute z-10 w-screen max-w-md">
+						<div className="rounded overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
+							<div className="relative bg-white">
+								<NavLink
+									to="/services"
+									className="block px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-no-wrap"
+								>
+									All Services
+								</NavLink>
+								{subNav.services.map(({ slug, title }, index) => (
+									<NavLink
+										key={`posts-subnav-link-${index}`}
+										to={slug}
+										className="block px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-no-wrap"
+									>
+										{title}
+									</NavLink>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
 				<NavLink
 					to="/portfolio"
 					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
@@ -120,83 +126,30 @@ export const Navigation = (props) => {
 		);
 	};
 
-	const { active } = state;
 	const { subNav } = props;
 
 	return (
 		<>
 			<nav className="bg-primary">
-				<div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+				<div className="hidden sm:block max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
 					<div className="relative flex items-center justify-between h-16">
-						<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-							{/* Mobile menu button*/}
-							<button
-								className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-								aria-expanded="false"
-							>
-								<span className="sr-only">Open main menu</span>
-								{/* Icon when menu is closed. */}
-								{/*
-				Heroicon name: menu
-	
-				Menu open: "hidden", Menu closed: "block"
-			*/}
-								<svg
-									className="block h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M4 6h16M4 12h16M4 18h16"
-									/>
-								</svg>
-								{/* Icon when menu is open. */}
-								{/*
-				Heroicon name: x
-	
-				Menu open: "block", Menu closed: "hidden"
-			*/}
-								<svg
-									className="hidden h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M6 18L18 6M6 6l12 12"
-									/>
-								</svg>
-							</button>
-						</div>
 						<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 							<div className="flex-shrink-0 flex items-center ">
 								<a href="/">
 									<img
-										className="block lg:hidden h-8 w-8"
+										className="block md:hidden h-8 w-8"
 										src="/favicon.png"
 										alt="Workflow"
 									/>
 									<img
-										className="hidden lg:block h-8 w-48"
+										className="hidden md:block h-8 w-48"
 										src="/images/logo.svg"
 										alt="Workflow"
 									/>
 								</a>
 							</div>
-							<div className="hidden sm:block sm:ml-6">
+							<div className="sm:block sm:ml-6">
 								<div className="flex space-x-4">
-									{/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
 									<AllNavLinks />
 								</div>
 							</div>
@@ -208,82 +161,13 @@ export const Navigation = (props) => {
 	
 			Menu open: "block", Menu closed: "hidden"
 		*/}
-				<div className="hidden sm:hidden">
+				<div className="block sm:hidden">
 					<div className="px-2 pt-2 pb-3 space-y-1">
 						<AllNavLinks />
 					</div>
 				</div>
 			</nav>
 		</>
-	);
-
-	return (
-		<nav className={`Nav ${active ? "Nav-active" : ""}`}>
-			<div className="Nav--Container container">
-				<Link
-					to="/"
-					onClick={handleLinkClick}
-					onKeyDown={handleLinkKeyDown}
-					tabIndex={0}
-					aria-label="Navigation"
-					role="button"
-				>
-					<Logo />
-				</Link>
-				<div className="Nav--Links">
-					<div
-						className={`Nav--Group ${
-							state.activeSubNav === "services" ? "active" : ""
-						}`}
-					>
-						<span
-							className={`NavLink Nav--GroupParent ${
-								props.location.pathname.includes("services")
-									? "active"
-									: ""
-							}`}
-							onMouseEnter={() => toggleSubNav("services", true)}
-							onMouseLeave={() => toggleSubNav("services", false)}
-							onClick={() => toggleSubNav("services")}
-							onKeyDown={(e) => keyToggleSubNav(e, "services")}
-							tabIndex={0}
-							aria-label="Navigation"
-							role="button"
-						>
-							<NavLink to="/services">Services</NavLink>
-							<div className="Nav--GroupLinks">
-								<NavLink to="/services/" className="Nav--GroupLink">
-									All Services
-								</NavLink>
-								{subNav.services.map(({ slug, title }, index) => (
-									<NavLink
-										to={slug}
-										key={"posts-subnav-link-" + index}
-										className="Nav--GroupLink"
-									>
-										{title}
-									</NavLink>
-								))}
-							</div>
-						</span>
-					</div>
-					<NavLink to="/portfolio">Portfolio</NavLink>
-					<NavLink to="/tools-skills">Tools &amp; Skills</NavLink>
-					<NavLink to="/team/">Team</NavLink>
-					<NavLink to="/careers/">Careers</NavLink>
-					<NavLink to="/community-service/">Community Service</NavLink>
-					<NavLink to="/contact/">Contact</NavLink>
-				</div>
-				<button
-					className="Button-blank Nav--MenuButton"
-					onClick={handleMenuToggle}
-					tabIndex={0}
-					aria-label="Navigation"
-				>
-					{active ? <X color="#fff" /> : <Menu color="#fff" />}
-				</button>
-			</div>
-		</nav>
 	);
 };
 

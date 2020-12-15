@@ -27,7 +27,7 @@ export const TeamMemberPageTemplate = ({
 
 			<section className="section">
 				<div className="container">
-					<div className="grid grid-cols-4 gap-6">
+					<div className="grid grid-cols-4 gap-12">
 						{featuredImage && (
 							<div className="col-span-4 sm:col-span-2 md:col-span-1">
 								<Img fluid={featuredImage.childImageSharp.fluid} />
