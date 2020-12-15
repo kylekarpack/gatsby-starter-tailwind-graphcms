@@ -154,9 +154,3 @@ blockquote {
 	font-style: italic;
 	border-left: 2px solid var(--primary);
 }
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-}

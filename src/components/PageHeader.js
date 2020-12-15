@@ -10,13 +10,13 @@ const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className 
 	const crumbs = pageContext?.breadcrumb?.crumbs;
 
 	return (
-		<div className={`PageHeader--Inner ${className}`}>
-			<div className="container relative">
-				<div className="flex justify-between items-center">
+		<div className={`bg-black bg-opacity-50 ${className}`}>
+			<div className="container relative animate-fade-in">
+				<div className="flex justify-between items-center text-white">
 					<div>
 						<h1 className="text-4xl font-bold m-0">{title}</h1>
 						{subtitle && (
-							<Content className="PageHeader--Subtitle" src={subtitle} />
+							<Content className="text-xl" src={subtitle} />
 						)}
 					</div>
 					{breadcrumbs && crumbs && (
