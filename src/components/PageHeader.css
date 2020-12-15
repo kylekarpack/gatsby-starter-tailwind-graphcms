@@ -1,14 +1,3 @@
-.PageHeader {
-	background-color: var(--darkGrey);
-	color: white;
-}
-
-.PageHeader .flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
 .PageHeader .Breadcrumbs ol li {
 	list-style-type: none;
 	display: inline-block;
@@ -27,34 +16,5 @@
 }
 
 .PageHeader .Breadcrumbs .breadcrumb__separator {
-	padding: 0 0.6rem;
-}
-
-.PageHeader .PageHeader--Inner {
-	background: rgba(0, 0, 0, 0.5);
-	padding: 12rem 0;
-}
-
-.PageHeader-large .PageHeader--Inner {
-	padding: 18rem 0;
-}
-
-.PageHeader-small .PageHeader--Inner {
-	padding: 6rem 0;
-}
-
-.PageHeader--Title {
-	font-size: 4rem;
-	font-weight: 600;
-	line-height: 1;
-	margin-bottom: 0;
-}
-
-.PageHeader--Subtitle {
-	font-weight: 400;
-	font-size: 1.8rem;
-}
-
-.PageHeader .container {
-	animation: fadeIn 0.5s ease-out;
+	padding: 0 0.4rem;
 }

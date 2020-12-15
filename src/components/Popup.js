@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from "react";
-import { X } from "react-feather";
-
 import "./Popup.css";
+
+import React, { Component, Fragment } from "react";
+
+import { X } from "react-feather";
 
 class Popup extends Component {
 	constructor(props) {
@@ -29,7 +30,7 @@ class Popup extends Component {
 		const { children } = this.props;
 		return (
 			<Fragment>
-				<div className="taCenter">
+				<div className="text-center">
 					<h3> Simple Popup Example</h3>
 					<div
 						className="Button"

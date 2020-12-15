@@ -1,25 +1,26 @@
+import "./PageHeader.css";
+
 import BackgroundImage from "gatsby-background-image";
+import { Breadcrumb } from "gatsby-plugin-breadcrumb";
+import Content from "./Content";
 import PropTypes from "prop-types";
 import React from "react";
-import Content from "./Content";
-import "./PageHeader.css";
-import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
-const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext }) => {
+const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className }) => {
 	const crumbs = pageContext?.breadcrumb?.crumbs;
 
 	return (
-		<div className="PageHeader--Inner">
-			<div className="container relative">
-				<div className="flex">
+		<div className={`bg-black bg-opacity-50 ${className}`}>
+			<div className="container relative animate-fade-in">
+				<div className="flex justify-between items-center text-white">
 					<div>
-						<h1 className="PageHeader--Title">{title}</h1>
+						<h1 className="text-4xl font-bold m-0">{title}</h1>
 						{subtitle && (
-							<Content className="PageHeader--Subtitle" src={subtitle} />
+							<Content className="text-xl" src={subtitle} />
 						)}
 					</div>
 					{breadcrumbs && crumbs && (
-						<div className="Breadcrumbs">
+						<div className="Breadcrumbs hidden md:block">
 							<Breadcrumb
 								crumbs={crumbs}
 								crumbSeparator=" / "
@@ -44,18 +45,21 @@ const PageHeader = ({
 	className = ""
 }) => {
 	if (large) {
-		className += " PageHeader-large";
+		className += " py-36";
 	} else if (small) {
-		className += " PageHeader-small";
+		className += " py-20";
+	} else {
+		className += " py-32";
 	}
 	return (
-		<div className={`PageHeader relative ${className}`}>
+		<div className={`PageHeader relative`}>
 			{backgroundImage ? (
 				<BackgroundImage
 					fluid={backgroundImage.childImageSharp.fluid}
 					size="cover"
 				>
 					<PageHeaderInner
+						className={className}
 						title={title}
 						subtitle={subtitle}
 						pageContext={pageContext}

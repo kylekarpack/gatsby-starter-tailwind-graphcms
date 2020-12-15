@@ -1,10 +1,9 @@
 import React from "react";
-import "./Footer.css";
 
 const Footer = () => (
 	<div>
-		<footer className="footer">
-			<div className="container">
+		<footer className="bg-gray-900">
+			<div className="container text-white py-12">
 				<h4>OUR VALUES AND COMMITMENTS</h4>
 				<p>
 					Provide exceptional service to our clients
@@ -21,9 +20,9 @@ const Footer = () => (
 				</p>
 			</div>
 
-			<div className="bottom">
-				<div className="container taRight">
-					<span>
+			<div className="bg-gray-800 text-white py-2">
+				<div className="container text-right">
+					<span className="text-sm">
 						© Copyright {new Date().getFullYear()} Watershed Science &amp;
 						Engineering
 					</span>

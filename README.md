@@ -1,6 +1,6 @@
 # Watershed Science & Engineering
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0f83a204-0489-4f67-ba53-69f58f10c966/deploy-status)](https://app.netlify.com/sites/silly-wiles-62dd0b/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83ad2758-12c2-4cbe-8235-d388de5df5b4/deploy-status)](https://app.netlify.com/sites/watershedse/deploys)
 
 Watershed Science & Engineering's new website
 

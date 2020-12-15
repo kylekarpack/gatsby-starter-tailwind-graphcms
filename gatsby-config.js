@@ -6,6 +6,7 @@ module.exports = {
 		siteUrl: "https://watershedse.com"
 	},
 	plugins: [
+		"gatsby-plugin-postcss",
 		"gatsby-plugin-react-helmet",
 		"gatsby-transformer-yaml",
 		{

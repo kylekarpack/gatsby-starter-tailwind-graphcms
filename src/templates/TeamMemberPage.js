@@ -1,9 +1,9 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import React from "react";
 import Content from "../components/Content";
+import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
+import React from "react";
+import { graphql } from "gatsby";
 
 // Export Template for use in CMS preview
 export const TeamMemberPageTemplate = ({
@@ -27,13 +27,13 @@ export const TeamMemberPageTemplate = ({
 
 			<section className="section">
 				<div className="container">
-					<div bp="grid">
+					<div className="grid grid-cols-4 gap-12">
 						{featuredImage && (
-							<div bp="3 padding-right--lg">
+							<div className="col-span-4 sm:col-span-2 lg:col-span-1">
 								<Img fluid={featuredImage.childImageSharp.fluid} />
 							</div>
 						)}
-						<div bp="9">
+						<div className="col-span-4 sm:col-span-2 lg:col-span-3">
 							<Content source={body} />
 						</div>
 					</div>
@@ -67,12 +67,13 @@ export default TeamMemberPage;
 export const pageQuery = graphql`
 	query TeamMemberPage($id: String!) {
 		images: allImageSharp(
-			filter: { resolutions: { aspectRatio: { gt: 3 } } } # banner images by aspect
+			filter: {
+				fluid: { src: { glob: "**/*.jpg" } }
+				resolutions: { aspectRatio: { gt: 3 } }
+			} # banner images by aspect
 		) {
 			nodes {
-				fluid(
-					duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }
-				) {
+				fluid(duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
 					...GatsbyImageSharpFluid
 				}
 			}

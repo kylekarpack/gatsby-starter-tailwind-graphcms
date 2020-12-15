@@ -1,7 +1,8 @@
-import { graphql, useStaticQuery, Link } from "gatsby";
+
+import { Link, graphql, useStaticQuery } from "gatsby";
+
 import BackgroundImage from "gatsby-background-image";
 import React from "react";
-import "./PagePreview.css";
 
 export const Excerpt = ({ text, minLength = 100 }) => {
 	text = text || "";
@@ -19,30 +20,36 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 
 export const Page = ({ page, excerpt, readMore, height, className }) => {
 	height = height || "200px";
-	const image = page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
+	const image =
+		page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
 	return (
-		<Link className={`Page ${className}`} to={page.fields.slug}>
+		<Link
+			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${className}`}
+			to={page.fields.slug}
+		>
 			<div className="Background">
 				<BackgroundImage
 					style={{ height }}
 					fluid={image?.childImageSharp?.fluid}
 				/>
 			</div>
-			<div className="Title">
-				<div className="Name">{page.frontmatter.title}</div>
+			<div className="px-6 py-4">
+				<div className={`font-bold text-lg leading-5 ${page.frontmatter.subtitle || page.frontmatter.excerpt && "mb-2"}`}>
+					{page.frontmatter.title}
+				</div>
 				{page.frontmatter.subtitle && (
-					<div className="Subtitle">{page.frontmatter.subtitle}</div>
+					<div className="font-normal text-sm leading-4 mb-2">
+						{page.frontmatter.subtitle}
+					</div>
 				)}
-			</div>
-			<div className="Caption">
 				{excerpt && (
-					<p className="Excerpt">
+					<p className="text-black text-xs">
 						<Excerpt text={page.excerpt} />
 					</p>
 				)}
 				{readMore && (
-					<small className="ReadMore">
-						<Link to={page.fields.slug}>Read more</Link>
+					<small className="text-primary text-sm font-bold cursor-pointer">
+						Read more
 					</small>
 				)}
 			</div>
@@ -91,7 +98,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 	}
 
 	return (
-		<div bp="grid 6@sm 4@md 3@lg">
+		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{pages.map((page, i) => (
 				<Page
 					page={page}
