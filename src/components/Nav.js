@@ -50,7 +50,8 @@ export const Navigation = (props) => {
 	const AllNavLinks = () => {
 		const navClass =
 			"text-gray-300 whitespace-nowrap hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium outline-none border-none";
-		const navSubClass = "block px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap outline-none border-none";
+		const navSubClass =
+			"block px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap outline-none border-none";
 
 		return (
 			<>
@@ -66,22 +67,20 @@ export const Navigation = (props) => {
 						</svg>
 					</NavLink>
 					<div className="hidden group-hover:block absolute z-50 w-screen max-w-md">
-						<div className="rounded overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
-							<div className="relative bg-white">
+						<ul className="bg-white list-none shadow-lg">
+							<li>
 								<NavLink to="/services" className={navSubClass}>
 									All Services
 								</NavLink>
-								{subNav.services.map(({ slug, title }, index) => (
-									<NavLink
-										key={`posts-subnav-link-${index}`}
-										to={slug}
-										className={navSubClass}
-									>
+							</li>
+							{subNav.services.map(({ slug, title }, index) => (
+								<li key={`posts-subnav-link-${index}`}>
+									<NavLink to={slug} className={navSubClass}>
 										{title}
 									</NavLink>
-								))}
-							</div>
-						</div>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
 				<NavLink to="/portfolio" className={navClass}>
@@ -110,7 +109,7 @@ export const Navigation = (props) => {
 
 	return (
 		<>
-			<nav className="bg-primary">
+			<nav className="bg-primary sticky top-0 z-50">
 				<div className="hidden sm:block max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
 					<div className="relative flex items-center justify-between h-16">
 						<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
