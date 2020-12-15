@@ -1,4 +1,3 @@
-import "./PagePreview.css";
 
 import { Link, graphql, useStaticQuery } from "gatsby";
 
