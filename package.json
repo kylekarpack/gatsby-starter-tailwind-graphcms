@@ -64,7 +64,7 @@
   "main": "n/a",
   "scripts": {
     "start": "npm run clean && npm run develop",
-    "build": "gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
     "develop": "gatsby develop",
     "clean": "del-cli .cache public",
     "serve": "gatsby serve",
@@ -73,6 +73,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "del-cli": "^3.0.0",
     "eslint": "^7.14.0",
     "eslint-plugin-react": "^7.21.5",

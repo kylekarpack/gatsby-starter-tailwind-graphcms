@@ -3630,11 +3630,6 @@ bluebird@^3.0.5, bluebird@^3.5.5, bluebird@^3.7.2:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
-blueprint-css@^3.0.0-beta.0:
-  version "3.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/blueprint-css/-/blueprint-css-3.0.0-beta.0.tgz#e5558337afacc1f1f8627252dc4a2e8ef9de63c7"
-  integrity sha512-V9rLWZqufsu1ZEtqxs5WagWn+k7s3kiKyrYnIHjkoNVqXDpA1PAvmhLe6g8t+ct9VZl2JjspaZ0XqVCNJSyosA==
-
 bmp-js@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/bmp-js/-/bmp-js-0.1.0.tgz#e05a63f796a6c1ff25f4771ec7adadc148c07233"
@@ -4932,7 +4927,7 @@ create-gatsby@^0.0.1:
 
 create-gatsby@^0.1.0:
   version "0.1.0"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/create-gatsby/-/create-gatsby-0.1.0.tgz#66beb1776f9fa8403b182bba4b51a57b577fe8e5"
+  resolved "https://registry.yarnpkg.com/create-gatsby/-/create-gatsby-0.1.0.tgz#66beb1776f9fa8403b182bba4b51a57b577fe8e5"
   integrity sha1-Zr6xd2+fqEA7GCu6S1Gle1d/6OU=
 
 create-hash@^1.1.0, create-hash@^1.1.2, create-hash@^1.2.0:
@@ -4974,6 +4969,13 @@ create-react-context@0.3.0, create-react-context@^0.3.0:
     gud "^1.0.0"
     warning "^4.0.3"
 
+cross-env@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-7.0.3.tgz#865264b29677dc015ba8418918965dd232fc54cf"
+  integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
+  dependencies:
+    cross-spawn "^7.0.1"
+
 cross-fetch@3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.6.tgz#3a4040bc8941e653e0e9cf17f29ebcd177d3365c"
@@ -5009,7 +5011,7 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.0, cross-spawn@^7.0.2:
+cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -7413,7 +7415,7 @@ gatsby-cli@^2.14.0:
 
 gatsby-cli@^2.15.1:
   version "2.15.1"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/gatsby-cli/-/gatsby-cli-2.15.1.tgz#f51465db7772f9855346a585a82e82a977e95361"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.15.1.tgz#f51465db7772f9855346a585a82e82a977e95361"
   integrity sha1-9RRl23dy+YVTRqWFqC6CqXfpU2E=
   dependencies:
     "@babel/code-frame" "^7.10.4"
@@ -7470,7 +7472,7 @@ gatsby-core-utils@^1.3.8, gatsby-core-utils@^1.5.0:
 
 gatsby-core-utils@^1.6.0:
   version "1.6.0"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/gatsby-core-utils/-/gatsby-core-utils-1.6.0.tgz#ec719e1a1d409ce69f89883e4334922f3b5c720e"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.6.0.tgz#ec719e1a1d409ce69f89883e4334922f3b5c720e"
   integrity sha1-7HGeGh1AnOafiYg+QzSSLztccg4=
   dependencies:
     ci-info "2.0.0"
@@ -7810,7 +7812,7 @@ gatsby-recipes@^0.4.0:
 
 gatsby-recipes@^0.5.1:
   version "0.5.1"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/gatsby-recipes/-/gatsby-recipes-0.5.1.tgz#d6e3d07cc7d0dc0b073e5522e4c3c3d67686e0b0"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.5.1.tgz#d6e3d07cc7d0dc0b073e5522e4c3c3d67686e0b0"
   integrity sha1-1uPQfMfQ3AsHPlUi5MPD1naG4LA=
   dependencies:
     "@babel/core" "^7.12.3"
@@ -7955,7 +7957,7 @@ gatsby-telemetry@^1.5.0:
 
 gatsby-telemetry@^1.6.0:
   version "1.6.0"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/gatsby-telemetry/-/gatsby-telemetry-1.6.0.tgz#bd924b0f0b255ad3cd16142864b839ce0b4f043c"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.6.0.tgz#bd924b0f0b255ad3cd16142864b839ce0b4f043c"
   integrity sha1-vZJLDwslWtPNFhQoZLg5zgtPBDw=
   dependencies:
     "@babel/code-frame" "^7.10.4"
@@ -9868,7 +9870,7 @@ is-npm@^4.0.0:
 
 is-npm@^5.0.0:
   version "5.0.0"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/is-npm/-/is-npm-5.0.0.tgz#43e8d65cc56e1b67f8d47262cf667099193f45a8"
+  resolved "https://registry.yarnpkg.com/is-npm/-/is-npm-5.0.0.tgz#43e8d65cc56e1b67f8d47262cf667099193f45a8"
   integrity sha1-Q+jWXMVuG2f41HJiz2ZwmRk/Rag=
 
 is-number@^3.0.0:
@@ -17879,7 +17881,7 @@ update-notifier@^4.1.3:
 
 update-notifier@^5.0.1:
   version "5.0.1"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npmjs-remote/update-notifier/-/update-notifier-5.0.1.tgz#1f92d45fb1f70b9e33880a72dd262bc12d22c20d"
+  resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-5.0.1.tgz#1f92d45fb1f70b9e33880a72dd262bc12d22c20d"
   integrity sha1-H5LUX7H3C54ziApy3SYrwS0iwg0=
   dependencies:
     boxen "^4.2.0"
