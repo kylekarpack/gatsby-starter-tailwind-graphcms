@@ -48,16 +48,17 @@ export const Navigation = (props) => {
 	};
 
 	const AllNavLinks = () => {
+		const navClass =
+			"text-gray-300 whitespace-nowrap hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium outline-none border-none";
+		const navSubClass = "block px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap outline-none border-none";
+
 		return (
 			<>
-				<div className="group relative inline-block">
-					<NavLink
-						to="/services"
-						className="text-gray-300 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium inline-flex items-center"
-					>
+				<div className="group relative inline-block overflow-visible">
+					<NavLink to="/services" className={navClass}>
 						Services{" "}
 						<svg
-							className="fill-current h-4 w-4 ml-2"
+							className="fill-current inline-block h-4 w-4 ml-2"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 						>
@@ -67,17 +68,14 @@ export const Navigation = (props) => {
 					<div className="hidden group-hover:block absolute z-50 w-screen max-w-md">
 						<div className="rounded overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
 							<div className="relative bg-white">
-								<NavLink
-									to="/services"
-									className="block px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-no-wrap"
-								>
+								<NavLink to="/services" className={navSubClass}>
 									All Services
 								</NavLink>
 								{subNav.services.map(({ slug, title }, index) => (
 									<NavLink
 										key={`posts-subnav-link-${index}`}
 										to={slug}
-										className="block px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-no-wrap"
+										className={navSubClass}
 									>
 										{title}
 									</NavLink>
@@ -86,40 +84,22 @@ export const Navigation = (props) => {
 						</div>
 					</div>
 				</div>
-				<NavLink
-					to="/portfolio"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/portfolio" className={navClass}>
 					Portfolio
 				</NavLink>
-				<NavLink
-					to="/tools-skills"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/tools-skills" className={navClass}>
 					Tools &amp; Skills
 				</NavLink>
-				<NavLink
-					to="/team/"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/team/" className={navClass}>
 					Team
 				</NavLink>
-				<NavLink
-					to="/careers/"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/careers/" className={navClass}>
 					Careers
 				</NavLink>
-				<NavLink
-					to="/community-service/"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/community-service/" className={navClass}>
 					Community Service
 				</NavLink>
-				<NavLink
-					to="/contact/"
-					className="text-gray-300 hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium"
-				>
+				<NavLink to="/contact/" className={navClass}>
 					Contact
 				</NavLink>
 			</>
