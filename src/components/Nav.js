@@ -32,14 +32,14 @@ export const Navigation = (props) => {
 		return (
 			<Link
 				to={to}
-				className={`NavLink ${to === state.currentPath ? "active" : ""} ${
-					className || ""
-				}`}
+				className={`${
+					to === state.currentPath ? "bg-primary-dark text-white" : ""
+				} ${className || ""}`}
 				onClick={handleLinkClick}
 				onKeyDown={handleLinkKeyDown}
 				tabIndex={0}
 				aria-label="Navigation"
-				role="button"
+				role="link"
 				{...props}
 			>
 				{children}
@@ -64,7 +64,7 @@ export const Navigation = (props) => {
 							<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
 						</svg>
 					</NavLink>
-					<div className="hidden group-hover:block absolute z-10 w-screen max-w-md">
+					<div className="hidden group-hover:block absolute z-50 w-screen max-w-md">
 						<div className="rounded overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
 							<div className="relative bg-white">
 								<NavLink
@@ -142,16 +142,14 @@ export const Navigation = (props) => {
 										alt="Workflow"
 									/>
 									<img
-										className="hidden md:block h-8 w-48"
+										className="hidden md:block h-8 w-48 lg:h-12 lg:w-56"
 										src="/images/logo.svg"
 										alt="Workflow"
 									/>
 								</a>
 							</div>
-							<div className="sm:block sm:ml-6">
-								<div className="flex space-x-4">
-									<AllNavLinks />
-								</div>
+							<div className="sm:ml-6 flex space-x-2 lg:space-x-4 self-center">
+								<AllNavLinks />
 							</div>
 						</div>
 					</div>

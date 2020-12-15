@@ -1,5 +1,6 @@
 :root {
 	--color: 105, 183, 80;
+	--primary-dark: #294122;
 	--primary: #3c5e31;
 	--primary-bright: #69b750;
 	--secondary: #000;
@@ -84,7 +85,7 @@ h6 {
 	h4,
 	h5,
 	h6 {
-		@apply font-semibold;
+		@apply font-medium;
 	}
 	h1 {
 		@apply text-4xl;
