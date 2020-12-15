@@ -116,8 +116,8 @@ export const Navigation = (props) => {
 							<div className="flex-shrink-0 flex items-center ">
 								<a href="/">
 									<img
-										className="block md:hidden h-8 w-8"
-										src="/favicon.png"
+										className="block md:hidden h-8 w-14"
+										src="/images/logo-small.svg"
 										alt="Logo"
 									/>
 									<img
