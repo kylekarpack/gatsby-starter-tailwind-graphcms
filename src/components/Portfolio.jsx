@@ -1,5 +1,3 @@
-import "./PagePreview.css";
-
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
