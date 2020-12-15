@@ -29,11 +29,11 @@ export const TeamMemberPageTemplate = ({
 				<div className="container">
 					<div className="grid grid-cols-4 gap-12">
 						{featuredImage && (
-							<div className="col-span-4 sm:col-span-2 md:col-span-1">
+							<div className="col-span-4 sm:col-span-2 lg:col-span-1">
 								<Img fluid={featuredImage.childImageSharp.fluid} />
 							</div>
 						)}
-						<div className="col-span-4 sm:col-span-2 md:col-span-3">
+						<div className="col-span-4 sm:col-span-2 lg:col-span-3">
 							<Content source={body} />
 						</div>
 					</div>
