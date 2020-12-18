@@ -4,6 +4,7 @@ import { Mail, MapPin, Smartphone } from "react-feather";
 
 import Content from "../components/Content";
 import FormSimpleAjax from "../components/FormSimpleAjax";
+import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import Map from "../components/Map";
 import PageHeader from "../components/PageHeader";
@@ -65,6 +66,15 @@ export const ContactPageTemplate = ({
 					</div>
 
 					<div>
+						<h2>Send Us Files</h2>
+						<div id="FilemailUploadWrap"></div>
+						<Helmet>
+							<script
+								type="text/javascript"
+								src="https://www.filemail.com/js/widgets/uploadIntegrator2.js?companyid=6052147275&wrapId=FilemailUploadWrap"
+							></script>
+						</Helmet>
+						<br />
 						<h2>Contact Us</h2>
 						<FormSimpleAjax name="Contact Us" />
 					</div>
