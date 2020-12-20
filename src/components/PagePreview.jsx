@@ -10,7 +10,7 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 	const split = text.split(".");
 	for (let i = 0; i < split.length; i++) {
 		processedExcerpt += split[i];
-		processedExcerpt += ".";
+		processedExcerpt += ".";	
 		if (processedExcerpt.length > minLength) {
 			break;
 		}
@@ -98,7 +98,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 	}
 
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{pages.map((page, i) => (
 				<Page
 					page={page}
