@@ -21,7 +21,7 @@ export const DefaultPageTemplate = (props) => (
 		<section className="section">
 			<div className={`container ${props.pageClass}`}>
 				<Content source={props.body} />
-				<br />
+				{(props.previewType || props.portfolioCategory) && <br />}
 				{props.previewType && (
 					<PagePreview
 						type={props.previewType}
@@ -68,11 +68,16 @@ export const pageQuery = graphql`
 				portfolioCategory
 				featuredImage {
 					childImageSharp {
-						fluid(maxHeight: 400, maxWidth: 1920, cropFocus: CENTER, quality: 50) {
+						fluid(
+							maxHeight: 400
+							maxWidth: 1920
+							cropFocus: CENTER
+							quality: 50
+						) {
 							...GatsbyImageSharpFluid_withWebp
 						}
 					}
-				},
+				}
 				small
 			}
 		}
