@@ -25,6 +25,7 @@ export const DefaultPageTemplate = (props) => (
 				{props.previewType && (
 					<PagePreview
 						type={props.previewType}
+						overlay={props.previewOverlay}
 						excerpt={props.previewExcerpt}
 						height={props.previewHeight}
 					/>
@@ -63,6 +64,7 @@ export const pageQuery = graphql`
 				previewType
 				previewHeight
 				previewExcerpt
+				previewOverlay
 				portfolioCategory
 				featuredImage {
 					childImageSharp {

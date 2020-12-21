@@ -33,6 +33,13 @@ export default ({ children, meta, title }) => {
 								title
 								previewImage {
 									childImageSharp {
+										fluid(maxWidth: 100) {
+											...GatsbyImageSharpFluid
+										}
+									}
+								}
+								previewImageDuotone: previewImage {
+									childImageSharp {
 										fluid(maxWidth: 100, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
 											...GatsbyImageSharpFluid
 										}

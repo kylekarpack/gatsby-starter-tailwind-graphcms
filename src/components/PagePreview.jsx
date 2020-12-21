@@ -1,4 +1,3 @@
-
 import { Link, graphql, useStaticQuery } from "gatsby";
 
 import BackgroundImage from "gatsby-background-image";
@@ -10,7 +9,7 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 	const split = text.split(".");
 	for (let i = 0; i < split.length; i++) {
 		processedExcerpt += split[i];
-		processedExcerpt += ".";	
+		processedExcerpt += ".";
 		if (processedExcerpt.length > minLength) {
 			break;
 		}
@@ -18,7 +17,14 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 	return <>{processedExcerpt}</>;
 };
 
-export const Page = ({ page, excerpt, readMore, height, className }) => {
+export const Page = ({
+	page,
+	excerpt,
+	overlay,
+	readMore,
+	height,
+	className
+}) => {
 	height = height || "200px";
 	const image =
 		page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
@@ -31,33 +37,46 @@ export const Page = ({ page, excerpt, readMore, height, className }) => {
 				<BackgroundImage
 					style={{ height }}
 					fluid={image?.childImageSharp?.fluid}
-				/>
+				>
+					{overlay && <div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
+						<h3 className="font-bold text-xl text-white text-bold px-4">
+							{page.frontmatter.title}
+						</h3>
+					</div>}
+				</BackgroundImage>
 			</div>
-			<div className="px-6 py-4">
-				<div className={`font-bold text-lg leading-5 ${page.frontmatter.subtitle || page.frontmatter.excerpt && "mb-2"}`}>
-					{page.frontmatter.title}
-				</div>
-				{page.frontmatter.subtitle && (
-					<div className="font-normal text-sm leading-4 mb-2">
-						{page.frontmatter.subtitle}
+			{!overlay && (
+				<div className="px-6 py-4">
+					<div
+						className={`font-bold text-lg leading-5 ${
+							page.frontmatter.subtitle ||
+							(page.frontmatter.excerpt && "mb-2")
+						}`}
+					>
+						{page.frontmatter.title}
 					</div>
-				)}
-				{excerpt && (
-					<p className="text-black text-xs">
-						<Excerpt text={page.excerpt} />
-					</p>
-				)}
-				{readMore && (
-					<small className="text-primary text-sm font-bold cursor-pointer">
-						Read more
-					</small>
-				)}
-			</div>
+					{page.frontmatter.subtitle && (
+						<div className="font-normal text-sm leading-4 mb-2">
+							{page.frontmatter.subtitle}
+						</div>
+					)}
+					{excerpt && (
+						<p className="text-black text-xs">
+							<Excerpt text={page.excerpt} />
+						</p>
+					)}
+					{readMore && (
+						<small className="text-primary text-sm font-bold cursor-pointer">
+							Read more
+						</small>
+					)}
+				</div>
+			)}
 		</Link>
 	);
 };
 
-const PagePreview = ({ type, excerpt, height }) => {
+const PagePreview = ({ type, excerpt, height, overlay }) => {
 	let pages = useStaticQuery(graphql`
 		query {
 			allMdx(
@@ -103,6 +122,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 				<Page
 					page={page}
 					excerpt={excerpt}
+					overlay={overlay}
 					height={height}
 					key={i}
 					className="Preview"

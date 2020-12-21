@@ -47,14 +47,18 @@ export const Navigation = (props) => {
 		);
 	};
 
-	const MegaMenuLink = ({ to, children, previewImage }) => {
+	const MegaMenuLink = ({ to, children, previewImage, previewImageDuotone }) => {
+		const [hover, setHover] = useState(false);
+		const image = hover ? previewImage : previewImageDuotone;
 		return (
 			<Link
 				to={to}
-				className="block hover:opacity-80 duration-500 transition-all"
+				className="block"
+				onMouseEnter={() => setHover(true)}
+				onMouseLeave={() => setHover(false)}
 			>
 				<BackgroundImage
-					fluid={previewImage.childImageSharp.fluid}
+					fluid={image.childImageSharp.fluid}
 					className="h-36 shadow-lg"
 				>
 					<div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
@@ -76,8 +80,11 @@ export const Navigation = (props) => {
 
 		return (
 			<>
-				<div className="group block" onMouseLeave={(e) => { console.log("left", e)}}>
-					<NavLink to="/services" className={`group-hover:bg-primary-600 ${navClass}`}>
+				<div className="group block">
+					<NavLink
+						to="/services"
+						className={`group-hover:bg-primary-600 ${navClass}`}
+					>
 						Services{" "}
 						<svg
 							className="fill-current inline-block h-4 w-4 ml-2 transform group-hover:rotate-180"
@@ -88,20 +95,26 @@ export const Navigation = (props) => {
 						</svg>
 					</NavLink>
 					<div
-						className={`${submenuClass} group hidden sm:block group-hover:block sm:absolute z-50 w-full left-0`}
+						className={`${submenuClass} delay-0 group-hover:delay-100 hidden sm:block group-hover:block sm:absolute z-50 w-full left-0`}
 					>
-						<div className="sm:bg-gradient-to-b from-primary-600 to-primary-800 sm:p-8 sm:shadow-lg">
-							<div className="w-full text-white mb-8">
-								<h2 className="font-bold text-2xl">
-									We love what we do and helping you
-								</h2>
-								<p>
-									At Watershed Science &amp; Engineering, our first
-									priority is to care for people. This includes our
-									clients, our stakeholders, our employees, and our
-									communities. Here are some of the services we offer:
-								</p>
-							</div>
+						<div className="block sm:hidden">
+							<ul className="list-none">
+								{subNav.services.map(
+									({ slug, title, ...props }, index) => (
+										<li key={`posts-subnav-link-${index}`}>
+											<NavLink
+												to={slug}
+												className={navSubClass}
+												{...props}
+											>
+												{title}
+											</NavLink>
+										</li>
+									)
+								)}
+							</ul>
+						</div>
+						<div className="hidden sm:block sm:bg-gradient-to-b from-primary-600 to-primary-800 sm:p-8 sm:shadow-lg">
 							<ul className="list-none grid grid-cols-4 gap-4 justify-between">
 								{subNav.services.map(
 									({ slug, title, ...props }, index) => (
