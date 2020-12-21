@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Image from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
-import { Link } from "gatsby";
 import { Location } from "@reach/router";
+import { Link } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
+import React, { useEffect, useState } from "react";
 
 export const Navigation = (props) => {
 	const [state, setState] = useState({
@@ -77,11 +76,11 @@ export const Navigation = (props) => {
 
 		return (
 			<>
-				<div className="group inline-block overflow-visible">
-					<NavLink to="/services" className={navClass}>
+				<div className="group block" onMouseLeave={(e) => { console.log("left", e)}}>
+					<NavLink to="/services" className={`group-hover:bg-primary-600 ${navClass}`}>
 						Services{" "}
 						<svg
-							className="fill-current inline-block h-4 w-4 ml-2"
+							className="fill-current inline-block h-4 w-4 ml-2 transform group-hover:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 						>
@@ -89,7 +88,7 @@ export const Navigation = (props) => {
 						</svg>
 					</NavLink>
 					<div
-						className={`${submenuClass} group-hover:block sm:absolute z-50 w-full left-0`}
+						className={`${submenuClass} group hidden sm:block group-hover:block sm:absolute z-50 w-full left-0`}
 					>
 						<div className="sm:bg-gradient-to-b from-primary-600 to-primary-800 sm:p-8 sm:shadow-lg">
 							<div className="w-full text-white mb-8">
@@ -100,15 +99,10 @@ export const Navigation = (props) => {
 									At Watershed Science &amp; Engineering, our first
 									priority is to care for people. This includes our
 									clients, our stakeholders, our employees, and our
-									communities
+									communities. Here are some of the services we offer:
 								</p>
 							</div>
-							<ul className="list-none grid grid-cols-4 gap-4 justify-between pb-6 pt-6 lg:pt-3">
-								{/* <li>
-									<NavLink to="/services" className={navSubClass}>
-										All Services
-									</NavLink>
-								</li> */}
+							<ul className="list-none grid grid-cols-4 gap-4 justify-between">
 								{subNav.services.map(
 									({ slug, title, ...props }, index) => (
 										<li key={`posts-subnav-link-${index}`}>
