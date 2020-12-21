@@ -1,23 +1,30 @@
-import "./PageHeader.css";
-
 import BackgroundImage from "gatsby-background-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
-import Content from "./Content";
 import PropTypes from "prop-types";
 import React from "react";
+import Content from "./Content";
+import "./PageHeader.css";
 
-const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className }) => {
+const PageHeaderInner = ({
+	title,
+	subtitle,
+	breadcrumbs,
+	pageContext,
+	className
+}) => {
 	const crumbs = pageContext?.breadcrumb?.crumbs;
 
 	return (
 		<div className={`bg-black bg-opacity-50 ${className}`}>
 			<div className="container relative animate-fade-in">
 				<div className="grid grid-cols-1 lg:grid-cols-2 justify-between items-center text-white">
-					<div>
+					<div
+						className={
+							breadcrumbs && crumbs ? "col-span-1" : "col-span-2"
+						}
+					>
 						<h1 className="text-4xl font-bold m-0">{title}</h1>
-						{subtitle && (
-							<Content className="text-xl" src={subtitle} />
-						)}
+						{subtitle && <Content className="text-xl" src={subtitle} />}
 					</div>
 					{breadcrumbs && crumbs && (
 						<div className="Breadcrumbs hidden md:block mt-4 lg:mt-0 lg:text-right">
