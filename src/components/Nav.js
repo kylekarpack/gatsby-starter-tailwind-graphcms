@@ -32,7 +32,7 @@ export const Navigation = (props) => {
 		return (
 			<Link
 				to={to}
-				className={`${to === state.currentPath ? "text-white" : ""} ${
+				className={`${to === state.currentPath ? "text-white" : "text-gray-300"} ${
 					className || ""
 				}`}
 				onClick={handleLinkClick}
@@ -49,9 +49,10 @@ export const Navigation = (props) => {
 
 	const AllNavLinks = () => {
 		const navClass =
-			"text-gray-300 whitespace-nowrap hover:text-white block px-1 lg:px-3 py-2 rounded-md text-sm lg:text-base font-medium outline-none border-none";
+			"ml-0 hover:bg-white hover:text-primary px-4 py-3 sm:py-5 sm:px-2 md:px-4 xl:px-6 text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
 		const navSubClass =
-			"text-white sm:text-primary block px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
+			"text-white sm:text-primary block pl-8 sm:px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
+		const submenuClass = state.active ? "" : "sm:hidden";
 
 		return (
 			<>
@@ -66,7 +67,9 @@ export const Navigation = (props) => {
 							<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
 						</svg>
 					</NavLink>
-					<div className="sm:hidden group-hover:block sm:absolute z-50 w-screen max-w-md">
+					<div
+						className={`${submenuClass} group-hover:block sm:absolute z-50 w-screen sm:max-w-md`}
+					>
 						<ul className="sm:bg-white list-none sm:shadow-lg">
 							<li>
 								<NavLink to="/services" className={navSubClass}>
@@ -116,18 +119,18 @@ export const Navigation = (props) => {
 							<div className="flex-shrink-0 flex items-center ">
 								<a href="/">
 									<img
-										className="block md:hidden h-8 w-14"
+										className="block lg:hidden h-8 w-14"
 										src="/images/logo-small.svg"
 										alt="Logo"
 									/>
 									<img
-										className="hidden md:block h-8 w-48 lg:h-12 lg:w-56"
+										className="hidden lg:block h-8 w-48 lg:h-12 lg:w-56"
 										src="/images/logo.svg"
 										alt="Logo"
 									/>
 								</a>
 							</div>
-							<div className="sm:ml-6 flex space-x-2 lg:space-x-4 self-center">
+							<div className="sm:ml-6 flex self-center">
 								<AllNavLinks />
 							</div>
 						</div>
@@ -175,7 +178,7 @@ export const Navigation = (props) => {
 						</button>
 					</div>
 					{state.active && (
-						<div className="px-2 pt-2 pb-3 space-y-1">
+						<div className="pt-2 pb-3 space-y-1">
 							<AllNavLinks />
 						</div>
 					)}
