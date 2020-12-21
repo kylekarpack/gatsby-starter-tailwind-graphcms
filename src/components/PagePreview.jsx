@@ -98,7 +98,7 @@ const PagePreview = ({ type, excerpt, height }) => {
 	}
 
 	return (
-		<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div className="grid justify-center md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{pages.map((page, i) => (
 				<Page
 					page={page}
