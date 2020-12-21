@@ -19,6 +19,7 @@ export const Excerpt = ({ text, minLength = 100 }) => {
 
 export const Page = ({
 	page,
+	page: { frontmatter },
 	excerpt,
 	overlay,
 	readMore,
@@ -27,7 +28,7 @@ export const Page = ({
 }) => {
 	height = height || "200px";
 	const image =
-		page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
+		frontmatter?.previewImage || frontmatter?.featuredImage;
 	return (
 		<Link
 			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${
@@ -43,7 +44,7 @@ export const Page = ({
 					{overlay && (
 						<div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
 							<h3 className="font-bold text-xl text-white text-bold px-4">
-								{page.frontmatter.title}
+								{frontmatter.title}
 							</h3>
 						</div>
 					)}
@@ -55,15 +56,15 @@ export const Page = ({
 					<>
 						<div
 							className={`font-bold text-lg leading-5 ${
-								page.frontmatter.subtitle ||
-								(page.frontmatter.excerpt && "mb-2")
+								frontmatter.subtitle ||
+								(frontmatter.excerpt && "mb-2")
 							}`}
 						>
-							{page.frontmatter.title}
+							{frontmatter.title}
 						</div>
-						{page.frontmatter.subtitle && (
+						{frontmatter.subtitle && (
 							<div className="font-normal text-sm leading-4 mb-2">
-								{page.frontmatter.subtitle}
+								{frontmatter.subtitle}
 							</div>
 						)}
 					</>

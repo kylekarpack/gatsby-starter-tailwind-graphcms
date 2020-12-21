@@ -7,36 +7,35 @@ import PagePreview from "../components/PagePreview";
 import Portfolio from "../components/Portfolio";
 
 // Export Template for use in CMS Default
-export const DefaultPageTemplate = (props) => (
-	<main className="DefaultPage">
-		<PageHeader
-			title={props.title}
-			subtitle={props.subtitle}
-			backgroundImage={props.featuredImage}
-			pageContext={props.pageContext}
-			breadcrumbs
-			small={props.small}
-		/>
+export const DefaultPageTemplate = (props) => {
+	const preview = props.preview || {};
+	return (
+		<main className="DefaultPage">
+			<PageHeader
+				title={props.title}
+				subtitle={props.subtitle}
+				backgroundImage={props.featuredImage}
+				pageContext={props.pageContext}
+				breadcrumbs
+				small={props.small}
+			/>
 
-		<section className="section">
-			<div className={`container ${props.pageClass}`}>
-				<Content source={props.body} />
-				{(props.previewType || props.portfolioCategory) && <br />}
-				{props.previewType && (
-					<PagePreview
-						type={props.previewType}
-						overlay={props.previewOverlay}
-						excerpt={props.previewExcerpt}
-						height={props.previewHeight}
-					/>
-				)}
-				{props.portfolioCategory && (
-					<Portfolio category={props.portfolioCategory} excerpt={true} />
-				)}
-			</div>
-		</section>
-	</main>
-);
+			<section className="section">
+				<div className="container">
+					<Content source={props.body} />
+					{(preview.type || props.portfolioCategory) && <br />}
+					{preview.type && <PagePreview {...preview} />}
+					{props.portfolioCategory && (
+						<Portfolio
+							category={props.portfolioCategory}
+							excerpt={true}
+						/>
+					)}
+				</div>
+			</section>
+		</main>
+	);
+};
 
 const DefaultPage = ({ pageContext, data: { page } }) => (
 	<Layout
@@ -60,11 +59,12 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				subtitle
-				pageClass
-				previewType
-				previewHeight
-				previewExcerpt
-				previewOverlay
+				preview {
+					type
+					excerpt
+					overlay
+					height
+				}
 				portfolioCategory
 				featuredImage {
 					childImageSharp {

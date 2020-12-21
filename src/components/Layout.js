@@ -31,7 +31,6 @@ export default ({ children, meta, title }) => {
 							}
 							frontmatter {
 								title
-								excerpt
 								previewImage {
 									childImageSharp {
 										fluid(maxWidth: 50) {
