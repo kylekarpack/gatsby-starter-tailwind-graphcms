@@ -38,11 +38,13 @@ export const Page = ({
 					style={{ height }}
 					fluid={image?.childImageSharp?.fluid}
 				>
-					{overlay && <div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
-						<h3 className="font-bold text-xl text-white text-bold px-4">
-							{page.frontmatter.title}
-						</h3>
-					</div>}
+					{overlay && (
+						<div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
+							<h3 className="font-bold text-xl text-white text-bold px-4">
+								{page.frontmatter.title}
+							</h3>
+						</div>
+					)}
 				</BackgroundImage>
 			</div>
 			{!overlay && (

@@ -134,7 +134,7 @@ class Form extends React.Component {
 					<button
 						type="submit"
 						disabled={this.state.disabled}
-						className="text-white text-sm sm:text-base bg-primary hover:bg-green-700 rounded py-2 px-4 transition duration-150 ease-in"
+						className="text-white text-sm sm:text-base bg-primary hover:bg-primary-500 rounded py-2 px-4 transition duration-150 ease-in"
 					>
 						Send
 					</button>
