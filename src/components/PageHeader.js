@@ -12,7 +12,7 @@ const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className 
 	return (
 		<div className={`bg-black bg-opacity-50 ${className}`}>
 			<div className="container relative animate-fade-in">
-				<div className="flex justify-between items-center text-white">
+				<div className="grid grid-cols-1 lg:grid-cols-2 justify-between items-center text-white">
 					<div>
 						<h1 className="text-4xl font-bold m-0">{title}</h1>
 						{subtitle && (
@@ -20,7 +20,7 @@ const PageHeaderInner = ({ title, subtitle, breadcrumbs, pageContext, className 
 						)}
 					</div>
 					{breadcrumbs && crumbs && (
-						<div className="Breadcrumbs hidden md:block">
+						<div className="Breadcrumbs hidden md:block mt-4 lg:mt-0 lg:text-right">
 							<Breadcrumb
 								crumbs={crumbs}
 								crumbSeparator=" / "

@@ -85,7 +85,7 @@ class Form extends React.Component {
 							id="name"
 							type="text"
 							name="name"
-							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary"
 							placeholder="Name"
 							required
 						/>
@@ -101,7 +101,7 @@ class Form extends React.Component {
 							id="email"
 							type="email"
 							name="email"
-							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary"
 							placeholder="Email Address"
 							required
 						/>
@@ -116,7 +116,7 @@ class Form extends React.Component {
 						<textarea
 							id="message"
 							name="message"
-							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary-400"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary"
 							placeholder="Message"
 							rows="10"
 							required

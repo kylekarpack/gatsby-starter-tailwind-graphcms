@@ -69,7 +69,7 @@ const Portfolio = ({ category, excerpt, height }) => {
 					))}
 				</div>
 			)}
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<div className="grid justify-center sm:grid-cols-2 lg:grid-cols-4 gap-4">
 				{portfolioItems.map((page, i) => (
 					<Page page={page} excerpt={excerpt} height={height} readMore key={i} />
 				))}

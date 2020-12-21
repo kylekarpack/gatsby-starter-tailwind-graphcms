@@ -30,7 +30,9 @@ export const Page = ({
 		page.frontmatter?.previewImage || page.frontmatter?.featuredImage;
 	return (
 		<Link
-			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${className}`}
+			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${
+				overlay && "text-center"
+			} ${className}`}
 			to={page.fields.slug}
 		>
 			<div className="Background">
@@ -39,7 +41,7 @@ export const Page = ({
 					fluid={image?.childImageSharp?.fluid}
 				>
 					{overlay && (
-						<div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
+						<div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
 							<h3 className="font-bold text-xl text-white text-bold px-4">
 								{page.frontmatter.title}
 							</h3>
@@ -47,33 +49,36 @@ export const Page = ({
 					)}
 				</BackgroundImage>
 			</div>
-			{!overlay && (
-				<div className="px-6 py-4">
-					<div
-						className={`font-bold text-lg leading-5 ${
-							page.frontmatter.subtitle ||
-							(page.frontmatter.excerpt && "mb-2")
-						}`}
-					>
-						{page.frontmatter.title}
-					</div>
-					{page.frontmatter.subtitle && (
-						<div className="font-normal text-sm leading-4 mb-2">
-							{page.frontmatter.subtitle}
+
+			<div className="px-6 py-4">
+				{!overlay && (
+					<>
+						<div
+							className={`font-bold text-lg leading-5 ${
+								page.frontmatter.subtitle ||
+								(page.frontmatter.excerpt && "mb-2")
+							}`}
+						>
+							{page.frontmatter.title}
 						</div>
-					)}
-					{excerpt && (
-						<p className="text-black text-xs">
-							<Excerpt text={page.excerpt} />
-						</p>
-					)}
-					{readMore && (
-						<small className="text-primary text-sm font-bold cursor-pointer">
-							Read more
-						</small>
-					)}
-				</div>
-			)}
+						{page.frontmatter.subtitle && (
+							<div className="font-normal text-sm leading-4 mb-2">
+								{page.frontmatter.subtitle}
+							</div>
+						)}
+					</>
+				)}
+				{excerpt && (
+					<p className="text-black text-xs mt-2">
+						<Excerpt text={page.excerpt} />
+					</p>
+				)}
+				{readMore && (
+					<small className="text-primary text-sm font-bold cursor-pointer">
+						Read more
+					</small>
+				)}
+			</div>
 		</Link>
 	);
 };
@@ -119,7 +124,7 @@ const PagePreview = ({ type, excerpt, height, overlay }) => {
 	}
 
 	return (
-		<div className="grid justify-center md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div className="grid justify-center sm:grid-cols-2 lg:grid-cols-4 gap-4">
 			{pages.map((page, i) => (
 				<Page
 					page={page}
