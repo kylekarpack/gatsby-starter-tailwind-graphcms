@@ -1,0 +1,7 @@
+.custom-group:hover .custom-group-hover-opacity-0 {
+	opacity: 0;
+}
+
+.custom-group:hover .custom-group-hover-opacity-100 {
+	opacity: 100;
+}

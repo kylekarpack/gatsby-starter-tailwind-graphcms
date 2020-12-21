@@ -1,7 +1,8 @@
 import { Location } from "@reach/router";
 import { Link } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import Img from "gatsby-image";
 import React, { useEffect, useState } from "react";
+import "./Nav.css";
 
 export const Navigation = (props) => {
 	const [state, setState] = useState({
@@ -47,33 +48,43 @@ export const Navigation = (props) => {
 		);
 	};
 
-	const MegaMenuLink = ({ to, children, previewImage, previewImageDuotone }) => {
-		const [hover, setHover] = useState(false);
-		const image = hover ? previewImage : previewImageDuotone;
+	const MegaMenuLink = ({
+		to,
+		children,
+		previewImage,
+		previewImageDuotone
+	}) => {
 		return (
 			<Link
 				to={to}
-				className="block"
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
+				className="custom-group block text-white sm:text-primary hover:bg-primary-100 hover:text-primary px-6 py-2"
 			>
-				<BackgroundImage
-					fluid={image.childImageSharp.fluid}
-					className="h-36 shadow-lg"
-				>
-					<div className="w-full h-full text-center flex justify-center items-center bg-black bg-opacity-40">
-						<h3 className="font-bold text-xl text-white text-bold px-4">
-							{children}
-						</h3>
+				<div className="flex align-center self-center gap-4 group">
+					<div className="hidden sm:block self-center relative h-10 w-14">
+						<div className="opacity-100 custom-group-hover-opacity-0 absolute">
+							<Img
+								fluid={previewImageDuotone.childImageSharp.fluid}
+								className="h-10 w-14"
+							/>
+						</div>
+						<div className="opacity-0 custom-group-hover-opacity-100 absolute">
+							<Img
+								fluid={previewImage.childImageSharp.fluid}
+								className="h-10 w-14"
+							/>
+						</div>
 					</div>
-				</BackgroundImage>
+					<div className="self-center">
+						<div className="text-sm sm:text-lg mb-0">{children}</div>
+					</div>
+				</div>
 			</Link>
 		);
 	};
 
 	const AllNavLinks = () => {
 		const navClass =
-			"ml-0 hover:bg-primary-600 hover:text-white px-4 py-3 sm:py-5 sm:px-2 md:px-4 xl:px-6 text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
+			"ml-0 hover:bg-white hover:text-primary px-4 py-3 sm:py-5 sm:px-2 md:px-3 xl:px-6 text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
 		const navSubClass =
 			"text-white sm:text-white block pl-8 sm:px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
 		const submenuClass = state.active ? "" : "sm:hidden";
@@ -83,7 +94,7 @@ export const Navigation = (props) => {
 				<div className="group block">
 					<NavLink
 						to="/services"
-						className={`group-hover:bg-primary-600 ${navClass}`}
+						className={`group-hover:bg-white group-hover:text-primary ${navClass}`}
 					>
 						Services{" "}
 						<svg
@@ -95,27 +106,10 @@ export const Navigation = (props) => {
 						</svg>
 					</NavLink>
 					<div
-						className={`${submenuClass} delay-0 group-hover:delay-100 hidden sm:block group-hover:block sm:absolute z-50 w-full left-0`}
+						className={`${submenuClass} delay-0 group-hover:delay-100 hidden sm:block group-hover:block sm:absolute z-100 w-auto`}
 					>
-						<div className="block sm:hidden">
+						<div className="sm:bg-white sm:shadow-lg py-2">
 							<ul className="list-none">
-								{subNav.services.map(
-									({ slug, title, ...props }, index) => (
-										<li key={`posts-subnav-link-${index}`}>
-											<NavLink
-												to={slug}
-												className={navSubClass}
-												{...props}
-											>
-												{title}
-											</NavLink>
-										</li>
-									)
-								)}
-							</ul>
-						</div>
-						<div className="hidden sm:block sm:bg-gradient-to-b from-primary-600 to-primary-800 sm:p-8 sm:shadow-lg">
-							<ul className="list-none grid grid-cols-4 gap-4 justify-between">
 								{subNav.services.map(
 									({ slug, title, ...props }, index) => (
 										<li key={`posts-subnav-link-${index}`}>

@@ -31,16 +31,17 @@ export default ({ children, meta, title }) => {
 							}
 							frontmatter {
 								title
+								excerpt
 								previewImage {
 									childImageSharp {
-										fluid(maxWidth: 100) {
+										fluid(maxWidth: 50) {
 											...GatsbyImageSharpFluid
 										}
 									}
 								}
 								previewImageDuotone: previewImage {
 									childImageSharp {
-										fluid(maxWidth: 100, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
+										fluid(maxWidth: 50, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
 											...GatsbyImageSharpFluid
 										}
 									}
