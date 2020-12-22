@@ -109,7 +109,7 @@ export const Navigation = (props) => {
 						className={`${submenuClass} delay-0 group-hover:delay-100 hidden sm:block group-hover:block sm:absolute z-100 w-auto`}
 					>
 						<div className="sm:bg-white sm:shadow-lg py-2">
-							<ul className="list-none">
+							<ul className="list-none mb-0">
 								{subNav.services.map(
 									({ slug, title, ...props }, index) => (
 										<li key={`posts-subnav-link-${index}`}>

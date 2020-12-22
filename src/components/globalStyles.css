@@ -56,29 +56,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-a {
-	color: var(--primary);
-}
-
-strong {
-	font-weight: 700;
-}
-
-p {
-	margin-top: 0;
-	margin-bottom: 1em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-	margin-bottom: 0.5em;
-}
-
 @layer base {
 	h1,
 	h2,
@@ -86,6 +63,7 @@ h6 {
 	h4,
 	h5,
 	h6 {
+		@apply mb-4;
 		@apply font-medium;
 	}
 	h1 {
@@ -103,9 +81,25 @@ h6 {
 	h5 {
 		@apply text-base;
 	}
+	a {
+		@apply text-primary;
+	}
+	strong {
+		@apply font-bold;
+	}
+	p {
+		@apply mb-4;
+	}
 	ul {
 		@apply list-disc;
 		@apply list-inside;
+	}
+	.main-content > ul {
+		@apply mb-4;
+	}
+	.main-content ul ul {
+		@apply pl-10;
+		list-style: circle;
 	}
 	.container {
 		@apply mx-auto;
@@ -117,11 +111,7 @@ h6 {
 	}
 }
 
-ul ul {
-	padding-left: 2rem;
-	list-style: circle;
-}
-
+/* Basic resets */
 pre {
 	background: var(--lightGrey);
 	line-height: 1.45;
