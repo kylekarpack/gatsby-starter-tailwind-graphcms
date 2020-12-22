@@ -16,14 +16,11 @@ meta:
   title: Contact Page
 ---
 
-import { AlertTriangle } from "react-feather";
+import Alert from "../../src/components/Alert";
 
-<div className="text-white px-6 py-4 border-0 rounded relative mb-8 bg-yellow-100 flex items-center gap-4 text-yellow-900">
-	<AlertTriangle className="w-24 h-12" />
-  <span className="inline-block align-middle mr-8">
-    Due to the Coronavirus pandemic, all of our staff are currently working remotely. The easiest way to reach us is via email. If you prefer to leave a voicemail, please call <a href="tel:(206) 521-3000">(206) 521-3000</a> and leave a message.
-  </span>
-</div>
+<Alert color="yellow">
+	Due to the Coronavirus pandemic, all of our staff are currently working remotely. The easiest way to reach us is via email. If you prefer to leave a voicemail, please call <a href="tel:(206) 521-3000">(206) 521-3000</a> and leave a message.
+</Alert>
 
 ## Whatever it is, we care.
 

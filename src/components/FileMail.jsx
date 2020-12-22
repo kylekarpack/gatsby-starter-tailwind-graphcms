@@ -5,7 +5,7 @@ const FileMail = ({ companyId }) => {
 	return (
 		<div>
 			<div id="FilemailUploadWrap"></div>
-			<Helmet>
+			<Helmet defer={false}>
 				<script
 					type="text/javascript"
 					src={`https://www.filemail.com/js/widgets/uploadIntegrator2.js?companyid=${companyId}&wrapId=FilemailUploadWrap`}
