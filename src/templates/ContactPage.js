@@ -66,8 +66,8 @@ export const ContactPageTemplate = ({
 					</div>
 
 					<div className="col-span-2 lg:col-span-1">
-						<FileMail companyId={6052147275} />
-						<br />
+						{/* <FileMail companyId={6052147275} />
+						<br /> */}
 						<h2>Contact Us</h2>
 						<FormSimpleAjax name="Contact Us" />
 					</div>

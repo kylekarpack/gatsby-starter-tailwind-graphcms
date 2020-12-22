@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
-
-import Helmet from "react-helmet";
 import { serialize } from "dom-form-serializer";
 import { stringify } from "qs";
+import React, { Fragment } from "react";
+import Helmet from "react-helmet";
 
 class Form extends React.Component {
 	static defaultProps = {
@@ -11,7 +10,7 @@ class Form extends React.Component {
 		action: "",
 		successMessage: "Thanks for your inquiry, we will get back to you soon",
 		errorMessage:
-			"There is a problem, your message has not been sent, please try contacting us via email"
+			"There was a problem and your message has not been sent. Please try contacting us via email"
 	};
 
 	state = {
@@ -67,11 +66,13 @@ class Form extends React.Component {
 					name={name}
 					action={action}
 					onSubmit={this.handleSubmit}
-					data-netlify=""
+					data-netlify="true"
 					netlify-recaptcha=""
 				>
 					{this.state.alert && (
-						<div className="Form--Alert">{this.state.alert}</div>
+						<div className="text-white px-6 py-4 border-0 rounded relative mb-8 bg-blue-100 flex items-center gap-4 text-blue-900">
+							{this.state.alert}
+						</div>
 					)}
 
 					<div className="flex flex-col mb-6">
@@ -108,10 +109,25 @@ class Form extends React.Component {
 					</div>
 					<div className="flex flex-col mb-6">
 						<label
+							htmlFor="files"
+							className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+						>
+							Send Files
+						</label>
+						<input
+							id="files"
+							type="file"
+							name="files"
+							className="placeholder-gray-500 pl-3 rounded-sm border border-gray-400 w-full py-2 focus:outline-none focus:border-primary"
+							placeholder="Select file"
+						/>
+					</div>
+					<div className="flex flex-col mb-6">
+						<label
 							htmlFor="message"
 							className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
 						>
-							E-Mail Address
+							Message
 						</label>
 						<textarea
 							id="message"

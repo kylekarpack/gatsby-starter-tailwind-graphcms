@@ -9,7 +9,6 @@ const FileMail = ({ companyId }) => {
 			<Helmet>
 				<script
 					type="text/javascript"
-					onLoad={() => console.warn("FileMail loaded")}
 					src={`https://www.filemail.com/js/widgets/uploadIntegrator2.js?companyid=${companyId}&wrapId=FilemailUploadWrap`}
 				></script>
 			</Helmet>
