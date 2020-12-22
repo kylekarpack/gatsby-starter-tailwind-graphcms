@@ -66,10 +66,11 @@ export const ContactPageTemplate = ({
 					</div>
 
 					<div className="col-span-2 lg:col-span-1">
-						{/* <FileMail companyId={6052147275} />
-						<br /> */}
+						<h2>Send Us Files</h2>
+						<FileMail companyId={6052147275} />
+						{/* <br />
 						<h2>Contact Us</h2>
-						<FormSimpleAjax name="Contact Us" />
+						<FormSimpleAjax name="Contact Us" /> */}
 					</div>
 				</div>
 			</section>

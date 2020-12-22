@@ -4,7 +4,6 @@ import Helmet from "react-helmet";
 const FileMail = ({ companyId }) => {
 	return (
 		<div>
-			<h2>Send Us Files</h2>
 			<div id="FilemailUploadWrap"></div>
 			<Helmet>
 				<script
