@@ -267,20 +267,20 @@ collections: # A list of collections the CMS should be able to edit
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
 
-  - name: posts
-    label: Post
+  - name: portfolio
+    label: Portfolio
     editor:
       preview: true
-    folder: content/posts
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    folder: content/portfolio
+    slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: SinglePost }
+      - { label: Template, name: template, widget: hidden, default: PortfolioPage }
       - { label: Title, name: title, widget: string }
       - label: 'Status'
         name: 'status'
         widget: 'select'
-        options: ['Published', 'Featured', 'Draft']
+        options: ['publish', 'draft']
         default: 'Published'
       - { label: Date / Order, name: date, widget: date, format: 'YYYY-MM-DD' }
       - {
@@ -289,6 +289,7 @@ collections: # A list of collections the CMS should be able to edit
           widget: image,
           required: false,
         }
+      - { label: Order, name: order, widget: text }
       - { label: Excerpt, name: excerpt, widget: text }
       - { label: Content, name: body, widget: markdown }
       - label: 'Categories'
