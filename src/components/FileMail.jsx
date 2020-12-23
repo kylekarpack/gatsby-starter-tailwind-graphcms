@@ -15,7 +15,6 @@ const FileMail = ({ companyId }) => {
 		<div>
 			<div id="FilemailUploadWrap"></div>
 			<Helmet defer={false}>
-				<script>console.warn(window)</script>
 				<script
 					type="text/javascript"
 					src={`//www.filemail.com/js/widgets/uploadIntegrator2.js?companyid=${companyId}&wrapId=FilemailUploadWrap`}
