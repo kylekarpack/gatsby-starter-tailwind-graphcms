@@ -18,6 +18,8 @@ media_library:
 collections: # A list of collections the CMS should be able to edit
   - name: 'pages'
     label: 'Page'
+    extension: mdx
+    format: frontmatter
     delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: true
