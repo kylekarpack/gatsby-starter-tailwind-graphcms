@@ -27,8 +27,7 @@ export const Page = ({
 	className
 }) => {
 	height = height || "200px";
-	const image =
-		frontmatter?.previewImage || frontmatter?.featuredImage;
+	const image = frontmatter?.previewImage || frontmatter?.featuredImage;
 	return (
 		<Link
 			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${
@@ -51,13 +50,12 @@ export const Page = ({
 				</BackgroundImage>
 			</div>
 
-			<div className="px-6 py-4">
-				{!overlay && (
+			{!overlay && (
+				<div className="px-6 py-4">
 					<>
 						<div
 							className={`font-bold text-lg leading-5 ${
-								frontmatter.subtitle ||
-								(frontmatter.excerpt && "mb-2")
+								frontmatter.subtitle || (frontmatter.excerpt && "mb-2")
 							}`}
 						>
 							{frontmatter.title}
@@ -68,18 +66,18 @@ export const Page = ({
 							</div>
 						)}
 					</>
-				)}
-				{excerpt && (
-					<p className="text-black text-xs mt-2">
-						<Excerpt text={page.excerpt} />
-					</p>
-				)}
-				{readMore && (
-					<small className="text-primary text-sm font-bold cursor-pointer">
-						Read more
-					</small>
-				)}
-			</div>
+					{excerpt && (
+						<p className="text-black text-xs mt-2">
+							<Excerpt text={page.excerpt} />
+						</p>
+					)}
+					{readMore && (
+						<small className="text-primary text-sm font-bold cursor-pointer">
+							Read more
+						</small>
+					)}
+				</div>
+			)}
 		</Link>
 	);
 };

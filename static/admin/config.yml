@@ -263,6 +263,36 @@ collections: # A list of collections the CMS should be able to edit
                        required: false
                     }
 
+   - name: team
+     label: Team Members
+     extension: mdx
+     format: frontmatter
+     identifier_field: title
+     editor:
+        preview: false
+     folder: content/pages/team
+     slug: "{{slug}}"
+     create: true # Allow users to create new documents in this collection
+     fields: # The fields each document in this collection have
+        - { label: "Type", name: "type", widget: hidden, default: "team" }
+        - {
+             label: "Template",
+             name: "template",
+             widget: hidden,
+             default: "TeamMemberPage"
+          }
+        - { label: Name, name: title, widget: string }
+        - { label: Byline, name: subtitle, widget: string }
+        - { label: Order, name: order, widget: number, required: false }
+        - {
+             label: Featured Image,
+             name: featuredImage,
+             widget: image,
+             required: false,
+             media_folder: "./"
+          }
+        - { label: Content, name: body, widget: markdown }
+
    - name: portfolio
      label: Portfolio
      extension: mdx
@@ -274,6 +304,13 @@ collections: # A list of collections the CMS should be able to edit
      slug: "{{slug}}"
      create: true # Allow users to create new documents in this collection
      fields: # The fields each document in this collection have
+        - { label: "Type", name: "type", widget: hidden, default: "portfolio" }
+        - {
+             label: "Template",
+             name: "template",
+             widget: hidden,
+             default: "PortfolioPage"
+          }
         - { label: Title, name: title, widget: string }
         - label: "Status"
           name: "status"
@@ -292,7 +329,7 @@ collections: # A list of collections the CMS should be able to edit
              name: featuredImage,
              widget: image,
              required: false,
-             media_folder: './'
+             media_folder: "./"
           }
         - { label: Order, name: order, widget: number, required: false }
         - { label: Excerpt, name: excerpt, widget: text, required: false }
@@ -312,53 +349,6 @@ collections: # A list of collections the CMS should be able to edit
                 "Innovation",
                 "Sediment Analysis"
              ]
-
-   - name: postCategories
-     label: Post Category
-     editor:
-        preview: false
-     folder: content/postCategories
-     slug: "{{slug}}"
-     create: true # Allow users to create new documents in this collection
-     fields: # The fields each document in this collection have
-        - {
-             label: Template,
-             name: template,
-             widget: hidden,
-             default: BlogIndex
-          }
-        - { label: Title, name: title, widget: string }
-        - { label: Subtitle, name: subtitle, widget: string, required: false }
-        - {
-             label: Featured Image,
-             name: featuredImage,
-             widget: image,
-             required: false
-          }
-        - label: "Meta"
-          required: false
-          name: "meta"
-          widget: "object"
-          fields:
-             - { label: Title, name: title, widget: string, required: false }
-             - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false
-               }
-             - {
-                  label: Canonical Link,
-                  name: canonicalLink,
-                  widget: string,
-                  required: false
-               }
-             - {
-                  label: Noindex,
-                  name: noindex,
-                  widget: boolean,
-                  required: false
-               }
 
    - name: "settings"
      label: "Settings"

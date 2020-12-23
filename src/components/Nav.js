@@ -75,7 +75,7 @@ export const Navigation = (props) => {
 						</div>
 					</div>
 					<div className="self-center">
-						<div className="text-sm sm:text-lg mb-0">{children}</div>
+						<div className="text-sm sm:text-base cursor-pointer mb-0">{children}</div>
 					</div>
 				</div>
 			</Link>
