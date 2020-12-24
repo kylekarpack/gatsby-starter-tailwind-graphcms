@@ -263,6 +263,42 @@ collections: # A list of collections the CMS should be able to edit
                        required: false
                     }
 
+   - name: services
+     label: Services
+     extension: mdx
+     format: frontmatter
+     identifier_field: title
+     editor:
+        preview: false
+     folder: content/pages/services
+     slug: "{{slug}}"
+     create: true # Allow users to create new documents in this collection
+     fields: # The fields each document in this collection have
+        - { label: "Type", name: "type", widget: hidden, default: "service" }
+        - {
+             label: "Template",
+             name: "template",
+             widget: hidden,
+             default: "DefaultPage"
+          }
+        - { label: Name, name: title, widget: string }
+        - { label: Order, name: order, widget: number, required: false }
+        - {
+             label: Featured Image,
+             name: featuredImage,
+             widget: image,
+             required: false,
+             media_folder: "/content/images"
+          }
+        - {
+             label: Preview Image,
+             name: previewImage,
+             widget: image,
+             required: false,
+             media_folder: "/content/images/services"
+          }
+        - { label: Content, name: body, widget: markdown }
+
    - name: team
      label: Team Members
      extension: mdx

@@ -1,7 +1,6 @@
 siteTitle: Watershed Science & Engineering
 siteUrl: https://watershedse.com
-siteDescription: A starter project for creating lightning-fast websites with
-  Gatsby v2 Netlify CMS v2 and Uploadcare media library.
+siteDescription: Watershed Science and Engineering Website
 socialMediaCard:
   image: static/images/logo-small.svg
 googleTrackingId: ""
