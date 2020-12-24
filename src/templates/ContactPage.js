@@ -34,7 +34,7 @@ export const ContactPageTemplate = ({
 				backgroundImage={featuredImage}
 			/>
 			<section className="section">
-				<div className="container max-w-screen-lg grid lg:grid-cols-3 gap-12">
+				<div className="container grid lg:grid-cols-3 gap-12">
 					<div className="col-span-2">
 						<Content source={body} />
 						<div className="Contact--Details">

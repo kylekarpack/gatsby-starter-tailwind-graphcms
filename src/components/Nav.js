@@ -84,7 +84,7 @@ export const Navigation = (props) => {
 
 	const AllNavLinks = () => {
 		const navClass =
-			"ml-0 hover:bg-white hover:text-primary px-4 py-3 sm:py-5 sm:px-2 md:px-3 xl:px-6 text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
+			"ml-0 hover:bg-white hover:text-primary px-4 py-3 sm:py-5 sm:px-2 md:px-3 xl:px-4 text-white text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
 		const navSubClass =
 			"text-white sm:text-white block pl-8 sm:px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
 		const submenuClass = state.active ? "" : "sm:hidden";

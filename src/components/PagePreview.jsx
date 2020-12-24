@@ -30,9 +30,9 @@ export const Page = ({
 	const image = frontmatter?.previewImage || frontmatter?.featuredImage;
 	return (
 		<Link
-			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all my-2 ${
+			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all ${
 				overlay && "text-center"
-			} ${className}`}
+			} ${className || ""}`}
 			to={page.fields.slug}
 		>
 			<div className="Background">
@@ -67,12 +67,12 @@ export const Page = ({
 						)}
 					</>
 					{excerpt && (
-						<p className="text-black text-xs mt-2">
+						<p className="text-black text-xs mt-2 mb-0">
 							<Excerpt text={page.excerpt} />
 						</p>
 					)}
 					{readMore && (
-						<small className="text-primary text-sm font-bold cursor-pointer">
+						<small className="text-primary text-sm font-bold mt-2 cursor-pointer">
 							Read more
 						</small>
 					)}
@@ -123,7 +123,7 @@ const PagePreview = ({ type, excerpt, height, overlay }) => {
 	}
 
 	return (
-		<div className="grid justify-center sm:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div className="grid justify-center sm:grid-cols-2 lg:grid-cols-4 gap-8">
 			{pages.map((page, i) => (
 				<Page
 					page={page}

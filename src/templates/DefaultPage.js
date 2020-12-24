@@ -21,7 +21,7 @@ export const DefaultPageTemplate = (props) => {
 			/>
 
 			<section className="section">
-				<div className="container main-content max-w-screen-lg">
+				<div className="container main-content">
 					<Content source={props.body} />
 					{(preview.type || props.portfolioCategory) && <br />}
 					{preview.type && <PagePreview {...preview} />}
