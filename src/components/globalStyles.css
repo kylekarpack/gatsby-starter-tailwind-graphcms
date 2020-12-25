@@ -103,6 +103,7 @@ body {
 	}
 	.container {
 		@apply mx-auto;
+		@apply px-4;
 	}
 	.section {
 		@apply py-8;
