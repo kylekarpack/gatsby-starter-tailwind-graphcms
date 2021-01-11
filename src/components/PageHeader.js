@@ -49,6 +49,7 @@ const PageHeader = ({
 	breadcrumbs,
 	large,
 	small,
+	style,
 	className = ""
 }) => {
 	if (large) {
@@ -63,7 +64,7 @@ const PageHeader = ({
 			{backgroundImage ? (
 				<BackgroundImage
 					fluid={backgroundImage.childImageSharp.fluid}
-					style={{backgroundPosition: "50% 25%"}}
+					style={style}
 					size="cover"
 				>
 					<PageHeaderInner
