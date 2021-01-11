@@ -123,7 +123,7 @@ const PagePreview = ({ type, excerpt, height, overlay }) => {
 	}
 
 	return (
-		<div className="grid justify-center justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+		<div className="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
 			{pages.map((page, i) => (
 				<Page
 					page={page}

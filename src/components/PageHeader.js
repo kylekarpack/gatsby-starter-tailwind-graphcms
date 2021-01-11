@@ -63,6 +63,7 @@ const PageHeader = ({
 			{backgroundImage ? (
 				<BackgroundImage
 					fluid={backgroundImage.childImageSharp.fluid}
+					style={{backgroundPosition: "50% 25%"}}
 					size="cover"
 				>
 					<PageHeaderInner
