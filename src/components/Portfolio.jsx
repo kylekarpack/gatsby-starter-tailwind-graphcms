@@ -61,7 +61,7 @@ const Portfolio = ({ category, excerpt, height }) => {
 						<button
 							key={i}
 							type="button"
-							className={`inline-block px-2 py-1 mx-1 mb-1 text-xs text-center text-white transition bg-gray-900 rounded shadow ripple hover:shadow-lg hover:bg-primary focus:outline-none ${filter === el ? "bg-primary" : ""}`}
+							className={`inline-block px-1 py-1 mr-1 mb-1 text-xs text-center text-white transition bg-gray-900 rounded shadow ripple hover:shadow-lg hover:bg-primary focus:outline-none ${filter === el ? "bg-primary" : ""}`}
 							onClick={() => setFilter(el)}
 						>
 							{el}

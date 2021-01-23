@@ -63,8 +63,7 @@ body {
 	h4,
 	h5,
 	h6 {
-		@apply mb-4;
-		@apply font-medium;
+		@apply mb-4 font-medium;
 	}
 	h1 {
 		@apply text-4xl;
@@ -91,8 +90,7 @@ body {
 		@apply mb-4;
 	}
 	ul {
-		@apply list-disc;
-		@apply list-inside;
+		@apply list-disc list-inside;
 	}
 	.main-content > ul {
 		@apply mb-4;
@@ -102,12 +100,14 @@ body {
 		list-style: circle;
 	}
 	.container {
-		@apply mx-auto;
-		@apply px-4;
+		@apply mx-auto px-4;
 	}
 	.section {
-		@apply py-8;
-		@apply sm:py-16;
+		@apply py-8 sm:py-16;
+	}
+	.gatsby-resp-image-wrapper {
+		@apply float-left clear-left max-w-none w-full sm:w-1/4;
+		margin:1% 2% 1% 0 !important;
 	}
 }
 

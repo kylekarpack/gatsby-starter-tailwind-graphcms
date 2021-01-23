@@ -1,0 +1,14 @@
+.thumbs {
+	text-align: center;
+}
+
+.carousel .slide .legend {
+		max-width: 20em;
+    left: 50%;
+    margin-left: 0;
+    transform: translateX(-50%);
+}
+
+.carousel .thumbs-wrapper {
+	margin-bottom: -20px;
+}
