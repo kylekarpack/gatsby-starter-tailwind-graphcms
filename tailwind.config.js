@@ -1,7 +1,9 @@
 module.exports = {
 	purge: {
 		content: ["./src/**/*.{js,jsx,ts,tsx}"],
-		safelist: ["markdown-image", "image-left", "image-right"]
+		options: {
+			safelist: ["markdown-image", "image-left", "image-right", "clear-both"]
+		}
 	},
 	darkMode: "media",
 	theme: {
