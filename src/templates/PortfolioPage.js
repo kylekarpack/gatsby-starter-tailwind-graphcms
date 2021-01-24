@@ -26,12 +26,12 @@ export const PortfolioPageTemplate = ({
 
 			<section className="section">
 				<div className="container">
-					<div className="grid grid-cols-4 gap-12">
-						<div className="col-span-4 sm:col-span-2 lg:col-span-3">
+					<div className="grid grid-cols-5 gap-12">
+						<div className="col-span-5 lg:col-span-3">
 							<Content source={body} />
 						</div>
 						{featuredImage && (
-							<div className="col-span-4 sm:col-span-2 lg:col-span-1">
+							<div className="col-span-5 lg:col-span-2">
 								<Img fluid={featuredImage.childImageSharp.fluid} />
 							</div>
 						)}

@@ -1,6 +1,6 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
-
+import { graphql, Link, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import Image from "gatsby-image";
 import React from "react";
 
 export const Excerpt = ({ text, minLength = 100 }) => {
@@ -24,33 +24,52 @@ export const Page = ({
 	overlay,
 	readMore,
 	height,
+	portfolioStyle,
 	className
 }) => {
 	height = height || "200px";
+	const isMasonry = portfolioStyle === "masonry";
+	console.log(isMasonry);
 	const image = frontmatter?.previewImage || frontmatter?.featuredImage;
 	return (
 		<Link
-			className={`hover:opacity-90 max-w-xs rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all ${
+			className={`hover:opacity-90 max-w-xs w-full rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all ${
 				overlay && "text-center"
 			} ${className || ""}`}
 			to={page.fields.slug}
 		>
-			<div className="Background">
-				<BackgroundImage
-					style={{ height }}
-					fluid={image?.childImageSharp?.fluid}
-				>
-					{overlay && (
-						<div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
-							<h3 className="font-bold text-xl text-white text-bold px-4">
-								{frontmatter.title}
-							</h3>
-						</div>
-					)}
-				</BackgroundImage>
-			</div>
+			{isMasonry ? (
+				<div className="relative">
+					<Image fluid={image?.childImageSharp?.fluid} />
+					<div className="absolute opacity-0 hover:opacity-100 transition-opacity duration-300 px-4 left-0 right-0 top-0 bottom-0 bg-black bg-opacity-60 text-center flex justify-center items-center">
+						<span className="font-bold text-xl text-white px-4 leading-5">
+							{frontmatter.title}
+							{readMore && (
+								<div className="text-primary-400 font-normal text-sm mt-2 cursor-pointer">
+									Read more
+								</div>
+							)}
+						</span>
+					</div>
+				</div>
+			) : (
+				<div className="Background">
+					<BackgroundImage
+						style={{ height }}
+						fluid={image?.childImageSharp?.fluid}
+					>
+						{overlay && (
+							<div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
+								<h3 className="font-bold text-xl text-white text-bold px-4">
+									{frontmatter.title}
+								</h3>
+							</div>
+						)}
+					</BackgroundImage>
+				</div>
+			)}
 
-			{!overlay && (
+			{!(overlay || isMasonry) && (
 				<div className="px-6 py-4">
 					<>
 						<div

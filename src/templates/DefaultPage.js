@@ -28,6 +28,7 @@ export const DefaultPageTemplate = (props) => {
 					{props.portfolioCategory && (
 						<Portfolio
 							category={props.portfolioCategory}
+							portfolioStyle={props.portfolioStyle}
 							excerpt={true}
 						/>
 					)}
@@ -66,6 +67,7 @@ export const pageQuery = graphql`
 					height
 				}
 				portfolioCategory
+				portfolioStyle
 				featuredImage {
 					childImageSharp {
 						fluid(

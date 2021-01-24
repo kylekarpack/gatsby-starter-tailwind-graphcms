@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-
 import { Page } from "./PagePreview";
 
 const isAll = (category) => {
 	return !category || category === "All" || category === "*";
-}
+};
 
-const Portfolio = ({ category, excerpt, height }) => {
+const Portfolio = ({ category, portfolioStyle, excerpt, height }) => {
 	const [filter, setFilter] = useState(category || "All");
+	const style = portfolioStyle === "masonry" ? {
+		columns: "4 250px",
+		columnGap: "1rem",
+		display: "block",
+		textAlign: "center",
+		breakInside: "avoid"
+	} : {};
 
 	let portfolioItems = useStaticQuery(graphql`
 		query {
@@ -61,7 +67,9 @@ const Portfolio = ({ category, excerpt, height }) => {
 						<button
 							key={i}
 							type="button"
-							className={`inline-block px-1 py-1 mr-1 mb-1 text-xs text-center text-white transition bg-gray-900 rounded shadow ripple hover:shadow-lg hover:bg-primary focus:outline-none ${filter === el ? "bg-primary" : ""}`}
+							className={`inline-block px-1 py-1 mr-1 mb-1 text-xs text-center text-white transition bg-gray-900 rounded shadow ripple hover:shadow-lg hover:bg-primary focus:outline-none ${
+								filter === el ? "bg-primary" : ""
+							}`}
 							onClick={() => setFilter(el)}
 						>
 							{el}
@@ -69,9 +77,20 @@ const Portfolio = ({ category, excerpt, height }) => {
 					))}
 				</div>
 			)}
-			<div className="grid justify-center justify-items-center sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+			<div
+				style={style}
+				className="grid justify-center justify-items-center sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8"
+			>
 				{portfolioItems.map((page, i) => (
-					<Page page={page} excerpt={excerpt} height={height} readMore key={i} />
+					<Page
+						page={page}
+						excerpt={excerpt}
+						height={height}
+						readMore
+						className={portfolioStyle === "masonry" ? "inline-block mb-4" : ""}
+						portfolioStyle={portfolioStyle}
+						key={i}
+					/>
 				))}
 			</div>
 		</div>
