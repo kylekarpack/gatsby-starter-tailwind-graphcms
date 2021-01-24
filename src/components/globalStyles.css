@@ -100,10 +100,19 @@ body {
 		list-style: circle;
 	}
 	.container {
-		@apply mx-auto px-4;
+		@apply mx-auto px-4 sm:px-8 lg:px-0;
 	}
 	.section {
 		@apply py-8 sm:py-16;
+	}
+	.markdown-image {
+		@apply sm:w-1/4 w-full overflow-hidden;
+	}
+	.image-left {
+		@apply float-left my-2 sm:mr-6;
+	}
+	.image-right {
+		@apply float-right my-2 sm:ml-6;
 	}
 }
 

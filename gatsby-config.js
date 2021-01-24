@@ -120,10 +120,10 @@ module.exports = {
 						options: {
 							blocks: {
 								leftimg: {
-									classes: "sm:w-1/4 w-full float-left my-2 sm:mr-6 overflow-hidden"
+									classes: "markdown-image image-left"
 								},
 								rightimg: {
-									classes: "sm:w-1/4 w-full float-right my-2 sm:ml-6 overflow-hidden"
+									classes: "markdown-image image-right"
 								},
 								clear: {
 									classes: "clear-both"
