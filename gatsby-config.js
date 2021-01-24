@@ -114,7 +114,23 @@ module.exports = {
 							withWebp: true
 						}
 					},
-					`gatsby-remark-responsive-iframe`
+					`gatsby-remark-responsive-iframe`,
+					{
+						resolve: "gatsby-remark-custom-blocks",
+						options: {
+							blocks: {
+								leftimg: {
+									classes: "sm:w-1/4 w-full float-left my-2 sm:mr-6 overflow-hidden"
+								},
+								rightimg: {
+									classes: "sm:w-1/4 w-full float-right my-2 sm:ml-6 overflow-hidden"
+								},
+								clear: {
+									classes: "clear-both"
+								}
+							}
+						}
+					}
 				]
 			}
 		},

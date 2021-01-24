@@ -32,6 +32,7 @@
     "gatsby-plugin-sass": "^2.1.20",
     "gatsby-plugin-sharp": "^2.9.0",
     "gatsby-plugin-sitemap": "^2.2.19",
+    "gatsby-remark-custom-blocks": "^2.9.0",
     "gatsby-remark-images": "^3.1.28",
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-remark-responsive-iframe": "^2.2.25",

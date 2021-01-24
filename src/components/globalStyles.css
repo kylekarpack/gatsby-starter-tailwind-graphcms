@@ -105,10 +105,6 @@ body {
 	.section {
 		@apply py-8 sm:py-16;
 	}
-	.gatsby-resp-image-wrapper {
-		@apply float-left clear-left max-w-none w-full sm:w-1/4;
-		margin:1% 2% 1% 0 !important;
-	}
 }
 
 /* Basic resets */
