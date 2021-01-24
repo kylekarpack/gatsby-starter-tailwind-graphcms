@@ -32,6 +32,7 @@ export const ContactPageTemplate = ({
 				title={title}
 				subtitle={subtitle}
 				backgroundImage={featuredImage}
+				small={true}
 			/>
 			<section className="section">
 				<div className="container grid lg:grid-cols-3 gap-12">
