@@ -8,18 +8,20 @@ import "./HomePage.css";
 
 // Export Template for use in CMS preview
 export const HomePageTemplate = ({ images, body }) => {
-	console.log(images);
 	return (
 		<main className="Home">
 			<Carousel
+				interval={6000}
 				showArrows={true}
+				showIndicators={false}
+				showStatus={false}
 				useKeyboardArrows={true}
 				infiniteLoop={true}
 				autoPlay={true}
 				dynamicHeight={true}
 			>
 				{images.map((img, i) => (
-					<div key={i} style={{maxHeight:"50vh"}}>
+					<div key={i} style={{maxHeight:"50vh", minHeight: "200px"}}>
 						<img src={img?.url?.childImageSharp?.fluid?.src} />
 						<p className="legend">{img.description}</p>
 					</div>
