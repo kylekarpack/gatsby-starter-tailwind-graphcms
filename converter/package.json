@@ -1,0 +1,26 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "@accordproject/markdown-slate": "^0.12.12",
+    "@orbiting/remark-preset": "^1.2.4",
+    "deep-rename-keys": "^0.2.1",
+    "dotenv": "^8.2.0",
+    "gray-matter": "^4.0.2",
+    "jsdom": "^16.4.0",
+    "node-fetch": "^2.6.1",
+    "remark-parse": "^9.0.0",
+    "remark-slate": "^1.4.0",
+    "showdown": "^1.9.1",
+    "slate-html-serializer": "^0.8.13",
+    "slate-hyperscript": "^0.59.0",
+    "slate-md-serializer": "^5.5.4",
+    "slate-mdast-serializer": "^3.0.0",
+    "unified": "^9.2.0"
+  }
+}
