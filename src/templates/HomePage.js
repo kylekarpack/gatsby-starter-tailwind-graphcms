@@ -7,11 +7,16 @@ import "react-responsive-carousel/lib/styles/carousel.css";
 import "./HomePage.css";
 
 // Export Template for use in CMS preview
-export const HomePageTemplate = ({ images, body }) => {
+export const HomePageTemplate = ({ subtitle, images, body }) => {
 	return (
 		<main className="Home">
+			<div className="relative">
+				<div className="absolute hidden sm:block text-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-6 text-white font-bold bg-black bg-opacity-60 max-w-1/2 z-10">
+					<h1 className="m-0" dangerouslySetInnerHTML={{__html: subtitle}}></h1>
+				</div>
 			<Carousel
-				interval={6000}
+				interval={5000}
+				showThumbs={false}
 				showArrows={true}
 				showIndicators={false}
 				showStatus={false}
@@ -21,12 +26,13 @@ export const HomePageTemplate = ({ images, body }) => {
 				dynamicHeight={true}
 			>
 				{images.map((img, i) => (
-					<div key={i} style={{maxHeight:"50vh", minHeight: "200px"}}>
+					<div key={i} style={{maxHeight:"65vh", minHeight: "200px"}}>
 						<img src={img?.url?.childImageSharp?.fluid?.src} />
 						<p className="legend">{img.description}</p>
 					</div>
 				))}
 			</Carousel>
+			</div>
 
 			<section className="section">
 				<div className="container">

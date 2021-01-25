@@ -2,14 +2,6 @@
 	text-align: center;
 }
 
-.carousel .thumbs .thumb {
-	width: 100px !important;
-	border: none !important;
-	box-shadow: 0 0 5px rgba(0,0,0,.5);
-	padding: 0;
-	margin: 5px;
-}
-
 .carousel .slide .legend {
 	width: auto;
 	margin: 0;
@@ -23,24 +15,4 @@
 	font-weight: normal;
 	background: rgba(0,0,0,.4);
 	border-radius: 0;
-}
-
-.carousel .thumbs-wrapper {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	margin: 0;
-}
-
-@media only screen and (max-width: 1200px) {
-	.carousel .thumbs .thumb {
-		width: 60px !important;
-	}
-	
-}
-
-@media only screen and (max-width: 800px) {
-  .carousel .thumbs-wrapper {
-		display: none;
-	}
 }
