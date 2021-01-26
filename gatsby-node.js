@@ -5,8 +5,37 @@ require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
 	const { createPage } = actions;
+
+	const { data } = await graphql(`
+		{
+			team: allGraphCmsTeamMember {
+				nodes {
+					id
+					title
+					subtitle
+					slug
+					content {
+						html
+					}
+				}
+			}
+		}
+	`);
+
+	data.team.nodes.forEach((teamMember) => {
+		console.log(teamMember)
+		createPage({
+			component: path.resolve(`src/templates/TeamMemberPage.js`),
+			context: {
+				slug: teamMember.slug,
+				id: teamMember.id,
+				teamMember
+			},
+			path: "/" + teamMember.slug
+		});
+	});
 
 	return graphql(`
 		{

@@ -1,4 +1,7 @@
 const postcssPresetEnv = require("postcss-preset-env");
+require("dotenv").config({
+	path: `.env.${process.env.NODE_ENV}`
+});
 
 module.exports = {
 	siteMetadata: {
@@ -94,13 +97,21 @@ module.exports = {
 				name: "pages"
 			}
 		},
+		{
+			resolve: "gatsby-source-graphcms",
+			options: {
+				endpoint: process.env.GRAPHCMS_PROJECT_API,
+				token: process.env.GRAPHCMS_PROD_AUTH_TOKEN,
+				//downloadLocalImages: true
+			}
+		},
 
 		// images
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
 		{
 			resolve: "gatsby-plugin-mdx",
-			extensions: [".mdx", ".md"],
+			extensions: [".nah"],
 			options: {
 				gatsbyRemarkPlugins: [
 					// gatsby-remark-relative-images must

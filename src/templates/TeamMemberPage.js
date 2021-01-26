@@ -10,8 +10,8 @@ export const TeamMemberPageTemplate = ({
 	pageContext,
 	title,
 	subtitle,
-	featuredImage,
 	image,
+	banner,
 	body
 }) => {
 	return (
@@ -20,7 +20,7 @@ export const TeamMemberPageTemplate = ({
 				title={title}
 				subtitle={subtitle}
 				pageContext={pageContext}
-				backgroundImage={image}
+				backgroundImage={banner}
 				breadcrumbs
 				small
 			/>
@@ -28,13 +28,13 @@ export const TeamMemberPageTemplate = ({
 			<section className="section">
 				<div className="container">
 					<div className="grid grid-cols-4 gap-12">
-						{featuredImage && (
+						{image && (
 							<div className="col-span-4 sm:col-span-2 lg:col-span-1">
-								<Img fluid={featuredImage.childImageSharp.fluid} />
+								<img src={image.url} />
 							</div>
 						)}
 						<div className="col-span-4 sm:col-span-2 lg:col-span-3">
-							<Content source={body} />
+							<div dangerouslySetInnerHTML={{__html: body}}></div>
 						</div>
 					</div>
 				</div>
@@ -43,21 +43,22 @@ export const TeamMemberPageTemplate = ({
 	);
 };
 
-const TeamMemberPage = ({ pageContext, data: { page, images } }) => {
+const TeamMemberPage = ({ pageContext, data: {page, images} }) => {
+	
 	const image = {
 		childImageSharp:
 			images.nodes[Math.floor(Math.random() * images.nodes.length)]
 	};
 	return (
 		<Layout
-			meta={page.frontmatter.meta || false}
-			title={page.frontmatter.title || false}
+			meta={false}
+			title={page.title || false}
 		>
 			<TeamMemberPageTemplate
 				pageContext={pageContext}
-				{...page.frontmatter}
-				body={page.body}
-				image={image}
+				{...page}
+				body={page.content.html}
+				banner={image}
 			/>
 		</Layout>
 	);
@@ -78,20 +79,14 @@ export const pageQuery = graphql`
 				}
 			}
 		}
-		page: mdx(id: { eq: $id }) {
-			...Meta
-			body
-			frontmatter {
-				title
-				subtitle
-				featuredImage {
-					childImageSharp {
-						fluid(maxWidth: 400) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-				small
+		page: graphCmsTeamMember(id: { eq: $id }) {
+			title
+			subtitle
+			content {
+				html
+			}
+			image {
+				url
 			}
 		}
 	}

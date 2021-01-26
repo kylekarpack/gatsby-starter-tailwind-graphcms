@@ -20,34 +20,7 @@ export default ({ children, meta, title }) => {
 						socialMediaCard {
 							image
 						}
-					}
-					allServices: allMdx(
-						sort: { fields: frontmatter___order }
-						filter: { slug: { glob: "pages/services/*" } }
-					) {
-						nodes {
-							fields {
-								slug
-							}
-							frontmatter {
-								title
-								previewImage {
-									childImageSharp {
-										fluid(maxWidth: 50) {
-											...GatsbyImageSharpFluid
-										}
-									}
-								}
-								previewImageDuotone: previewImage {
-									childImageSharp {
-										fluid(maxWidth: 50, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
-											...GatsbyImageSharpFluid
-										}
-									}
-								}
-							}
-						}
-					}
+					}	
 				}
 			`}
 			render={(data) => {
@@ -55,12 +28,7 @@ export default ({ children, meta, title }) => {
 					data.settingsYaml || {};
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
-					services: data.allServices.nodes.map((service) => {
-						return {
-							...service.fields,
-							...service.frontmatter
-						};
-					})
+					services: []
 				};
 
 				return (
