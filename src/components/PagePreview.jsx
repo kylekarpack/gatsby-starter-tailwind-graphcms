@@ -29,7 +29,6 @@ export const Page = ({
 }) => {
 	height = height || "200px";
 	const isMasonry = portfolioStyle === "masonry";
-	console.log(isMasonry);
 	const image = frontmatter?.previewImage || frontmatter?.featuredImage;
 	return (
 		<Link
