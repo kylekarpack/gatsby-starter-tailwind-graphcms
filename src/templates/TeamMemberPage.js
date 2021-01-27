@@ -1,65 +1,46 @@
-import Content from "../components/Content";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import React from "react";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
-import React from "react";
-import { graphql } from "gatsby";
 
-// Export Template for use in CMS preview
-export const TeamMemberPageTemplate = ({
-	pageContext,
-	title,
-	subtitle,
-	image,
-	banner,
-	body
-}) => {
-	return (
-		<main className="DefaultPage">
-			<PageHeader
-				title={title}
-				subtitle={subtitle}
-				pageContext={pageContext}
-				backgroundImage={banner}
-				breadcrumbs
-				small
-			/>
-
-			<section className="section">
-				<div className="container">
-					<div className="grid grid-cols-4 gap-12">
-						{image && (
-							<div className="col-span-4 sm:col-span-2 lg:col-span-1">
-								<img src={image.url} />
-							</div>
-						)}
-						<div className="col-span-4 sm:col-span-2 lg:col-span-3">
-							<div dangerouslySetInnerHTML={{__html: body}}></div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-	);
-};
-
-const TeamMemberPage = ({ pageContext, data: {page, images} }) => {
-	
-	const image = {
+const TeamMemberPage = ({ pageContext, data: { page, images } }) => {
+	const bannerImage = {
 		childImageSharp:
 			images.nodes[Math.floor(Math.random() * images.nodes.length)]
 	};
 	return (
-		<Layout
-			meta={false}
-			title={page.title || false}
-		>
-			<TeamMemberPageTemplate
-				pageContext={pageContext}
-				{...page}
-				body={page.content.html}
-				banner={image}
-			/>
+		<Layout meta={false} title={page.title || false}>
+			<main>
+				<PageHeader
+					title={page.title}
+					subtitle={page.subtitle}
+					pageContext={pageContext}
+					backgroundImage={bannerImage}
+					breadcrumbs
+					small
+				/>
+				<section className="section">
+					<div className="container">
+						<div className="grid grid-cols-4 gap-12">
+							{page.image && (
+								<div className="col-span-4 sm:col-span-2 lg:col-span-1">
+									<Img
+										fluid={page.image.localFile.childImageSharp.fluid}
+									/>
+								</div>
+							)}
+							<div className="col-span-4 sm:col-span-2 lg:col-span-3">
+								<div
+									dangerouslySetInnerHTML={{
+										__html: page.content.html
+									}}
+								></div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
 		</Layout>
 	);
 };
@@ -86,7 +67,13 @@ export const pageQuery = graphql`
 				html
 			}
 			image {
-				url
+				localFile {
+					childImageSharp {
+						fluid(maxWidth: 400) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
 			}
 		}
 	}

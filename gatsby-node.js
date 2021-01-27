@@ -8,34 +8,45 @@ require("dotenv").config({
 exports.createPages = async ({ actions, graphql }) => {
 	const { createPage } = actions;
 
-	const { data } = await graphql(`
+	const createPages = (pages, template) => {
+		for (let page of pages) {
+			createPage({
+				component: path.resolve(`src/templates/${template}.js`),
+				context: {
+					slug: page.slug,
+					id: page.id,
+					page
+				},
+				path: "/" + page.slug
+			});
+		}
+	}
+
+	const teamMembers = await graphql(`
 		{
 			team: allGraphCmsTeamMember {
 				nodes {
 					id
-					title
-					subtitle
 					slug
-					content {
-						html
-					}
 				}
 			}
 		}
 	`);
 
-	data.team.nodes.forEach((teamMember) => {
-		console.log(teamMember)
-		createPage({
-			component: path.resolve(`src/templates/TeamMemberPage.js`),
-			context: {
-				slug: teamMember.slug,
-				id: teamMember.id,
-				teamMember
-			},
-			path: "/" + teamMember.slug
-		});
-	});
+	const portfolioItems = await graphql(`
+	{
+		portfolio: allGraphCmsPortfolio {
+			nodes {
+				id
+				slug
+			}
+		}
+	}
+	
+	`)
+
+	createPages(teamMembers.data.team.nodes, "TeamMemberPage");
+	createPages(portfolioItems.data.portfolio.nodes, "PortfolioPage");
 
 	return graphql(`
 		{

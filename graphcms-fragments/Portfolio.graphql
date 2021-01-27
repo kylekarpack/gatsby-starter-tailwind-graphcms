@@ -14,7 +14,7 @@ fragment Portfolio on Portfolio {
     }
   }
   order
-  body {
+  content {
     ... on RichText {
       raw
       html

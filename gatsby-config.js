@@ -102,7 +102,7 @@ module.exports = {
 			options: {
 				endpoint: process.env.GRAPHCMS_PROJECT_API,
 				token: process.env.GRAPHCMS_PROD_AUTH_TOKEN,
-				//downloadLocalImages: true
+				downloadLocalImages: true
 			}
 		},
 
@@ -116,7 +116,7 @@ module.exports = {
 				gatsbyRemarkPlugins: [
 					// gatsby-remark-relative-images must
 					// go before gatsby-remark-images
-					"gatsby-remark-relative-images",
+					//"gatsby-remark-relative-images",
 					{
 						resolve: "gatsby-remark-images",
 						options: {

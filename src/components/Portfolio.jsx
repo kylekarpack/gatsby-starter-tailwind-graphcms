@@ -16,13 +16,14 @@ const Portfolio = ({ category, portfolioStyle, excerpt, height }) => {
 		breakInside: "avoid"
 	} : {};
 
-	let portfolioItems = useStaticQuery(graphql`
+	let portfolioItems = [];
+	/* useStaticQuery(graphql`
 		query {
 			allMdx(
 				sort: { fields: frontmatter___order }
 				filter: {
 					slug: { glob: "pages/portfolio/*" }
-					frontmatter: { status: { eq: "publish" } }
+					#frontmatter: { status: { eq: "publish" } }
 				}
 			) {
 				nodes {
@@ -46,16 +47,17 @@ const Portfolio = ({ category, portfolioStyle, excerpt, height }) => {
 			}
 		}
 	`).allMdx.nodes;
+		*/
 
 	let filters = [
-		...new Set(portfolioItems.flatMap((el) => el.frontmatter.categories))
+		...new Set(portfolioItems.flatMap((el) => el.categories.map(c => c.title)))
 	];
 	filters.sort((a, b) => a.localeCompare(b));
 	filters.unshift("All");
 
 	if (!isAll(filter)) {
 		portfolioItems = portfolioItems.filter((el) =>
-			el.frontmatter.categories?.includes(filter)
+			true || el.categories?.includes(filter)
 		);
 	}
 
