@@ -42,11 +42,22 @@ exports.createPages = async ({ actions, graphql }) => {
 			}
 		}
 	}
-	
+	`)
+
+	const pageItems = await graphql(`
+	{
+		page: allGraphCmsPage {
+			nodes {
+				id
+				slug
+			}
+		}
+	}
 	`)
 
 	createPages(teamMembers.data.team.nodes, "TeamMemberPage");
 	createPages(portfolioItems.data.portfolio.nodes, "PortfolioPage");
+	createPages(pageItems.data.page.nodes, "DefaultPage");
 
 	return graphql(`
 		{
