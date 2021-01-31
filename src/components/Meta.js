@@ -84,7 +84,7 @@ export default class Meta extends Component {
 						{`
 							var clicky_site_ids = clicky_site_ids || [];
 							clicky_site_ids.push(${Number(clickyTrackingId)});
-							`}
+						`}
 					</script>
 				)}
 
