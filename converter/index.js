@@ -104,10 +104,10 @@ async function createItem(vars) {
 
 (async function () {
 	let items = fs
-		.readdirSync("../content/pages")
+		.readdirSync("../content/pages/services")
 		.filter((el) => el.endsWith("md") || el.endsWith("mdx"))
 	for (let item of items) {
-		const str = fs.readFileSync(`../content/pages/${item}`).toString();
+		const str = fs.readFileSync(`../content/pages/services/${item}`).toString();
 		const parsed = matter(str);
 		const slateTransformer = new SlateTransformer();
 		const slateValue = slateTransformer.fromMarkdown(parsed.content);
