@@ -1,55 +1,32 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
-import Portfolio from "../components/Portfolio";
-
-// Export Template for use in CMS Default
-export const DefaultPageTemplate = (props) => {
-	const preview = props.preview || {};
-	return (
-		<main className="DefaultPage">
-			<PageHeader
-				title={props.title}
-				subtitle={props.subtitle}
-				backgroundImage={props.featuredImage}
-				pageContext={props.pageContext}
-				breadcrumbs
-				small={props.small}
-			/>
-
-			<section className="section">
-				<div className="container main-content">
-					<Content source={props.body} />
-					{(preview.type || props.portfolioCategory) && <br />}
-					{preview.type && <PagePreview {...preview} />}
-					{props.portfolioCategory && (
-						<Portfolio
-							category={props.portfolioCategory}
-							portfolioStyle={props.portfolioStyle}
-							excerpt={true}
-						/>
-					)}
-				</div>
-			</section>
-		</main>
-	);
-};
 
 const DefaultPage = ({ pageContext, data: { page } }) => {
-	console.log(page);
+	const children = page?.children?.[0]?.portfolios || page?.children || [];
 	return (
-		<Layout
-			meta={page.frontmatter.meta || false}
-			title={page.frontmatter.title || false}
-		>
-			<DefaultPageTemplate
-				pageContext={pageContext}
-				{...page.frontmatter}
-				body={page.body}
-			/>
+		<Layout meta={page.meta || false} title={page.title || false}>
+			<main className="DefaultPage">
+				<PageHeader
+					title={page.title}
+					subtitle={page.subtitle}
+					backgroundImage={page.image?.localFile}
+					pageContext={pageContext}
+					breadcrumbs
+					small={true}
+				/>
+
+				<section className="section">
+					<div className="container main-content">
+						<div
+							dangerouslySetInnerHTML={{ __html: page.content?.html }}
+						></div>
+						<PagePreview items={children} excerpt />
+					</div>
+				</section>
+			</main>
 		</Layout>
 	);
 };
@@ -58,9 +35,41 @@ export default DefaultPage;
 export const pageQuery = graphql`
 	query DefaultPage($id: String!) {
 		page: graphCmsPage(id: { eq: $id }) {
-			id
 			title
+			attributes
 			slug
+			content {
+				html
+			}
+			image {
+				localFile {
+					childImageSharp {
+						fluid(maxWidth: 960) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
+			}
+			children: remoteChildren {
+				... on GraphCMS_Category {
+					portfolios {
+						title
+						slug
+						content {
+							text
+						}
+						image {
+							localFile {
+								childImageSharp {
+									fluid(maxWidth: 400) {
+										...GatsbyImageSharpFluid_withWebp
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 `;

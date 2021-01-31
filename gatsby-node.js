@@ -5,11 +5,22 @@ require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
+const slugify = (str) => {
+	str = str || "";
+	if (!str.startsWith("/")) {
+		str = `/${str}`;
+	}
+	str = str.toLowerCase().replace(/ /g, "-");
+	console.log(str);
+	return str;
+}
+
 exports.createPages = async ({ actions, graphql }) => {
 	const { createPage } = actions;
 
 	const createPages = (pages, template) => {
 		for (let page of pages) {
+			console.log(page.slug, page.id);
 			createPage({
 				component: path.resolve(`src/templates/${template}.js`),
 				context: {
@@ -17,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
 					id: page.id,
 					page
 				},
-				path: "/" + page.slug
+				path: "/" + (page.slug)
 			});
 		}
 	}
