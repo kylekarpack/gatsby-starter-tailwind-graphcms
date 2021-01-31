@@ -28,7 +28,8 @@ export default class Meta extends Component {
 			canonicalLink,
 			siteTitle,
 			siteDescription,
-			googleTrackingId
+			googleTrackingId,
+			clickyTrackingId
 			// overwrite { title, description } if in fields or fields.meta
 		} = this.props;
 
@@ -76,6 +77,19 @@ export default class Meta extends Component {
               gtag('config', '${googleTrackingId}');
             `}
 					</script>
+				)}
+
+				{clickyTrackingId && (
+					<script>
+						{`
+							var clicky_site_ids = clicky_site_ids || [];
+							clicky_site_ids.push(${Number(clickyTrackingId)});
+							`}
+					</script>
+				)}
+
+				{clickyTrackingId && (
+					<script async src="//static.getclicky.com/js"></script>
 				)}
 			</Helmet>
 		);

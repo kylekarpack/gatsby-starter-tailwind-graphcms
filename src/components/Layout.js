@@ -17,6 +17,7 @@ export default ({ children, meta, title }) => {
 						siteTitle
 						siteDescription
 						googleTrackingId
+						clickyTrackingId
 						socialMediaCard {
 							image
 						}
@@ -51,7 +52,7 @@ export default ({ children, meta, title }) => {
 				}
 			`}
 			render={(data) => {
-				const { siteTitle, socialMediaCard, googleTrackingId } =
+				const { siteTitle, socialMediaCard, googleTrackingId, clickyTrackingId } =
 					data.settingsYaml || {};
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
@@ -75,6 +76,7 @@ export default ({ children, meta, title }) => {
 
 						<Meta
 							googleTrackingId={googleTrackingId}
+							clickyTrackingId={clickyTrackingId}
 							absoluteImageUrl={
 								socialMediaCard &&
 								socialMediaCard.image &&
