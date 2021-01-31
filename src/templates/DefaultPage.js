@@ -38,50 +38,29 @@ export const DefaultPageTemplate = (props) => {
 	);
 };
 
-const DefaultPage = ({ pageContext, data: { page } }) => (
-	<Layout
-		meta={page.frontmatter.meta || false}
-		title={page.frontmatter.title || false}
-	>
-		<DefaultPageTemplate
-			pageContext={pageContext}
-			{...page.frontmatter}
-			body={page.body}
-		/>
-	</Layout>
-);
+const DefaultPage = ({ pageContext, data: { page } }) => {
+	console.log(page);
+	return (
+		<Layout
+			meta={page.frontmatter.meta || false}
+			title={page.frontmatter.title || false}
+		>
+			<DefaultPageTemplate
+				pageContext={pageContext}
+				{...page.frontmatter}
+				body={page.body}
+			/>
+		</Layout>
+	);
+};
 export default DefaultPage;
 
 export const pageQuery = graphql`
 	query DefaultPage($id: String!) {
-		page: mdx(id: { eq: $id }) {
-			...Meta
-			body
-			frontmatter {
-				title
-				subtitle
-				preview {
-					type
-					excerpt
-					overlay
-					height
-				}
-				portfolioCategory
-				portfolioStyle
-				featuredImage {
-					childImageSharp {
-						fluid(
-							maxHeight: 400
-							maxWidth: 1920
-							cropFocus: CENTER
-							quality: 50
-						) {
-							...GatsbyImageSharpFluid_withWebp
-						}
-					}
-				}
-				small
-			}
+		page: graphCmsPage(id: { eq: $id }) {
+			id
+			title
+			slug
 		}
 	}
 `;

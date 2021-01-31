@@ -87,8 +87,8 @@ async function fetchAPI(query, { variables, preview } = {}) {
 async function createItem(vars) {
 	const out = await fetchAPI(
 		`
-		mutation ($data: TeamMemberCreateInput!) {
-			createTeamMember(data: $data) {
+		mutation ($data: PageCreateInput!) {
+			createPage(data: $data) {
 			  id
 			}
 		 }
@@ -104,10 +104,10 @@ async function createItem(vars) {
 
 (async function () {
 	let items = fs
-		.readdirSync("../content/pages/team")
+		.readdirSync("../content/pages")
 		.filter((el) => el.endsWith("md") || el.endsWith("mdx"))
 	for (let item of items) {
-		const str = fs.readFileSync(`../content/pages/team/${item}`).toString();
+		const str = fs.readFileSync(`../content/pages/${item}`).toString();
 		const parsed = matter(str);
 		const slateTransformer = new SlateTransformer();
 		const slateValue = slateTransformer.fromMarkdown(parsed.content);
@@ -120,7 +120,6 @@ async function createItem(vars) {
 		const data = {
 			slug: parsed.data.slug,
 			title: parsed.data.title,
-			subtitle: parsed.data.subtitle,
 			content: doc,
 			// categories: {
 			// 	connect: parsed.data.categories.map((el) => {
