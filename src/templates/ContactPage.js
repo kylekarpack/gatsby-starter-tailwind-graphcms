@@ -94,29 +94,30 @@ export default ContactPage;
 
 export const pageQuery = graphql`
 	query ContactPage($id: String!) {
-		page: mdx(id: { eq: $id }) {
-			...Meta
-			body
-			frontmatter {
-				title
-				template
-				subtitle
-				featuredImage {
-					childImageSharp {
-						fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-				address
-				phone
-				email
-				locations {
-					mapLink
-					lat
-					lng
-				}
-			}
+		page: graphCmsPage(id: { eq: $id }) {
+			title
+			# ...Meta
+			# body
+			# frontmatter {
+			# 	title
+			# 	template
+			# 	subtitle
+			# 	featuredImage {
+			# 		childImageSharp {
+			# 			fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
+			# 				...GatsbyImageSharpFluid
+			# 			}
+			# 		}
+			# 	}
+			# 	address
+			# 	phone
+			# 	email
+			# 	locations {
+			# 		mapLink
+			# 		lat
+			# 		lng
+			# 	}
+			# }
 		}
 	}
 `;

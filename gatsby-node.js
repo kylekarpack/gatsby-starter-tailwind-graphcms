@@ -69,62 +69,6 @@ exports.createPages = async ({ actions, graphql }) => {
 	createPages(teamMembers.data.team.nodes, "TeamMemberPage");
 	createPages(portfolioItems.data.portfolio.nodes, "PortfolioPage");
 	createPages(pageItems.data.page.nodes, "DefaultPage");
-
-	return graphql(`
-		{
-			allMdx(limit: 1000) {
-				edges {
-					node {
-						id
-						frontmatter {
-							template
-							title
-						}
-						fields {
-							slug
-							contentType
-						}
-					}
-				}
-			}
-		}
-	`).then((result) => {
-		if (result.errors) {
-			result.errors.forEach((e) => console.error(e.toString()));
-			return Promise.reject(result.errors);
-		}
-
-		const mdFiles = result.data.allMdx.edges;
-
-		const contentTypes = _.groupBy(mdFiles, "node.fields.contentType");
-
-		_.each(contentTypes, (pages, contentType) => {
-			const pagesToCreate = pages.filter((page) =>
-				// get pages with template field
-				_.get(page, `node.frontmatter.template`)
-			);
-			if (!pagesToCreate.length) {
-				return console.log(`Skipping ${contentType}`);
-			}
-
-			console.log(`Creating ${pagesToCreate.length} ${contentType}`);
-
-			pagesToCreate.forEach((page) => {
-				const id = page.node.id;
-				createPage({
-					// page slug set in md frontmatter
-					path: page.node.fields.slug,
-					component: path.resolve(
-						`src/templates/${String(page.node.frontmatter.template)}.js`
-					),
-					// additional data can be passed via context
-					context: {
-						id
-					}
-				});
-			});
-		});
-	});
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

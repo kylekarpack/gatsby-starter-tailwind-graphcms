@@ -74,21 +74,6 @@ module.exports = {
 				trailingSlashes: true
 			}
 		},
-		// Add static assets before markdown files
-		{
-			resolve: "gatsby-source-filesystem",
-			options: {
-				path: `${__dirname}/static/images`,
-				name: "images"
-			}
-		},
-		{
-			resolve: "gatsby-source-filesystem",
-			options: {
-				path: `${__dirname}/content/images`,
-				name: "images"
-			}
-		},
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
@@ -104,45 +89,12 @@ module.exports = {
 				downloadLocalImages: true
 			}
 		},
-
 		// images
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
 		{
 			resolve: "gatsby-plugin-mdx",
 			extensions: [".nah"],
-			options: {
-				gatsbyRemarkPlugins: [
-					// gatsby-remark-relative-images must
-					// go before gatsby-remark-images
-					//"gatsby-remark-relative-images",
-					{
-						resolve: "gatsby-remark-images",
-						options: {
-							maxWidth: 400,
-							linkImagesToOriginal: false,
-							withWebp: true
-						}
-					},
-					`gatsby-remark-responsive-iframe`,
-					{
-						resolve: "gatsby-remark-custom-blocks",
-						options: {
-							blocks: {
-								leftimg: {
-									classes: "markdown-image image-left"
-								},
-								rightimg: {
-									classes: "markdown-image image-right"
-								},
-								clear: {
-									classes: "clear-both"
-								}
-							}
-						}
-					}
-				]
-			}
 		},
 
 		// css (replace with gatsby-plugin-sass for v2)

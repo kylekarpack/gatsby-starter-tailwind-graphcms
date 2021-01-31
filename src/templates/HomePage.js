@@ -58,23 +58,24 @@ export const pageQuery = graphql`
 	## $id is processed via gatsby-node.js
 	## query name must be unique to this file
 	query HomePage($id: String!) {
-		page: mdx(id: { eq: $id }) {
-			...Meta
-			body
-			frontmatter {
-				title
-				subtitle
-				images {
-					description
-					url {
-						childImageSharp {
-							fluid(maxWidth: 1920) {
-								...GatsbyImageSharpFluid
-							}
-						}
-					}
-				}
-			}
+		page: graphCmsPage(id: { eq: $id }) {
+			title
+			#...Meta
+			# body
+			# frontmatter {
+			# 	title
+			# 	subtitle
+			# 	images {
+			# 		description
+			# 		url {
+			# 			childImageSharp {
+			# 				fluid(maxWidth: 1920) {
+			# 					...GatsbyImageSharpFluid
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 		}
 	}
 `;
