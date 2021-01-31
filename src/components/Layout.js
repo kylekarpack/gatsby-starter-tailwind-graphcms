@@ -17,7 +17,6 @@ export default ({ children, meta, title }) => {
 						siteTitle
 						siteDescription
 						googleTrackingId
-						clickyTrackingId
 						socialMediaCard {
 							image
 						}
@@ -41,7 +40,13 @@ export default ({ children, meta, title }) => {
 								}
 								previewImageDuotone: previewImage {
 									childImageSharp {
-										fluid(maxWidth: 50, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
+										fluid(
+											maxWidth: 50
+											duotone: {
+												highlight: "#FFFFFF"
+												shadow: "#3C5E31"
+											}
+										) {
 											...GatsbyImageSharpFluid
 										}
 									}
@@ -52,8 +57,11 @@ export default ({ children, meta, title }) => {
 				}
 			`}
 			render={(data) => {
-				const { siteTitle, socialMediaCard, googleTrackingId, clickyTrackingId } =
-					data.settingsYaml || {};
+				const {
+					siteTitle,
+					socialMediaCard,
+					googleTrackingId,
+				} = data.settingsYaml || {};
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
 					services: data.allServices.nodes.map((service) => {
@@ -76,7 +84,6 @@ export default ({ children, meta, title }) => {
 
 						<Meta
 							googleTrackingId={googleTrackingId}
-							clickyTrackingId={clickyTrackingId}
 							absoluteImageUrl={
 								socialMediaCard &&
 								socialMediaCard.image &&
@@ -91,6 +98,7 @@ export default ({ children, meta, title }) => {
 						<Fragment>{children}</Fragment>
 
 						<Footer />
+					
 					</Fragment>
 				);
 			}}
