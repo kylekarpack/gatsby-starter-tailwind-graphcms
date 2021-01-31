@@ -24,8 +24,11 @@ export default ({ children, meta, title }) => {
 				}
 			`}
 			render={(data) => {
-				const { siteTitle, socialMediaCard, googleTrackingId } =
-					data.settingsYaml || {};
+				const {
+					siteTitle,
+					socialMediaCard,
+					googleTrackingId,
+				} = data.settingsYaml || {};
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
 					services: []
@@ -57,6 +60,7 @@ export default ({ children, meta, title }) => {
 						<Fragment>{children}</Fragment>
 
 						<Footer />
+					
 					</Fragment>
 				);
 			}}
