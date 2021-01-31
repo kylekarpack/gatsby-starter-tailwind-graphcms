@@ -12,7 +12,7 @@ fragment Category on Category {
       remoteId: id
     }
   }
-  remoteParent: parent {
+  parents {
     ... on Page {
       remoteTypeName: __typename
       remoteId: id

@@ -28,7 +28,7 @@ fragment Portfolio on Portfolio {
       remoteId: id
     }
   }
-  remoteParent: parent {
+  parents {
     ... on Page {
       remoteTypeName: __typename
       remoteId: id
