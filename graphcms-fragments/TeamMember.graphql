@@ -23,4 +23,10 @@ fragment TeamMember on TeamMember {
     }
   }
   order
+  remoteParent: parent {
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
 }

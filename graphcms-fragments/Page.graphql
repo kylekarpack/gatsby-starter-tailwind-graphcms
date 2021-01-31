@@ -21,5 +21,30 @@ fragment Page on Page {
       locale
     }
   }
+  attributes
   order
+  remoteChildren: children {
+    ... on Category {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+    ... on Portfolio {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+    ... on TeamMember {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  remoteParent: parent {
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
 }
