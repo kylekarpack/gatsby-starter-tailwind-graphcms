@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import { Page } from "./PagePreview";
 
 const isAll = (category) => {

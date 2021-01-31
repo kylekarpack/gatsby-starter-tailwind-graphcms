@@ -23,11 +23,10 @@ export const Page = ({
 	overlay,
 	readMore,
 	height,
-	portfolioStyle,
+	masonry,
 	className
 }) => {
 	height = height || "200px";
-	const isMasonry = portfolioStyle === "masonry";
 	const image = page.image?.localFile?.childImageSharp?.fluid;
 	return (
 		<Link
@@ -36,9 +35,9 @@ export const Page = ({
 			} ${className || ""}`}
 			to={`/${page.slug}`}
 		>
-			{isMasonry ? (
+			{masonry ? (
 				<div className="relative">
-					<Image fluid={image} />
+					<Image fluid={image} style={{minHeight: "100px"}} />
 					<div className="absolute opacity-0 hover:opacity-100 transition-opacity duration-300 px-4 left-0 right-0 top-0 bottom-0 bg-black bg-opacity-60 text-center flex justify-center items-center">
 						<span className="font-bold text-xl text-white px-4 leading-5">
 							{page.title}
@@ -52,10 +51,7 @@ export const Page = ({
 				</div>
 			) : (
 				<div className="Background">
-					<BackgroundImage
-						style={{ height }}
-						fluid={image}
-					>
+					<BackgroundImage style={{ height }} fluid={image}>
 						{overlay && (
 							<div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
 								<h3 className="font-bold text-xl text-white text-bold px-4">
@@ -67,7 +63,7 @@ export const Page = ({
 				</div>
 			)}
 
-			{!(overlay || isMasonry) && (
+			{!(overlay || masonry) && (
 				<div className="px-6 py-4">
 					<>
 						<div
@@ -99,23 +95,37 @@ export const Page = ({
 	);
 };
 
-const PagePreview = ({ excerpt, height, overlay, items }) => {
-
+const PagePreview = ({ options, items }) => {
+	console.warn(options);
 
 	// if (type) {
 	// 	items = items.filter((el) => el.frontmatter?.type === type);
 	// }
 
+	const style = options?.masonry
+		? {
+				columns: "4 250px",
+				columnGap: "1rem",
+				display: "block",
+				textAlign: "center",
+				breakInside: "avoid"
+		  }
+		: {};
+
 	return (
-		<div className="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+		<div
+			style={style}
+			className="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
+		>
 			{items.map((page, i) => (
 				<Page
 					page={page}
-					excerpt={excerpt}
-					overlay={overlay}
-					height={height}
+					excerpt={options?.excerpt !== false}
+					overlay={options?.overlay}
+					height={options?.height}
+					masonry={options?.masonry}
+					className={`Preview ${options?.masonry ? "inline-block mb-4" : ""}`}
 					key={i}
-					className="Preview"
 				/>
 			))}
 		</div>
