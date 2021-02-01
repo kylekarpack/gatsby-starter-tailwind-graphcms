@@ -114,6 +114,9 @@ body {
 	.img-right {
 		@apply float-right my-2 sm:ml-6;
 	}
+	.clear {
+		clear: both;
+	}
 }
 
 /* Basic resets */
