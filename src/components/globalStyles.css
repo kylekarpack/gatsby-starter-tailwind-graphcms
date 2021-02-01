@@ -105,13 +105,13 @@ body {
 	.section {
 		@apply py-8 sm:py-16;
 	}
-	.markdown-image {
+	.img {
 		@apply sm:w-1/4 w-full overflow-hidden;
 	}
-	.image-left {
+	.img-left {
 		@apply float-left my-2 sm:mr-6;
 	}
-	.image-right {
+	.img-right {
 		@apply float-right my-2 sm:ml-6;
 	}
 }
