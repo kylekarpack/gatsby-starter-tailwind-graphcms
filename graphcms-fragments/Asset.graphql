@@ -29,5 +29,11 @@ fragment Asset on Asset {
       remoteId: id
     }
   }
+  imageSlide {
+    ... on Slide {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   url
 }

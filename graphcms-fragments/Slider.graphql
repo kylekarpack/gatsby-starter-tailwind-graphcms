@@ -11,4 +11,10 @@ fragment Slider on Slider {
       remoteId: id
     }
   }
+  pages {
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
 }

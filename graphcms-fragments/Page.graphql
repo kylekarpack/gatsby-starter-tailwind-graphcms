@@ -5,6 +5,7 @@ fragment Page on Page {
   updatedAt
   publishedAt
   title
+  subtitle
   slug
   content {
     ... on RichText {
@@ -19,6 +20,12 @@ fragment Page on Page {
       remoteTypeName: __typename
       remoteId: id
       locale
+    }
+  }
+  slider {
+    ... on Slider {
+      remoteTypeName: __typename
+      remoteId: id
     }
   }
   attributes
