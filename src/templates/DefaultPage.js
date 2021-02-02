@@ -39,12 +39,17 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 						<div
 							dangerouslySetInnerHTML={{ __html: page.content?.html }}
 						></div>
-						<br />
-						<PagePreview
-							items={children}
-							options={page.attributes?.preview}
-							excerpt
-						/>
+
+						{children?.length ? (
+							<div>
+								<br />
+								<PagePreview
+									items={children}
+									options={page.attributes?.preview}
+									excerpt
+								/>
+							</div>
+						) : null}
 					</div>
 				</section>
 			</main>

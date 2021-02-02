@@ -18,13 +18,18 @@ exports.createPages = async ({ actions, graphql }) => {
 
 	const createPages = (pages, template) => {
 		for (let page of pages) {
+			let templateToUse = template;
 			switch (page.slug) {
 				case "contact":
-					template = "ContactPage";
+					console.log("CREATING contact page")
+					templateToUse = "ContactPage";
+					break;
+				default:
+					templateToUse = template;
 					break;
 			}
 			createPage({
-				component: path.resolve(`src/templates/${template}.js`),
+				component: path.resolve(`src/templates/${templateToUse}.js`),
 				context: {
 					slug: page.slug,
 					id: page.id,
