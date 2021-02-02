@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
+import Slider from "../components/Slider";
 
 const DefaultPage = ({ pageContext, data: { page } }) => {
 	const children = [
@@ -13,18 +14,25 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 		).values()
 	];
 	children.sort((a, b) => a.order - b.order);
-	console.warn(children);
+
 	return (
 		<Layout meta={page.meta || false} title={page.title || false}>
 			<main className="DefaultPage">
-				<PageHeader
-					title={page.title}
-					subtitle={page.subtitle}
-					backgroundImage={page.image?.localFile}
-					pageContext={pageContext}
-					breadcrumbs
-					small={true}
-				/>
+				{page.slider ? (
+					<Slider
+						title={page.subtitle || page.title}
+						slides={page.slider.slides}
+					/>
+				) : (
+					<PageHeader
+						title={page.title}
+						subtitle={page.subtitle}
+						backgroundImage={page.image?.localFile}
+						pageContext={pageContext}
+						breadcrumbs
+						small={true}
+					/>
+				)}
 
 				<section className="section">
 					<div className="container main-content">
@@ -49,6 +57,7 @@ export const pageQuery = graphql`
 	query DefaultPage($id: String!) {
 		page: graphCmsPage(id: { eq: $id }) {
 			title
+			subtitle
 			attributes
 			slug
 			order
@@ -60,6 +69,20 @@ export const pageQuery = graphql`
 					childImageSharp {
 						fluid(maxWidth: 960) {
 							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
+			}
+			slider {
+				slides {
+					title
+					image {
+						localFile {
+							childImageSharp {
+								fluid(maxWidth: 960) {
+									...GatsbyImageSharpFluid_withWebp
+								}
+							}
 						}
 					}
 				}
@@ -91,6 +114,10 @@ export const pageQuery = graphql`
 						order
 						content {
 							text
+						}
+						categories {
+							title
+							slug
 						}
 						image {
 							localFile {
