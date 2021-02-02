@@ -1,0 +1,14 @@
+fragment Slider on Slider {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  slug
+  slides {
+    ... on Slide {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+}

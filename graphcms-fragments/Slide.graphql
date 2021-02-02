@@ -1,0 +1,21 @@
+fragment Slide on Slide {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  title
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  slider {
+    ... on Slider {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+}
