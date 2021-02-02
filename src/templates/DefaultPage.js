@@ -65,25 +65,13 @@ export const pageQuery = graphql`
 				html
 			}
 			image {
-				localFile {
-					childImageSharp {
-						fluid(maxWidth: 960) {
-							...GatsbyImageSharpFluid_withWebp
-						}
-					}
-				}
+				...image
 			}
 			slider {
 				slides {
 					title
 					image {
-						localFile {
-							childImageSharp {
-								fluid(maxWidth: 960) {
-									...GatsbyImageSharpFluid_withWebp
-								}
-							}
-						}
+						...imageWide
 					}
 				}
 			}
@@ -97,13 +85,7 @@ export const pageQuery = graphql`
 						html
 					}
 					image {
-						localFile {
-							childImageSharp {
-								fluid(maxWidth: 960) {
-									...GatsbyImageSharpFluid_withWebp
-								}
-							}
-						}
+						...imageWide
 					}
 				}
 				... on GraphCMS_Category {
@@ -120,13 +102,7 @@ export const pageQuery = graphql`
 							slug
 						}
 						image {
-							localFile {
-								childImageSharp {
-									fluid(maxWidth: 400) {
-										...GatsbyImageSharpFluid_withWebp
-									}
-								}
-							}
+							...image
 						}
 					}
 				}
@@ -139,13 +115,7 @@ export const pageQuery = graphql`
 						text
 					}
 					image {
-						localFile {
-							childImageSharp {
-								fluid(maxWidth: 400) {
-									...GatsbyImageSharpFluid_withWebp
-								}
-							}
-						}
+						...image
 					}
 				}
 			}
