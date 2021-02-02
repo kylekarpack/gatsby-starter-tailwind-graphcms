@@ -20,18 +20,27 @@ export default ({ children, meta, title }) => {
 						socialMediaCard {
 							image
 						}
-					}	
+					}
+					services: allGraphCmsPage(
+						filter: { slug: { regex: "/services//" } }
+					) {
+						nodes {
+							title
+							slug
+							order
+						}
+					}
 				}
 			`}
 			render={(data) => {
-				const {
-					siteTitle,
-					socialMediaCard,
-					googleTrackingId,
-				} = data.settingsYaml || {};
+				const { siteTitle, socialMediaCard, googleTrackingId } =
+					data.settingsYaml || {};
+
+				const services = data.services.nodes;
+				services.sort((a, b) => a.order - b.order);
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
-					services: []
+					services: services
 				};
 
 				return (
@@ -60,7 +69,6 @@ export default ({ children, meta, title }) => {
 						<Fragment>{children}</Fragment>
 
 						<Footer />
-					
 					</Fragment>
 				);
 			}}
