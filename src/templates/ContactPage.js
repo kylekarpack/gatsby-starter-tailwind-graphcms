@@ -1,7 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Mail, MapPin, Smartphone } from "react-feather";
-import Content from "../components/Content";
 import FileMail from "../components/FileMail";
 import Layout from "../components/Layout";
 import Map from "../components/Map";
@@ -10,14 +9,12 @@ import "./ContactPage.css";
 
 const ContactPage = ({ data: { page } }) => {
 	const {
-		content,
 		title,
 		subtitle,
 		image,
-		address,
-		phone,
-		email,
-		locations
+		attributes: {
+			properties: { address, phone, email, locations }
+		}
 	} = page;
 	const addressLink = `https://www.google.com/maps/search/${encodeURI(
 		address
@@ -95,6 +92,7 @@ export const pageQuery = graphql`
 			image {
 				...image
 			}
+			attributes
 			# ...Meta
 			# body
 			# frontmatter {
