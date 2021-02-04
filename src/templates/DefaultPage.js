@@ -71,7 +71,7 @@ export const pageQuery = graphql`
 				html
 			}
 			image {
-				...image
+				...imageWide
 			}
 			slider {
 				slides {
