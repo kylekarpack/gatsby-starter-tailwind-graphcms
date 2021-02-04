@@ -14,6 +14,7 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 		).values()
 	];
 	children.sort((a, b) => a.order - b.order);
+	console.warn(children)
 
 	return (
 		<Layout meta={page.meta || false} title={page.title || false}>
@@ -86,11 +87,15 @@ export const pageQuery = graphql`
 					title
 					slug
 					attributes
+					order
 					content {
 						html
 					}
 					image {
 						...imageWide
+					}
+					previewImage {
+						...image
 					}
 				}
 				... on GraphCMS_Category {

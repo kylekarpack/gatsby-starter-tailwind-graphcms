@@ -35,5 +35,11 @@ fragment Asset on Asset {
       remoteId: id
     }
   }
+  previewImagePage {
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   url
 }

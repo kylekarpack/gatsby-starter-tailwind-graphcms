@@ -22,6 +22,13 @@ fragment Page on Page {
       locale
     }
   }
+  previewImage {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
   slider {
     ... on Slider {
       remoteTypeName: __typename

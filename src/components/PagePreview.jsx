@@ -27,7 +27,9 @@ const Page = ({
 	className
 }) => {
 	height = height || "200px";
-	const image = page.image?.localFile?.childImageSharp?.fluid;
+	const image =
+		page?.previewImage?.localFile?.childImageSharp?.fluid ??
+		page?.image?.localFile?.childImageSharp?.fluid;
 	return (
 		<Link
 			className={`hover:opacity-90 max-w-xs w-full rounded overflow-hidden shadow-lg hover:shadow-xl duration-500 transition-all ${
