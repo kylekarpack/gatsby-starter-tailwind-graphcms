@@ -25,10 +25,10 @@
   color: var(--primary);
 }
 
-.bg-yellow-100 > p {
+.Contact .bg-yellow-100 > p {
 	margin: 0;
 }
 
-.body-content h4 {
+.Contact .body-content h4 {
 	margin-top: 2em;
 }

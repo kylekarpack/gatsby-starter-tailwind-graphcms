@@ -9,12 +9,11 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 	const children = [
 		...new Map(
 			page?.children
-				.flatMap((el) => el.portfolios || el)
-				.map((item) => [item.id, item])
+				?.flatMap((el) => el.portfolios || el)
+				?.map((item) => [item.id, item])
 		).values()
 	];
 	children.sort((a, b) => a.order - b.order);
-	console.warn(children)
 
 	return (
 		<Layout meta={page.meta || false} title={page.title || false}>
