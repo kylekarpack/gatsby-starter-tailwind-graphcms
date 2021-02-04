@@ -33,6 +33,7 @@ const ContactPage = ({ data: { page } }) => {
 					<div className="container grid lg:grid-cols-3 gap-12">
 						<div className="col-span-2">
 							<div
+								className="body-content"
 								dangerouslySetInnerHTML={{ __html: page.content?.html }}
 							></div>{" "}
 							<div className="Contact--Details">

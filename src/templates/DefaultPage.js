@@ -38,6 +38,7 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 				<section className="section">
 					<div className="container main-content">
 						<div
+							className="body-content"
 							dangerouslySetInnerHTML={{ __html: page.content?.html }}
 						></div>
 

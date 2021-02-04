@@ -19,7 +19,7 @@ const PortfolioPage = ({ pageContext, data: { page, bannerImage } }) => {
 					<div className="container">
 						<div className="grid grid-cols-5 gap-12">
 							<div className="col-span-5 lg:col-span-3">
-								<div
+								<div className="body-content"
 									dangerouslySetInnerHTML={{
 										__html: page.content.html
 									}}
