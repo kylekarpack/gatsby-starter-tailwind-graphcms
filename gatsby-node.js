@@ -21,7 +21,6 @@ exports.createPages = async ({ actions, graphql }) => {
 			let templateToUse = template;
 			switch (page.slug) {
 				case "contact":
-					console.log("CREATING contact page")
 					templateToUse = "ContactPage";
 					break;
 				default:

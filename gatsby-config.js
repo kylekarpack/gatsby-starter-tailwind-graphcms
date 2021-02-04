@@ -22,26 +22,28 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-offline",
 			options: {
-				runtimeCaching: [
-					{
-						// Use cacheFirst since these don't need to be revalidated (same RegExp
-						// and same reason as above)
-						urlPattern: /(\.js$|\.css$|static\/)/,
-						handler: `cacheFirst`
-					},
-					{
-						// Add runtime caching of various other page resources
-						urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-						handler: `staleWhileRevalidate`
-					},
-					{
-						// uploadcare
-						urlPattern: /^https:\/\/ucarecdn.com\/[-a-zA-Z0-9@:%_+.~#?&//=]*?\/10x\//,
-						handler: `staleWhileRevalidate`
-					}
-				],
-				skipWaiting: true,
-				clientsClaim: true
+				workboxConfig: {
+					runtimeCaching: [
+						{
+							// Use CacheFirst since these don't need to be revalidated (same RegExp
+							// and same reason as above)
+							urlPattern: /(\.js$|\.css$|static\/)/,
+							handler: `CacheFirst`
+						},
+						{
+							// Add runtime caching of various other page resources
+							urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+							handler: `StaleWhileRevalidate`
+						},
+						{
+							// uploadcare
+							urlPattern: /^https:\/\/media.graphcms.com\/[-a-zA-Z0-9@:%_+.~#?&//=]*?\/10x\//,
+							handler: `StaleWhileRevalidate`
+						}
+					],
+					skipWaiting: true,
+					clientsClaim: true
+				}
 			}
 		},
 		{
@@ -92,11 +94,6 @@ module.exports = {
 		// images
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
-		{
-			resolve: "gatsby-plugin-mdx",
-			extensions: [".nah"],
-		},
-
 		// css (replace with gatsby-plugin-sass for v2)
 		{
 			resolve: `gatsby-plugin-sass`,
