@@ -1,10 +1,8 @@
-import "./globalStyles.css";
-
+import { graphql, StaticQuery } from "gatsby";
 import React, { Fragment } from "react";
-import { StaticQuery, graphql } from "gatsby";
-
-import Footer from "./Footer";
 import Helmet from "react-helmet";
+import Footer from "./Footer";
+import "./globalStyles.css";
 import Meta from "./Meta";
 import Nav from "./Nav";
 
@@ -22,7 +20,7 @@ export default ({ children, meta, title }) => {
 						}
 					}
 					services: allGraphCmsPage(
-						filter: { slug: { regex: "/services//" } }
+						filter: { slug: { regex: "/services\//" } }
 					) {
 						nodes {
 							title
@@ -49,7 +47,7 @@ export default ({ children, meta, title }) => {
 							defaultTitle={siteTitle}
 							titleTemplate={`%s | ${siteTitle}`}
 						>
-							{title}
+							<title>{title}</title>
 							{/* Add font link tags here */}
 						</Helmet>
 
