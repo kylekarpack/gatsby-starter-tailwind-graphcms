@@ -5,14 +5,13 @@ import React from "react";
 import { graphql } from "gatsby";
 
 const PortfolioPage = ({ pageContext, data: { page, bannerImage } }) => {
-	console.log(bannerImage);
 	return (
 		<Layout title={page.title || false}>
 			<main>
 				<PageHeader
 					title={page.title}
 					pageContext={pageContext}
-					backgroundImage={bannerImage.image.localFile}
+					backgroundImage={bannerImage?.image?.localFile}
 					small
 				/>
 				<section className="section">
