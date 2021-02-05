@@ -18,6 +18,11 @@
 }
 
 .carousel  .slide-container {
-	max-height: 65vh;
+	height: 60vmin;
+	max-height: 500px;
 	min-height: 50px;
+}
+
+.carousel  .slide-container .gatsby-image-wrapper {
+	height: 100%;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
+import Img from "gatsby-image";
 import "react-responsive-carousel/lib/styles/carousel.css";
 import "./Slider.css";
 
@@ -25,11 +26,7 @@ const Slider = ({ slides, title }) => {
 			>
 				{slides.map((slide, i) => (
 					<div key={i} className="slide-container">
-						<img
-							srcSet={slide.image?.localFile?.childImageSharp?.fluid?.srcSetWebp}
-							sizes={slide.image?.localFile?.childImageSharp?.fluid?.sizes}
-							src={slide.image?.localFile?.childImageSharp?.fluid?.src}
-						/>
+						<Img fluid={slide.image?.localFile?.childImageSharp?.fluid} />
 						<p className="legend">{slide.title}</p>
 					</div>
 				))}
