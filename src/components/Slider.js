@@ -26,6 +26,8 @@ const Slider = ({ slides, title }) => {
 				{slides.map((slide, i) => (
 					<div key={i} className="slide-container">
 						<img
+							srcSet={slide.image?.localFile?.childImageSharp?.fluid?.srcSetWebp}
+							sizes={slide.image?.localFile?.childImageSharp?.fluid?.sizes}
 							src={slide.image?.localFile?.childImageSharp?.fluid?.src}
 						/>
 						<p className="legend">{slide.title}</p>

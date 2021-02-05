@@ -13,7 +13,7 @@ export const query = graphql`
 	fragment imageWide on GraphCMS_Asset {
 		localFile {
 			childImageSharp {
-				fluid(maxWidth: 960) {
+				fluid(maxWidth: 1920) {
 					...GatsbyImageSharpFluid_withWebp
 				}
 			}

@@ -33,7 +33,7 @@ const TeamMemberPage = ({ pageContext, data: { page, images } }) => {
 							<div className="col-span-4 sm:col-span-2 lg:col-span-3">
 								<div
 									dangerouslySetInnerHTML={{
-										__html: page.content.html
+										__html: page.content?.html
 									}}
 								></div>
 							</div>
@@ -55,7 +55,7 @@ export const pageQuery = graphql`
 			} # banner images by aspect
 		) {
 			nodes {
-				fluid(duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
+				fluid(maxWidth: 960, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
 					...GatsbyImageSharpFluid
 				}
 			}
@@ -67,13 +67,7 @@ export const pageQuery = graphql`
 				html
 			}
 			image {
-				localFile {
-					childImageSharp {
-						fluid(maxWidth: 400) {
-							...GatsbyImageSharpFluid_withWebp
-						}
-					}
-				}
+				...image
 			}
 		}
 	}
