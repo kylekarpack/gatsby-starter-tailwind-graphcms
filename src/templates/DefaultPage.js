@@ -1,86 +1,133 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Content from "../components/Content";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
-import Portfolio from "../components/Portfolio";
+import Slider from "../components/Slider";
 
-// Export Template for use in CMS Default
-export const DefaultPageTemplate = (props) => {
-	const preview = props.preview || {};
+const DefaultPage = ({ pageContext, data: { page } }) => {
+	const children = [
+		...new Map(
+			page?.children
+				?.flatMap((el) => el.portfolios || el)
+				?.map((item) => [item.id, item])
+		).values()
+	];
+	children.sort((a, b) => a.order - b.order);
+
 	return (
-		<main className="DefaultPage">
-			<PageHeader
-				title={props.title}
-				subtitle={props.subtitle}
-				backgroundImage={props.featuredImage}
-				pageContext={props.pageContext}
-				breadcrumbs
-				small={props.small}
-			/>
+		<Layout meta={page.meta || false} title={page.title || false}>
+			<main className="DefaultPage">
+				{page.slider ? (
+					<Slider
+						title={page.subtitle || page.title}
+						slides={page.slider.slides}
+					/>
+				) : (
+					<PageHeader
+						title={page.title}
+						subtitle={page.subtitle}
+						backgroundImage={page.image?.localFile}
+						pageContext={pageContext}
+						breadcrumbs
+						small={true}
+					/>
+				)}
 
-			<section className="section">
-				<div className="container main-content">
-					<Content source={props.body} />
-					{(preview.type || props.portfolioCategory) && <br />}
-					{preview.type && <PagePreview {...preview} />}
-					{props.portfolioCategory && (
-						<Portfolio
-							category={props.portfolioCategory}
-							portfolioStyle={props.portfolioStyle}
-							excerpt={true}
-						/>
-					)}
-				</div>
-			</section>
-		</main>
+				<section className="section">
+					<div className="container main-content">
+						<div
+							className="body-content"
+							dangerouslySetInnerHTML={{ __html: page.content?.html }}
+						></div>
+
+						{children?.length ? (
+							<div>
+								<br />
+								<PagePreview
+									items={children}
+									options={page.attributes?.preview}
+									excerpt
+								/>
+							</div>
+						) : null}
+					</div>
+				</section>
+			</main>
+		</Layout>
 	);
 };
-
-const DefaultPage = ({ pageContext, data: { page } }) => (
-	<Layout
-		meta={page.frontmatter.meta || false}
-		title={page.frontmatter.title || false}
-	>
-		<DefaultPageTemplate
-			pageContext={pageContext}
-			{...page.frontmatter}
-			body={page.body}
-		/>
-	</Layout>
-);
 export default DefaultPage;
 
 export const pageQuery = graphql`
 	query DefaultPage($id: String!) {
-		page: mdx(id: { eq: $id }) {
-			...Meta
-			body
-			frontmatter {
-				title
-				subtitle
-				preview {
-					type
-					excerpt
-					overlay
-					height
+		page: graphCmsPage(id: { eq: $id }) {
+			title
+			subtitle
+			attributes
+			slug
+			order
+			content {
+				html
+			}
+			image {
+				...imageWide
+			}
+			slider {
+				slides {
+					title
+					image {
+						...imageWide
+					}
 				}
-				portfolioCategory
-				portfolioStyle
-				featuredImage {
-					childImageSharp {
-						fluid(
-							maxHeight: 400
-							maxWidth: 1920
-							cropFocus: CENTER
-							quality: 50
-						) {
-							...GatsbyImageSharpFluid_withWebp
+			}
+			children: remoteChildren {
+				... on GraphCMS_Page {
+					id
+					title
+					slug
+					attributes
+					order
+					content {
+						html
+					}
+					image {
+						...imageWide
+					}
+					previewImage {
+						...image
+					}
+				}
+				... on GraphCMS_Category {
+					portfolios {
+						id
+						title
+						slug
+						order
+						content {
+							text
+						}
+						categories {
+							title
+							slug
+						}
+						image {
+							...image
 						}
 					}
 				}
-				small
+				... on GraphCMS_TeamMember {
+					id
+					title
+					slug
+					order
+					content {
+						text
+					}
+					image {
+						...image
+					}
+				}
 			}
 		}
 	}

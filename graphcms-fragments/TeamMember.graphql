@@ -1,0 +1,32 @@
+fragment TeamMember on TeamMember {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  title
+  subtitle
+  slug
+  content {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  order
+  parents {
+    ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+}

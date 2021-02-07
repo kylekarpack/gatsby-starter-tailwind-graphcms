@@ -1,10 +1,8 @@
-import "./globalStyles.css";
-
+import { graphql, StaticQuery } from "gatsby";
 import React, { Fragment } from "react";
-import { StaticQuery, graphql } from "gatsby";
-
-import Footer from "./Footer";
 import Helmet from "react-helmet";
+import Footer from "./Footer";
+import "./globalStyles.css";
 import Meta from "./Meta";
 import Nav from "./Nav";
 
@@ -21,55 +19,26 @@ export default ({ children, meta, title }) => {
 							image
 						}
 					}
-					allServices: allMdx(
-						sort: { fields: frontmatter___order }
-						filter: { slug: { glob: "pages/services/*" } }
+					services: allGraphCmsPage(
+						filter: { slug: { regex: "/services\//" } }
 					) {
 						nodes {
-							fields {
-								slug
-							}
-							frontmatter {
-								title
-								previewImage {
-									childImageSharp {
-										fluid(maxWidth: 50) {
-											...GatsbyImageSharpFluid
-										}
-									}
-								}
-								previewImageDuotone: previewImage {
-									childImageSharp {
-										fluid(
-											maxWidth: 50
-											duotone: {
-												highlight: "#FFFFFF"
-												shadow: "#3C5E31"
-											}
-										) {
-											...GatsbyImageSharpFluid
-										}
-									}
-								}
-							}
+							title
+							slug
+							order
 						}
 					}
 				}
 			`}
 			render={(data) => {
-				const {
-					siteTitle,
-					socialMediaCard,
-					googleTrackingId,
-				} = data.settingsYaml || {};
+				const { siteTitle, socialMediaCard, googleTrackingId } =
+					data.settingsYaml || {};
+
+				const services = data.services.nodes;
+				services.sort((a, b) => a.order - b.order);
 				const subNav = {
 					// eslint-disable-next-line no-prototype-builtins
-					services: data.allServices.nodes.map((service) => {
-						return {
-							...service.fields,
-							...service.frontmatter
-						};
-					})
+					services: services
 				};
 
 				return (
@@ -78,7 +47,7 @@ export default ({ children, meta, title }) => {
 							defaultTitle={siteTitle}
 							titleTemplate={`%s | ${siteTitle}`}
 						>
-							{title}
+							<title>{title}</title>
 							{/* Add font link tags here */}
 						</Helmet>
 
@@ -98,7 +67,6 @@ export default ({ children, meta, title }) => {
 						<Fragment>{children}</Fragment>
 
 						<Footer />
-					
 					</Fragment>
 				);
 			}}
