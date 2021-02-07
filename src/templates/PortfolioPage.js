@@ -20,7 +20,7 @@ const PortfolioPage = ({ pageContext, data: { page, bannerImage } }) => {
 							<div className="col-span-5 lg:col-span-3">
 								<div className="body-content"
 									dangerouslySetInnerHTML={{
-										__html: page.content.html
+										__html: page.content?.html
 									}}
 								></div>
 							</div>
