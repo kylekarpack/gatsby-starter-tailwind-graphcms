@@ -32,17 +32,18 @@ module.exports = {
 			},
 			colors: {
 				primary: {
-					50: "#f9faf9",
-					100: "#f4f8f0",
-					200: "#e7efd9",
-					300: "#d2deb7",
-					400: "#a7bf7e",
-					500: "#749c4a",
-					600: "#456b38",
-					700: "#3c5e31",
-					DEFAULT: "#3c5e31",
-					800: "#324527",
-					900: "#273723",
+					// generate here: https://www.tailwindshades.com/
+					DEFAULT: "#347184",
+					50: "#BADAE4",
+					100: "#A7D0DD",
+					200: "#83BCCE",
+					300: "#5EA9C0",
+					400: "#4290A9",
+					500: "#347184",
+					600: "#26525F",
+					700: "#17323B",
+					800: "#091316",
+					900: "#000000",
 					light: "var(--primary-bright)",
 					dark: "var(--primary-dark)"
 				}

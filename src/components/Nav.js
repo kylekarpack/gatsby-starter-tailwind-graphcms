@@ -1,6 +1,5 @@
 import { Location } from "@reach/router";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
 
@@ -50,9 +49,7 @@ export const Navigation = (props) => {
 
 	const MegaMenuLink = ({
 		to,
-		children,
-		previewImage,
-		previewImageDuotone
+		children
 	}) => {
 		return (
 			<Link
@@ -60,22 +57,6 @@ export const Navigation = (props) => {
 				className="custom-group block text-white sm:text-primary hover:bg-primary-100 hover:text-primary px-6 py-2"
 			>
 				<div className="flex align-center self-center gap-4 group">
-					{previewImage && previewImageDuotone && (
-						<div className="hidden sm:block self-center relative h-10 w-14">
-							<div className="opacity-100 custom-group-hover-opacity-0 absolute">
-								<Img
-									fluid={previewImageDuotone.childImageSharp.fluid}
-									className="h-10 w-14"
-								/>
-							</div>
-							<div className="opacity-0 custom-group-hover-opacity-100 absolute">
-								<Img
-									fluid={previewImage.childImageSharp.fluid}
-									className="h-10 w-14"
-								/>
-							</div>
-						</div>
-					)}
 					<div className="self-center">
 						<div className="text-sm sm:text-base cursor-pointer mb-0">
 							{children}
@@ -88,7 +69,7 @@ export const Navigation = (props) => {
 
 	const AllNavLinks = () => {
 		const navClass =
-			"ml-0 hover:bg-white hover:text-primary px-4 py-3 sm:py-5 sm:px-2 md:px-3 xl:px-4 text-white text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
+			"ml-0 hover:bg-white hover:text-primary px-6 py-3 sm:py-5 sm:px-2 md:px-6 xl:px-8 text-white text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
 		const navSubClass =
 			"text-white sm:text-white block pl-8 sm:px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
 		const submenuClass = state.active ? "" : "sm:hidden";
@@ -163,7 +144,7 @@ export const Navigation = (props) => {
 										alt="Logo"
 									/>
 									<img
-										className="hidden lg:block h-8 w-48 lg:h-12 lg:w-56"
+										className="hidden lg:block h-6 w-36 lg:h-8 lg:w-40"
 										src="/images/logo.svg"
 										alt="Logo"
 									/>

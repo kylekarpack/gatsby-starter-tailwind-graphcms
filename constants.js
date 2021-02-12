@@ -6,7 +6,12 @@ const socialMediaCard = {
 };
 const googleTrackingId = "";
 const gtmId = "<YOUR-GTM-ID-HERE>";
-const themeColor = "#00C2BD";
+const themeColor = "#347184";
+const location = {
+	phoneNumber: "206-555-2060",
+	address: "123 1st Ave S, Seattle WA 98102",
+	googleMapsUrl: "https://goo.gl/maps/cYDbnERDHDuxebbi8"
+}
 
 module.exports = {
 	siteTitle,
@@ -15,5 +20,6 @@ module.exports = {
 	socialMediaCard,
 	googleTrackingId,
 	gtmId,
-	themeColor
+	themeColor,
+	location
 };

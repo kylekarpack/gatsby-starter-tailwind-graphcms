@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Mail, MapPin, Smartphone } from "react-feather";
-import FileMail from "../components/FileMail";
+import FormSimpleAjax from "../components/FormSimpleAjax";
 import Layout from "../components/Layout";
 import Map from "../components/Map";
 import PageHeader from "../components/PageHeader";
@@ -30,7 +30,7 @@ const ContactPage = ({ data: { page } }) => {
 					small={true}
 				/>
 				<section className="section">
-					<div className="container grid lg:grid-cols-3 gap-12">
+					<div className="container">
 						<div className="col-span-2">
 							<div
 								className="body-content"
@@ -63,14 +63,10 @@ const ContactPage = ({ data: { page } }) => {
 								)}
 							</div>
 						</div>
+					</div>
 
-						<div className="col-span-2 lg:col-span-1">
-							<h2>Send Us Files</h2>
-							<FileMail companyId={6052147275} />
-							{/* <br />
-						<h2>Contact Us</h2>
-						<FormSimpleAjax name="Contact Us" /> */}
-						</div>
+					<div className="container">
+						<FormSimpleAjax name="Contact Us" />
 					</div>
 				</section>
 
