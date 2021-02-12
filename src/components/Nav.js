@@ -47,10 +47,7 @@ export const Navigation = (props) => {
 		);
 	};
 
-	const MegaMenuLink = ({
-		to,
-		children
-	}) => {
+	const MegaMenuLink = ({ to, children }) => {
 		return (
 			<Link
 				to={to}
@@ -133,22 +130,27 @@ export const Navigation = (props) => {
 	return (
 		<>
 			<nav className="bg-primary sm:sticky top-0 z-50 relative">
-				<div className="hidden sm:block max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+				<div className="hidden sm:block container">
 					<div className="flex items-center justify-between">
 						<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 							<div className="flex-shrink-0 flex items-center ">
-								<a href="/">
+								<Link to="/" className="block lg:hidden h-8 w-14">
 									<img
-										className="block lg:hidden h-8 w-14"
+										className="max-h-full"
 										src="/images/logo-small.svg"
 										alt="Logo"
 									/>
+								</Link>
+								<Link
+									to="/"
+									className="hidden lg:block h-6 w-36 lg:h-10 lg:w-40"
+								>
 									<img
-										className="hidden lg:block h-6 w-36 lg:h-8 lg:w-40"
+										className="max-h-full"
 										src="/images/logo.svg"
 										alt="Logo"
 									/>
-								</a>
+								</Link>
 							</div>
 							<div className="sm:ml-6 flex self-center">
 								<AllNavLinks />
@@ -156,7 +158,7 @@ export const Navigation = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="block sm:hidden">
+				<div className="block sm:hidden container">
 					<div className="flex justify-between p-2">
 						<a href="/" className="self-center">
 							<img

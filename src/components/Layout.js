@@ -15,7 +15,9 @@ export default ({ children, meta, title }) => {
 				query IndexLayoutQuery {
 					# Any subpage queries go here
 					services: allGraphCmsPage(
-						filter: { slug: { regex: "/services//" } }
+						filter: {
+							parents: { elemMatch: { slug: { eq: "services" } } }
+						}
 					) {
 						nodes {
 							title
