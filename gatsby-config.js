@@ -1,5 +1,11 @@
 const postcssPresetEnv = require("postcss-preset-env");
-const { siteTitle, siteUrl, siteDescription, gtmId } = require("./constants");
+const {
+	siteTitle,
+	siteUrl,
+	siteDescription,
+	gtmId,
+	themeColor
+} = require("./constants");
 
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
@@ -51,11 +57,11 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: "Gatsby Starter",
-				short_name: "gatsby-starter",
+				name: siteTitle,
+				short_name: siteTitle.replace(/ /g, "-").toLowerCase(),
 				start_url: "/",
-				background_color: "#00C2BD",
-				theme_color: "#00C2BD",
+				background_color: themeColor,
+				theme_color: themeColor,
 				// Enables "Add to Homescreen" prompt and disables browser UI (including back button)
 				// see https://developers.google.com/web/fundamentals/web-app-manifest/#display
 				display: "standalone",

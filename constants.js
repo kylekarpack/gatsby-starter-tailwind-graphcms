@@ -5,13 +5,15 @@ const socialMediaCard = {
 	image: "static/images/logo-small.svg"
 };
 const googleTrackingId = "";
-const gtmId = "";
+const gtmId = "<YOUR-GTM-ID-HERE>";
+const themeColor = "#00C2BD";
 
-export {
+module.exports = {
 	siteTitle,
 	siteUrl,
 	siteDescription,
 	socialMediaCard,
 	googleTrackingId,
-	gtmId
+	gtmId,
+	themeColor
 };

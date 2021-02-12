@@ -7,6 +7,7 @@ import Meta from "./Meta";
 import Nav from "./Nav";
 import Constants from "../../constants";
 
+// eslint-disable-next-line react/display-name
 export default ({ children, meta, title }) => {
 	return (
 		<StaticQuery

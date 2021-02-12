@@ -2,11 +2,11 @@ import { Link } from "gatsby";
 import React from "react";
 import AlertTriangle from "react-feather/dist/icons/alert-triangle";
 import Helmet from "react-helmet";
-import Constants from "../../constants";
+import { siteTitle } from "../../constants";
 import Layout from "../components/Layout";
 
 // eslint-disable-next-line react/display-name
-export default ({ children }) => (
+export default () => (
 	<Layout>
 		<Helmet>
 			<title>404 – Page Not Found</title>
@@ -20,7 +20,7 @@ export default ({ children }) => (
 				<p>
 					We can&apos;t find the page you are looking for!
 					<br />
-					Head back to <Link to="/">{Constants?.siteTitle}</Link>
+					Head back to <Link to="/">{siteTitle}</Link>
 				</p>
 			</div>
 		</section>

@@ -2,8 +2,8 @@
   "name": "gatsby-starter-tailwind-graphcms",
   "HomePage": "https://gatsby-starter-tailwind-graphcms.netlify.app/",
   "description": "A Gatsby starter using TailwindCSS, GraphCMS, and Netlify",
-  "private": true,
-  "version": "2.0.0",
+  "private": false,
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/kylekarpack/gatsby-starter-tailwind-graphcms"
