@@ -51,11 +51,11 @@ export const pageQuery = graphql`
 		images: allImageSharp(
 			filter: {
 				fluid: { src: { glob: "**/*.jpg" } }
-				resolutions: { aspectRatio: { gt: 3 } }
+				resolutions: { aspectRatio: { gt: 2 } }
 			} # banner images by aspect
 		) {
 			nodes {
-				fluid(maxWidth: 960, duotone: { highlight: "#FFFFFF", shadow: "#3C5E31" }) {
+				fluid(maxWidth: 960, duotone: { highlight: "#FFFFFF", shadow: "#347184" }) {
 					...GatsbyImageSharpFluid
 				}
 			}
