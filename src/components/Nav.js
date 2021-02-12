@@ -134,17 +134,11 @@ export const Navigation = (props) => {
 				<NavLink to="/portfolio/" className={navClass}>
 					Portfolio
 				</NavLink>
-				<NavLink to="/tools-skills/" className={navClass}>
-					Tools &amp; Skills
-				</NavLink>
 				<NavLink to="/team/" className={navClass}>
 					Team
 				</NavLink>
 				<NavLink to="/careers/" className={navClass}>
 					Careers
-				</NavLink>
-				<NavLink to="/community-service/" className={navClass}>
-					Community Service
 				</NavLink>
 				<NavLink to="/contact/" className={navClass}>
 					Contact

@@ -5,22 +5,16 @@ import Footer from "./Footer";
 import "./globalStyles.css";
 import Meta from "./Meta";
 import Nav from "./Nav";
+import Constants from "../../constants";
 
 export default ({ children, meta, title }) => {
 	return (
 		<StaticQuery
 			query={graphql`
 				query IndexLayoutQuery {
-					settingsYaml {
-						siteTitle
-						siteDescription
-						googleTrackingId
-						socialMediaCard {
-							image
-						}
-					}
+					# Any subpage queries go here
 					services: allGraphCmsPage(
-						filter: { slug: { regex: "/services\//" } }
+						filter: { slug: { regex: "/services//" } }
 					) {
 						nodes {
 							title
@@ -31,14 +25,12 @@ export default ({ children, meta, title }) => {
 				}
 			`}
 			render={(data) => {
-				const { siteTitle, socialMediaCard, googleTrackingId } =
-					data.settingsYaml || {};
+				const { siteTitle, socialMediaCard, googleTrackingId } = Constants;
 
 				const services = data.services.nodes;
 				services.sort((a, b) => a.order - b.order);
 				const subNav = {
-					// eslint-disable-next-line no-prototype-builtins
-					services: services
+					services
 				};
 
 				return (
@@ -53,13 +45,9 @@ export default ({ children, meta, title }) => {
 
 						<Meta
 							googleTrackingId={googleTrackingId}
-							absoluteImageUrl={
-								socialMediaCard &&
-								socialMediaCard.image &&
-								socialMediaCard.image
-							}
+							absoluteImageUrl={socialMediaCard?.image}
 							{...meta}
-							{...data.settingsYaml}
+							{...Constants}
 						/>
 
 						<Nav subNav={subNav} />

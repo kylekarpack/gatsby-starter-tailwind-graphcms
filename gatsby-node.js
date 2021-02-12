@@ -19,6 +19,8 @@ exports.createPages = async ({ actions, graphql }) => {
 	const createPages = (pages, template) => {
 		for (let page of pages) {
 			let templateToUse = template;
+
+			// This is pretty sloppy slug management
 			switch (page.slug) {
 				case "contact":
 					templateToUse = "ContactPage";

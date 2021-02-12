@@ -94,28 +94,6 @@ export const pageQuery = graphql`
 				...imageWide
 			}
 			attributes
-			# ...Meta
-			# body
-			# frontmatter {
-			# 	title
-			# 	template
-			# 	subtitle
-			# 	featuredImage {
-			# 		childImageSharp {
-			# 			fluid(maxHeight: 500, maxWidth: 960, cropFocus: NORTH) {
-			# 				...GatsbyImageSharpFluid
-			# 			}
-			# 		}
-			# 	}
-			# 	address
-			# 	phone
-			# 	email
-			# 	locations {
-			# 		mapLink
-			# 		lat
-			# 		lng
-			# 	}
-			# }
 		}
 	}
 `;

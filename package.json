@@ -1,12 +1,12 @@
 {
-  "name": "watershedse",
-  "HomePage": "https://watershedse.com/",
-  "description": "Watershed Science and Engineering's new website",
+  "name": "gatsby-starter-tailwind-graphcms",
+  "HomePage": "https://gatsby-starter-tailwind-graphcms.netlify.app/",
+  "description": "A Gatsby starter using TailwindCSS, GraphCMS, and Netlify",
   "private": true,
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/watershedse/website"
+    "url": "https://github.com/kylekarpack/gatsby-starter-tailwind-graphcms"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.21",
@@ -32,10 +32,8 @@
     "gatsby-plugin-sharp": "^2.9.0",
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-remark-images": "^3.1.28",
-    "gatsby-source-filesystem": "^2.1.35",
     "gatsby-source-graphcms": "^2.1.1",
     "gatsby-transformer-sharp": "^2.3.2",
-    "gatsby-transformer-yaml": "^2.2.15",
     "lodash": "^4.17.19",
     "modern-normalize": "^0.5.0",
     "node-sass": "^4.13.1",

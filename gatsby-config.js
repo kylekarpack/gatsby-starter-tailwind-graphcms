@@ -1,21 +1,23 @@
 const postcssPresetEnv = require("postcss-preset-env");
+const { siteTitle, siteUrl, siteDescription, gtmId } = require("./constants");
+
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
 module.exports = {
 	siteMetadata: {
-		title: "Watershed Science & Engineering",
-		siteUrl: "https://watershedse.com"
+		title: siteTitle,
+		siteUrl: siteUrl,
+		description: siteDescription
 	},
 	plugins: [
 		"gatsby-plugin-postcss",
 		"gatsby-plugin-react-helmet",
-		"gatsby-transformer-yaml",
 		{
 			resolve: "gatsby-plugin-google-tagmanager",
 			options: {
-				id: "GTM-T3S7QPT",
+				id: gtmId,
 				includeInDevelopment: true
 			}
 		},
@@ -49,8 +51,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: "Watershed Science and Engineering",
-				short_name: "watershedse",
+				name: "Gatsby Starter",
+				short_name: "gatsby-starter",
 				start_url: "/",
 				background_color: "#00C2BD",
 				theme_color: "#00C2BD",
@@ -74,13 +76,6 @@ module.exports = {
 				// trailingSlashes: optional, will add trailing slashes to the end
 				// of crumb pathnames. default is false
 				trailingSlashes: true
-			}
-		},
-		{
-			resolve: "gatsby-source-filesystem",
-			options: {
-				path: `${__dirname}/content`,
-				name: "pages"
 			}
 		},
 		{
