@@ -52,7 +52,7 @@ export const pageQuery = graphql`
 							quality: 40
 							duotone: {
 								highlight: "#FFFFFF"
-								shadow: "#283e21"
+								shadow: "#347184"
 								opacity: 100
 							}
 							cropFocus: CENTER

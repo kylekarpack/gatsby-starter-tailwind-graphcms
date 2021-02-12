@@ -10,10 +10,16 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 		...new Map(
 			page?.children
 				?.flatMap((el) => el.portfolios || el)
-				?.map((item) => [
-					item.id,
-					{ ...item, slug: `${page.slug}/${item.slug}` }
-				])
+				?.map((item) => {
+					// ToDo: patch this up
+					let slug = item.slug || "";
+					let parents = JSON.parse(JSON.stringify(item.parents || item.categories));
+					while (parents?.[0]) {
+						slug = `${parents[0].slug}/${slug}`;
+						parents[0] = parents[0].parents?.[0] || parents[0].categories?.[0];
+					}
+					return [item.id, { ...item, slug }];
+				})
 		).values()
 	];
 	children.sort((a, b) => a.order - b.order);
@@ -100,6 +106,9 @@ export const pageQuery = graphql`
 					previewImage {
 						...image
 					}
+					parents {
+						slug
+					}
 				}
 				... on GraphCMS_Category {
 					portfolios {
@@ -113,6 +122,12 @@ export const pageQuery = graphql`
 						categories {
 							title
 							slug
+						}
+						parents: categories {
+							slug
+							parents {
+								slug
+							}
 						}
 						image {
 							...image
@@ -129,6 +144,9 @@ export const pageQuery = graphql`
 					}
 					image {
 						...image
+					}
+					parents {
+						slug
 					}
 				}
 			}

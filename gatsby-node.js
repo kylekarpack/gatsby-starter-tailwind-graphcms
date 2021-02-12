@@ -3,9 +3,13 @@ require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
-const slugify = (str) => {
-	str = str || "";
+const slugify = (page) => {
+	let str = page.slug || "";
 	str = str.replace("home", "");
+	while (page.parents && page.parents[0]) {
+		str = `${page.parents[0].slug}/${str}`;
+		page.parents[0] = page.parents[0].parents && page.parents[0].parents[0];
+	}
 	if (!str.startsWith("/")) {
 		str = `/${str}`;
 	}
@@ -36,7 +40,7 @@ exports.createPages = async ({ actions, graphql }) => {
 					id: page.id,
 					page
 				},
-				path: slugify(page.slug)
+				path: slugify(page)
 			});
 		}
 	};
@@ -47,6 +51,9 @@ exports.createPages = async ({ actions, graphql }) => {
 				nodes {
 					id
 					slug
+					parents {
+						slug
+					}
 				}
 			}
 		}
@@ -58,6 +65,12 @@ exports.createPages = async ({ actions, graphql }) => {
 				nodes {
 					id
 					slug
+					parents: categories {
+						slug
+						parents {
+							slug
+						}
+					}
 				}
 			}
 		}
@@ -69,6 +82,9 @@ exports.createPages = async ({ actions, graphql }) => {
 				nodes {
 					id
 					slug
+					parents {
+						slug
+					}
 				}
 			}
 		}
