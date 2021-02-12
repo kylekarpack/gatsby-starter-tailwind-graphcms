@@ -10,7 +10,10 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 		...new Map(
 			page?.children
 				?.flatMap((el) => el.portfolios || el)
-				?.map((item) => [item.id, item])
+				?.map((item) => [
+					item.id,
+					{ ...item, slug: `${page.slug}/${item.slug}` }
+				])
 		).values()
 	];
 	children.sort((a, b) => a.order - b.order);
