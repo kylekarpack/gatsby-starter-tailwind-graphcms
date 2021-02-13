@@ -2,6 +2,7 @@ import { serialize } from "dom-form-serializer";
 import { stringify } from "qs";
 import React, { Fragment } from "react";
 import Helmet from "react-helmet";
+import { recaptchaSiteId } from "../../constants";
 
 class Form extends React.Component {
 	static defaultProps = {
@@ -140,7 +141,7 @@ class Form extends React.Component {
 					</div>
 					<div
 						className="g-recaptcha"
-						data-sitekey="6LfKN3kUAAAAAGIM1CbXmaRZx3LIh_W2twn1tzkA"
+						data-sitekey={recaptchaSiteId}
 					/>
 					{!!subject && (
 						<input type="hidden" name="subject" value={subject} />

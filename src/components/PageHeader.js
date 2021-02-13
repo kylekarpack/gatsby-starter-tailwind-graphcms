@@ -2,7 +2,6 @@ import BackgroundImage from "gatsby-background-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import PropTypes from "prop-types";
 import React from "react";
-import Content from "./Content";
 import "./PageHeader.css";
 
 const PageHeaderInner = ({
@@ -24,7 +23,12 @@ const PageHeaderInner = ({
 						}
 					>
 						<h1 className="text-4xl font-bold m-0">{title}</h1>
-						{subtitle && <Content className="text-xl" src={subtitle} />}
+						{subtitle && (
+							<div
+								className="text-xl"
+								dangerouslySetInnerHTML={{ __html: subtitle }}
+							></div>
+						)}
 					</div>
 					{breadcrumbs && crumbs && (
 						<div className="Breadcrumbs hidden md:block mt-4 lg:mt-0 lg:text-right">
