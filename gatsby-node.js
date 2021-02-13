@@ -7,8 +7,8 @@ require("dotenv").config({
 
 const pageSlugify = (page) => {
 	let str = page.slug || "";
-	str = str.replace("home", "");
 	str = `${slugify(page)}`;
+	str = str.replace("home", ""); // Hacky: reroute home page
 	if (!str.startsWith("/")) {
 		str = `/${str}`;
 	}
