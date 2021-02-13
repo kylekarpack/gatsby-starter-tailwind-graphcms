@@ -51,7 +51,7 @@ export const Navigation = (props) => {
 		return (
 			<Link
 				to={to}
-				className="custom-group block text-white sm:text-primary hover:bg-primary-100 hover:text-primary px-6 py-2"
+				className="custom-group block text-white hover:bg-primary-100 hover:text-primary px-6 py-3"
 			>
 				<div className="flex align-center self-center gap-4 group">
 					<div className="self-center">
@@ -66,7 +66,7 @@ export const Navigation = (props) => {
 
 	const AllNavLinks = () => {
 		const navClass =
-			"ml-0 hover:bg-white hover:text-primary px-6 py-3 sm:py-5 sm:px-2 md:px-6 xl:px-8 text-white text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
+			"ml-0 hover:bg-primary-400 hover:text-white px-6 py-3 sm:py-5 sm:px-2 md:px-6 xl:px-8 text-white text-sm lg:text-base whitespace-nowrap block font-medium outline-none border-none";
 		const navSubClass =
 			"text-white sm:text-white block pl-8 sm:px-4 py-2 hover:bg-gray-50 hover:text-primary whitespace-no-wrap text-sm lg:text-base outline-none border-none";
 		const submenuClass = state.active ? "" : "sm:hidden";
@@ -76,7 +76,7 @@ export const Navigation = (props) => {
 				<div className="group block">
 					<NavLink
 						to="/services"
-						className={`group-hover:bg-white group-hover:text-primary ${navClass}`}
+						className={`group-hover:bg-primary-400 group-hover:text-white ${navClass}`}
 					>
 						Services{" "}
 						<svg
@@ -90,7 +90,7 @@ export const Navigation = (props) => {
 					<div
 						className={`${submenuClass} delay-0 group-hover:delay-100 hidden sm:block group-hover:block sm:absolute z-100 w-auto`}
 					>
-						<div className="sm:bg-white sm:shadow-lg py-2">
+						<div className="sm:bg-primary-400 sm:shadow-lg py-2">
 							<ul className="list-none mb-0">
 								{subNav.services.map(
 									({ slug, title, ...props }, index) => (

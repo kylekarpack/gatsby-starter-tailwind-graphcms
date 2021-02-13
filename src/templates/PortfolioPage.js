@@ -48,8 +48,8 @@ export const pageQuery = graphql`
 					childImageSharp {
 						fluid(
 							maxWidth: 960
-							maxHeight: 125
-							quality: 40
+							maxHeight: 200
+							quality: 50
 							duotone: {
 								highlight: "#FFFFFF"
 								shadow: "#347184"

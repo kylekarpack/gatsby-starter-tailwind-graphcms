@@ -6,6 +6,7 @@ const socialMediaCard = {
 };
 const googleTrackingId = "";
 const gtmId = "<YOUR-GTM-ID-HERE>";
+const recaptchaSiteId = "<YOUR-SITE-ID-HERE>";
 const themeColor = "#347184";
 const location = {
 	phoneNumber: "206-555-2060",
@@ -20,6 +21,7 @@ module.exports = {
 	socialMediaCard,
 	googleTrackingId,
 	gtmId,
+	recaptchaSiteId,
 	themeColor,
 	location
 };
