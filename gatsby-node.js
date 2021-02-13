@@ -1,15 +1,14 @@
 const path = require("path");
+const { slugify } = require("./util");
+
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
-const slugify = (page) => {
+const pageSlugify = (page) => {
 	let str = page.slug || "";
 	str = str.replace("home", "");
-	while (page.parents && page.parents[0]) {
-		str = `${page.parents[0].slug}/${str}`;
-		page.parents[0] = page.parents[0].parents && page.parents[0].parents[0];
-	}
+	str = `${slugify(page)}`;
 	if (!str.startsWith("/")) {
 		str = `/${str}`;
 	}
@@ -40,7 +39,7 @@ exports.createPages = async ({ actions, graphql }) => {
 					id: page.id,
 					page
 				},
-				path: slugify(page)
+				path: pageSlugify(page)
 			});
 		}
 	};

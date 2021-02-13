@@ -6,6 +6,7 @@ import "./globalStyles.css";
 import Meta from "./Meta";
 import Nav from "./Nav";
 import Constants from "../../constants";
+import { slugify } from "../../util";
 
 // eslint-disable-next-line react/display-name
 export default ({ children, meta, title }) => {
@@ -23,6 +24,9 @@ export default ({ children, meta, title }) => {
 							title
 							slug
 							order
+							parents {
+								slug
+							}
 						}
 					}
 				}
@@ -30,7 +34,12 @@ export default ({ children, meta, title }) => {
 			render={(data) => {
 				const { siteTitle, socialMediaCard, googleTrackingId } = Constants;
 
-				const services = data.services.nodes;
+				const services = data.services.nodes.map(el => {
+					return {
+						...el,
+						slug: slugify(el)
+					}
+				})
 				services.sort((a, b) => a.order - b.order);
 				const subNav = {
 					services

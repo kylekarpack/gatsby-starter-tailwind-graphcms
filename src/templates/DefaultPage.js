@@ -1,5 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { slugify } from "../../util";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import PagePreview from "../components/PagePreview";
@@ -12,12 +13,7 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 				?.flatMap((el) => el.portfolios || el)
 				?.map((item) => {
 					// ToDo: patch this up
-					let slug = item.slug || "";
-					let parents = JSON.parse(JSON.stringify(item.parents || item.categories));
-					while (parents?.[0]) {
-						slug = `${parents[0].slug}/${slug}`;
-						parents[0] = parents[0].parents?.[0] || parents[0].categories?.[0];
-					}
+					const slug = slugify(item);
 					return [item.id, { ...item, slug }];
 				})
 		).values()
