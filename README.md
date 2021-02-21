@@ -4,6 +4,10 @@
 
 This Gatsby starter is designed to use highly structured content from a headless CMS such as GraphCMS. All content should be set up with strong parent/child relationships, which allows maximum decoupling of the Gatsby logic and the site structure.
 
+## Demo
+
+https://gatsby-starter-tailwind-graphcms.netlify.app/
+
 ## Overview
 
 Use the following tooling:
@@ -24,10 +28,6 @@ Pages Included:
 - Portfolio
 - Team members
 - Contact
-
-## Demo
-
-https://gatsby-starter-tailwind-graphcms.netlify.app/
 
 ## GraphCMS Setup
 Directions coming soon. Files in the `/graphcms-fragments` directory give and idea of one possible schema in GraphCMS.
