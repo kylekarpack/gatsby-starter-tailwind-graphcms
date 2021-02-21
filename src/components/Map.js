@@ -1,6 +1,6 @@
 import React from "react";
 
-const GoogleMap = ({ locations }) => {
+const Map = ({ locations }) => {
 	return (
 		<iframe
 			src={locations.mapLink}
@@ -15,4 +15,4 @@ const GoogleMap = ({ locations }) => {
 	);
 };
 
-export default GoogleMap;
+export default Map;

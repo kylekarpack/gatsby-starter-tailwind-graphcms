@@ -6,8 +6,7 @@ require("dotenv").config({
 });
 
 const pageSlugify = (page) => {
-	let str = page.slug || "";
-	str = `${slugify(page)}`;
+	let str = `${slugify(page)}`;
 	str = str.replace("home", ""); // Hacky: reroute home page
 	if (!str.startsWith("/")) {
 		str = `/${str}`;
@@ -21,7 +20,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
 	const createPages = (pages, template) => {
 		for (let page of pages) {
-			let templateToUse = template;
+			let templateToUse;
 
 			// This is pretty sloppy slug management
 			switch (page.slug) {

@@ -12,7 +12,6 @@ const DefaultPage = ({ pageContext, data: { page } }) => {
 			page?.children
 				?.flatMap((el) => el.portfolios || el)
 				?.map((item) => {
-					// ToDo: patch this up
 					const slug = slugify(item);
 					return [item.id, { ...item, slug }];
 				})
