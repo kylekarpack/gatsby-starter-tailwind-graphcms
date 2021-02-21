@@ -1,7 +1,6 @@
 # Gatsby Starter Tailwind CSS & GraphCMS
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5d48637f-254b-4afe-afa9-12e607868e1e/deploy-status)](https://app.netlify.com/sites/gatsby-starter-tailwind-graphcms/deploys) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kylekarpack_gatsby-starter-tailwind-graphcms&metric=security_rating)](https://sonarcloud.io/dashboard?id=kylekarpack_gatsby-starter-tailwind-graphcms)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5d48637f-254b-4afe-afa9-12e607868e1e/deploy-status)](https://app.netlify.com/sites/gatsby-starter-tailwind-graphcms/deploys) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kylekarpack_gatsby-starter-tailwind-graphcms&metric=security_rating)](https://sonarcloud.io/dashboard?id=kylekarpack_gatsby-starter-tailwind-graphcms) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kylekarpack_gatsby-starter-tailwind-graphcms&metric=bugs)](https://sonarcloud.io/dashboard?id=kylekarpack_gatsby-starter-tailwind-graphcms)
 
 This Gatsby starter is designed to use highly structured content from a headless CMS such as GraphCMS. All content should be set up with strong parent/child relationships, which allows maximum decoupling of the Gatsby logic and the site structure.
 
